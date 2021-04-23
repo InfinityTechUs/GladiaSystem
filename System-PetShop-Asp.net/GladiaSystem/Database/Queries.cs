@@ -10,53 +10,23 @@ namespace GladiaSystem.Database
     {
         Connection con = new Connection();
 
-        public bool CategoryExists(Category category)
-        {
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM tbl_category WHERE category_name = @name", con.ConnectionDB());
-            cmd.Parameters.AddWithValue("@name", category.name);
-            MySqlDataReader reader;
-            reader = cmd.ExecuteReader();
-            if (reader.HasRows)
-            {
-                reader.Close();
-                return true;
-            }
-            else
-            {
-                reader.Close();
-                return false;
-            }
-        }
-
-        public string Login(User user)
-        {
-            MySqlCommand cmd = new MySqlCommand("SELECT user_lvl FROM tbl_user where user_email = @email and user_password=@password;", con.ConnectionDB());
-            cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = user.email;
-            cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = user.password;
-
-            MySqlDataReader reader;
-
-            reader = cmd.ExecuteReader();
-
-            if (reader.HasRows)
-            {
-                while (reader.Read())
-                {
-                    User dto = new User();
-                    {
-                        dto.userLvl = Convert.ToString(reader[0]);
-                        reader.Close();
-                        return dto.userLvl;
-                    }
-                }
-            }
-            else
-            {
-                user.userLvl = null;
-            }
-            reader.Close();
-            return "error";
-        }
+        //public bool CategoryExists(Category category)
+        //{
+        //    MySqlCommand cmd = new MySqlCommand("SELECT * FROM tbl_category WHERE category_name = @name", con.ConnectionDB());
+        //    cmd.Parameters.AddWithValue("@name", category.name);
+        //    MySqlDataReader reader;
+        //    reader = cmd.ExecuteReader();
+        //    if (reader.HasRows)
+        //    {
+        //        reader.Close();
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        reader.Close();
+        //        return false;
+        //    }
+        //}
 
         public string GetUserName(User user)
         {
@@ -122,37 +92,37 @@ namespace GladiaSystem.Database
             return "error";
         }
 
-        public string GetUserID(User user)
-        {
-            MySqlCommand cmd = new MySqlCommand("SELECT user_id FROM tbl_user where user_email = @email and user_password=@password;", con.ConnectionDB());
-            cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = user.email;
-            cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = user.password;
+        //public string GetUserID(User user)
+        //{
+        //    MySqlCommand cmd = new MySqlCommand("SELECT user_id FROM tbl_user where user_email = @email and user_password=@password;", con.ConnectionDB());
+        //    cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = user.email;
+        //    cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = user.password;
 
-            MySqlDataReader reader;
+        //    MySqlDataReader reader;
 
-            reader = cmd.ExecuteReader();
+        //    reader = cmd.ExecuteReader();
 
-            if (reader.HasRows)
-            {
-                while (reader.Read())
-                {
-                    User dto = new User();
-                    {
-                        dto.userID = Convert.ToString(reader[0]);
-                        reader.Close();
-                        return dto.userID;
-                    }
-                }
-            }
-            else
-            {
-                user.userLvl = null;
-                reader.Close();
-                return "error";
-            }
-            reader.Close();
-            return "error";
-        }   
+        //    if (reader.HasRows)
+        //    {
+        //        while (reader.Read())
+        //        {
+        //            User dto = new User();
+        //            {
+        //                dto.userID = Convert.ToString(reader[0]);
+        //                reader.Close();
+        //                return dto.userID;
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        user.userLvl = null;
+        //        reader.Close();
+        //        return "error";
+        //    }
+        //    reader.Close();
+        //    return "error";
+        //}   
 
         public string GetUserImages(string UserID)
         {
@@ -235,18 +205,6 @@ namespace GladiaSystem.Database
 
         }
 
-        public void RegisterEmployee(User employee, string path)
-        {
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_user` (`user_name`, `user_email`, `user_password`, `user_img`, `user_lvl`) VALUES(@name, @email, @password, @img, '0');", con.ConnectionDB());
-            cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = employee.name;
-            cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = employee.email;
-            cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = employee.password;
-            cmd.Parameters.Add("@img", MySqlDbType.VarChar).Value = path;
-
-            cmd.ExecuteNonQuery();
-            con.DisconnectDB();
-        }
-
         public void RegisterAdm(User adm, string path)
         {
             MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_user` (`user_name`, `user_email`, `user_password`, `user_img`, `user_lvl`) VALUES(@name, @email, @password, @img, '1');", con.ConnectionDB());
@@ -257,23 +215,6 @@ namespace GladiaSystem.Database
 
             cmd.ExecuteNonQuery();
             con.DisconnectDB();
-        }
-
-        public void RegisterAgenda(Agenda agenda)
-        {
-            DateTime actualTime = DateTime.Now;
-            if (actualTime < agenda.Day)
-            {
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_agenda` (`agenda_date`, `agenda_cli`, `agenda_hour`, `agenda_desc`, `fk_pet_id`) VALUES (@day, @nameCli, @hour, @desc, @petID);", con.ConnectionDB());
-                cmd.Parameters.Add("@nameCli", MySqlDbType.VarChar).Value = agenda.ClientName;
-                cmd.Parameters.Add("@petID", MySqlDbType.VarChar).Value = agenda.Pet.ID;
-                cmd.Parameters.Add("@day", MySqlDbType.VarChar).Value = agenda.Day;
-                cmd.Parameters.Add("@hour", MySqlDbType.VarChar).Value = agenda.Hour;
-                cmd.Parameters.Add("@desc", MySqlDbType.VarChar).Value = agenda.DescAgenda;
-
-                cmd.ExecuteNonQuery();
-                con.DisconnectDB();
-            }
         }
 
         public void DeleteAccount(string deleteID)
@@ -305,24 +246,6 @@ namespace GladiaSystem.Database
             cmd.ExecuteNonQuery();
             con.DisconnectDB();
 
-        }
-
-        public void DeleteItemAgenda(int codItem)
-        {
-            MySqlCommand cmd = new MySqlCommand("DELETE FROM `db_asp`.`tbl_agenda` WHERE (`agenda_id` = @codAgenda);", con.ConnectionDB());
-            cmd.Parameters.Add("@codAgenda", MySqlDbType.VarChar).Value = codItem;
-
-            cmd.ExecuteNonQuery();
-            con.DisconnectDB();
-        }
-
-        public void DeletePos(int codPos)
-        {
-            MySqlCommand cmd = new MySqlCommand("DELETE FROM `db_asp`.`tbl_pos` WHERE (`pos_id` = @codPos);", con.ConnectionDB());
-            cmd.Parameters.Add("@codPos", MySqlDbType.VarChar).Value = codPos;
-
-            cmd.ExecuteNonQuery();
-            con.DisconnectDB();
         }
 
         public void DeleteItemProduct(int codItem)
@@ -418,38 +341,10 @@ namespace GladiaSystem.Database
             con.DisconnectDB();
         }
 
-        public void Finish()
-        {
-            MySqlCommand cmd = new MySqlCommand("use db_asp;TRUNCATE TABLE tbl_pos;", con.ConnectionDB());
-
-            cmd.ExecuteNonQuery();
-            con.DisconnectDB();
-        }
 
         public int Administrator()
         {
             MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) AS 'Administrator' FROM db_asp.tbl_user WHERE user_lvl = 1;", con.ConnectionDB());
-
-            MySqlDataReader reader;
-
-            reader = cmd.ExecuteReader();
-
-            if (reader.HasRows)
-            {
-                while (reader.Read())
-                {
-                    int outPut = Convert.ToInt32(reader[0]);
-                    reader.Close();
-                    return outPut;
-                }
-            }
-            reader.Close();
-            return 0;
-        }
-
-        public int CommonUser()
-        {
-            MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) AS 'CommonUser' FROM db_asp.tbl_user WHERE user_lvl = 0;", con.ConnectionDB());
 
             MySqlDataReader reader;
 
@@ -489,68 +384,6 @@ namespace GladiaSystem.Database
                         reader.Close();
                         return id;
                     }
-                }
-            }
-            reader.Close();
-            return 0;
-        }
-
-        public int SmallPort() {
-            MySqlCommand cmd = new MySqlCommand("SELECT Count(*) as SmallPort FROM db_asp.tbl_pet where pet_size = 'Pequeno';", con.ConnectionDB());
-
-            MySqlDataReader reader;
-
-            reader = cmd.ExecuteReader();
-
-            if (reader.HasRows)
-            {
-                while (reader.Read())
-                {
-                    int outPut = Convert.ToInt32(reader[0]);
-                    reader.Close();
-                    return outPut;
-                }
-            }
-            reader.Close();
-            return 0;
-        }
-
-        public int MediumPort()
-        {
-            MySqlCommand cmd = new MySqlCommand("SELECT Count(*) as SmallPort FROM db_asp.tbl_pet where pet_size = 'Medio';", con.ConnectionDB());
-
-            MySqlDataReader reader;
-
-            reader = cmd.ExecuteReader();
-
-            if (reader.HasRows)
-            {
-                while (reader.Read())
-                {
-                    int outPut = Convert.ToInt32(reader[0]);
-                    reader.Close();
-                    return outPut;
-                }
-            }
-            reader.Close();
-            return 0;
-        }
-
-        public int LargePort()
-        {
-            MySqlCommand cmd = new MySqlCommand("SELECT Count(*) as SmallPort FROM db_asp.tbl_pet where pet_size = 'Grande';", con.ConnectionDB());
-
-            MySqlDataReader reader;
-
-            reader = cmd.ExecuteReader();
-
-            if (reader.HasRows)
-            {
-                while (reader.Read())
-                {
-                    int outPut = Convert.ToInt32(reader[0]);
-                    reader.Close();
-                    return outPut;
                 }
             }
             reader.Close();
@@ -656,59 +489,6 @@ namespace GladiaSystem.Database
             }
             dt.Close();
             return AllProduct;
-        }
-
-        public  List<Pos> ListPos()
-        {
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM db_asp.pos;", con.ConnectionDB());
-            var PosDatas = cmd.ExecuteReader();
-            return ListAllPos(PosDatas);
-        }
-
-        public List<Pos> ListAllPos(MySqlDataReader dt)
-        {
-            var AllPos = new List<Pos>();
-            while (dt.Read())
-            {
-                var PosTemp = new Pos()
-                {
-                    QuantOrder = int.Parse(dt["pos_quant_order"].ToString()),
-                    ProdID = int.Parse(dt["fk_product_id"].ToString()),
-                    ProdName = dt["prod_name"].ToString(),
-                    ProdPrice = int.Parse(dt["prod_price"].ToString()),
-                    ID = int.Parse(dt["pos_id"].ToString()),
-                };
-                AllPos.Add(PosTemp);
-            }
-            dt.Close();
-            return AllPos;
-        }
-
-        public List<Agenda> ListAgenda()
-        {
-            MySqlCommand cmd = new MySqlCommand("SELECT left(agenda_date,10) as agenda_date,agenda_id, tbl_pet.pet_name, agenda_cli,right(agenda_hour,8) as agenda_hour,agenda_desc FROM db_asp.tbl_agenda join tbl_pet where tbl_pet.pet_id = fk_pet_id ;", con.ConnectionDB());
-            var DadosAlunos = cmd.ExecuteReader();
-            return ListAllAgenda(DadosAlunos);
-        }
-
-        public List<Agenda> ListAllAgenda(MySqlDataReader dt)
-        {
-            var AllAgenda = new List<Agenda>();
-            while (dt.Read())
-            {
-                var AlunoTemp = new Agenda()
-                {
-                    ID = int.Parse(dt["agenda_id"].ToString()),
-                    ClientName = dt["agenda_cli"].ToString(),
-                    ShowName = dt["pet_name"].ToString(),
-                    Day = DateTime.Parse(dt["agenda_date"].ToString()),
-                    Hour = DateTime.Parse(dt["agenda_hour"].ToString()),
-                    DescAgenda = dt["agenda_desc"].ToString(),
-                };
-                AllAgenda.Add(AlunoTemp);
-            }
-            dt.Close();
-            return AllAgenda;
         }
     }
 }

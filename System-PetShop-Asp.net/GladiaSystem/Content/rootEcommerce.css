@@ -1,0 +1,40 @@
+﻿:root {
+    --base-color: #FAFAFA;
+    --navbar-color: #288BE9;
+    --buttom-color: #288BE9;
+    --buttom-secondary-color: #717B84;
+    --footer-font-color: #fffff;
+    --colored-font: #2B94F9;
+    --primary-font-color: #191A20;
+    --secondary-font-color: #2D2F3D;
+    --tertiary-font-color: #9DA3A9;
+    --card-font: #252733;
+    --filter-font: #252733;
+}
+
+* {
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Mulish';
+}
+
+html {
+    font-size: 50%;
+}
+
+body {
+    background-color: var(--base-color);
+}
+
+@media (min-width: 1297px) {
+    html {
+        font-size: 80%;
+    }
+}
+
+@media (man-width: 1080px) {
+    html {
+        font-size: 93.85%;
+    }
+}

@@ -1765,3 +1765,7 @@ C:\Users\Ioshi\Desktop\aaa\System-PetShop-Asp.net\GladiaSystem\obj\Debug\GladiaS
 C:\Users\Ioshi\Desktop\aaa\System-PetShop-Asp.net\GladiaSystem\obj\Debug\GladiaSystem.csproj.CopyComplete
 C:\Users\Ioshi\Desktop\aaa\System-PetShop-Asp.net\GladiaSystem\obj\Debug\GladiaSystem.dll
 C:\Users\Ioshi\Desktop\aaa\System-PetShop-Asp.net\GladiaSystem\obj\Debug\GladiaSystem.pdb
+C:\Users\Ioshi\Desktop\GladiaSystem\System-PetShop-Asp.net\GladiaSystem\obj\Debug\GladiaSystem.csprojAssemblyReference.cache
+C:\Users\Ioshi\Desktop\GladiaSystem\System-PetShop-Asp.net\GladiaSystem\obj\Debug\GladiaSystem.csproj.CoreCompileInputs.cache
+C:\Users\Ioshi\Desktop\GladiaSystem\System-PetShop-Asp.net\GladiaSystem\obj\Debug\GladiaSystem.dll
+C:\Users\Ioshi\Desktop\GladiaSystem\System-PetShop-Asp.net\GladiaSystem\obj\Debug\GladiaSystem.pdb

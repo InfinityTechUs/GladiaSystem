@@ -31,11 +31,6 @@ namespace GladiaSystem.Controllers
 
         Queries queries = new Queries();
 
-        public ActionResult Login()
-        {
-            return View();
-        }
-
         public ActionResult Adm()
         {
             User adm = new User();
@@ -65,64 +60,10 @@ namespace GladiaSystem.Controllers
             return RedirectToAction("Adm");
         }
 
-        public ActionResult Agenda()
-        {
-            var ShowAgenda = new Queries();
-            ViewBag.AllAgenda = ShowAgenda.ListAgenda();
-            return View("Agenda");
-        }
-
-        public ActionResult DeleteAgenda(int codAgenda)
-        {
-            queries.DeleteItemAgenda(codAgenda);
-            return RedirectToAction("Agenda");
-        }
-
-        public ActionResult DeletePos(int codPos)
-        {
-            queries.DeletePos(codPos);
-            return RedirectToAction("POS");
-        }
-
         public ActionResult ProdDelete(int ProductID)
         {
             queries.DeleteItemProduct(ProductID);
             return RedirectToAction("ProductList");
-        }
-
-        [HttpPost]
-        public ActionResult CreateAgenda(Agenda agenda)
-        {
-            bool agendaValid = (DateTime.Now < agenda.Day);
-            if ( agendaValid )
-            {
-                queries.RegisterAgenda(agenda);
-                TempData["Success"] = "Agendamento feito! 😄";
-                return RedirectToAction("Agenda");
-            }
-            else
-            {
-                TempData["Error"] = "Opss, algo deu errado 😢";
-                return RedirectToAction("AgendaForm");
-            }
-        }
-
-        public ActionResult POS()
-        {
-            var ShowPos = new Queries();
-            string session = (string)Session["userID"];
-            ViewBag.Img = queries.GetUserImages(session);
-            ViewBag.AllPos = ShowPos.ListPos();
-            return View("POS");
-        }
-
-        public ActionResult FinishOrder()
-        {
-            string session = (string)Session["userID"];
-            queries.Finish();
-            ViewBag.Img = queries.GetUserImages(session);
-            ViewBag.AllPos = queries.ListPos();
-            return View("POS");
         }
 
         [HttpPost]
@@ -143,36 +84,6 @@ namespace GladiaSystem.Controllers
             Session.Remove("access");
             Session.Abandon();
             return RedirectToAction("Login", "Login");
-        }
-
-        public ActionResult Employee()
-        {
-
-            User employee = new User();
-            return View(employee);
-        }
-
-        [HttpPost]
-        public ActionResult CadEmployee(User employee)
-        {
-            WebImage photo = null;
-            var newFileName = "";
-            var imagePath = "";
-
-            photo = WebImage.GetImageFromRequest();
-            if (photo != null)
-            {
-                newFileName = Guid.NewGuid().ToString() + "_" +
-                Path.GetFileName(photo.FileName);
-                imagePath = @"/" + newFileName;
-                
-                photo.Save(@"~/Images" + imagePath);
-                imagePath = photo.FileName;
-            }
-
-            queries.RegisterEmployee(employee, imagePath);
-            TempData["Success"] = "Feito! 😄";
-            return RedirectToAction("Employee");
         }
 
         public ActionResult Pet()
@@ -391,21 +302,6 @@ namespace GladiaSystem.Controllers
             return RedirectToAction("Login" , "Login");
         }
 
-        public ActionResult Payment(int Price)
-        {
-            ViewBag.Price = Price;
-            string session = (string)Session["userID"];
-            ViewBag.Img = queries.GetUserImages(session);
-            return View();
-        }
-
-        public ActionResult Receipt()
-        {
-            string session = (string)Session["userID"];
-            ViewBag.Img = queries.GetUserImages(session);
-            return View("Receipt");
-        }
-
         public ActionResult ProductList()
         {
             var ShowProducts = new Queries();
@@ -452,14 +348,6 @@ namespace GladiaSystem.Controllers
             return View("ProductList");
         }
 
-        public ActionResult AgendaForm()
-        {
-            Agenda agendaForm = new Agenda();
-            ViewBag.ListPet = queries.ListPet();
-            return View(agendaForm);
-
-        }
-
         public ActionResult ShowPets(string petName)
         {
             Pet pet = new Pet();
@@ -467,21 +355,5 @@ namespace GladiaSystem.Controllers
             return View(pet);
         }
         
-        public ActionResult OtherPayments(int price)
-        {
-            string session = (string)Session["userID"];
-            ViewBag.Img = queries.GetUserImages(session);
-            ViewBag.Paid = price;
-            ViewBag.Green = true;
-            return View("Payment");
-        }
-
-        public ActionResult Change(Pos pos)
-        {
-            int totalValue = pos.TotalValue;
-            int valuePaid= pos.Paid;
-            ViewBag.Change = valuePaid - totalValue;
-            return View("Payment");
-        }
     }
 }
