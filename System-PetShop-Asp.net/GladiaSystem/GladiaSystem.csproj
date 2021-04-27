@@ -205,12 +205,12 @@
     <Content Include="Content\PartialsEcommerce\Cart.css" />
     <Content Include="Content\PartialsEcommerce\ChangeAccount.css" />
     <Content Include="Content\PartialsEcommerce\Layout.css" />
+    <Content Include="Content\PartialsEcommerce\LoginEcommerce.css" />
     <Content Include="Content\PartialsEcommerce\TrackOrder.css" />
     <Content Include="Content\PartialsEcommerce\MyAccount.css" />
     <Content Include="Content\PartialsEcommerce\Receipt.css" />
     <Content Include="Content\PartialsEcommerce\Payment.css" />
     <Content Include="Content\PartialsEcommerce\Register.css" />
-    <Content Include="Content\PartialsEcommerce\Login.css" />
     <Content Include="Content\PartialsEcommerce\Search.css" />
     <Content Include="Content\PartialsEcommerce\ProductSelected.css" />
     <Content Include="Content\PartialsEcommerce\Home.css" />

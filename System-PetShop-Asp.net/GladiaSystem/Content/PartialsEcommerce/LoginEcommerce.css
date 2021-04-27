@@ -1,0 +1,10 @@
+﻿body {
+    background-color: var(--base-color);
+}
+
+.container-form{
+    display:flex;
+    flex-direction: column;
+    align-content: center;
+    margin: 10vw 10vw;
+}

@@ -19,13 +19,6 @@ namespace GladiaSystem.Controllers
         // GET: Home
         public ActionResult Home()
         {
-            ViewBag.PortSmall = queries.SmallPort();
-            ViewBag.PortMedium = queries.MediumPort();
-            ViewBag.PortLarge = queries.LargePort();
-            ViewBag.Administrador = queries.Administrator();
-            ViewBag.CommonUser = queries.CommonUser();
-            ViewBag.CategoryQuant = queries.ListCategoryQuant();
-
             return View();
         }
 
@@ -109,16 +102,6 @@ namespace GladiaSystem.Controllers
         [HttpPost]
         public ActionResult RegisterCategory(Category category)
         {
-            Queries queries = new Queries();
-            if (ModelState.IsValid && !queries.CategoryExists(category))
-            {
-                queries.RegisterCategory(category);
-                TempData["Success"] = "Feito! 😄";
-            }
-            else
-            {
-                ViewData["Error"] = "Opss, algo deu errado 😢.";
-            }
                 return RedirectToAction("Category");
         }
 
