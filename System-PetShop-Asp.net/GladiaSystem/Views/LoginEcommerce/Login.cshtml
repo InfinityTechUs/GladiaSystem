@@ -1,6 +1,7 @@
 ﻿@{
     Layout = null;
 }
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,25 +11,32 @@
     <link href="~/Content/PartialsEcommerce/LoginEcommerce.css" rel="stylesheet" />
 </head>
 <body>
-    <main> 
-        <div class="container-form">
-            <img src="~/Content/Imagens/logo-bill.svg" alt="D da Dom Tchochoro"/>
-            <h1>Fazer Login</h1>
-            <div class="google-button"></div>
-            <form class="form-login">
-                <div class="input-block">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email">
+    <div class="l-form">
+        <form action="" class="form">
+            <img class="logo" src="dada/logo-bill.svg" alt="D da Dom Tchochoro" />
 
-                    <label for="password" class="form-label">Senha</label>
-                    <input type="password" class="form-control" id="password">
+            <h1 class="form__title">Fazer Login</h1>
 
-                    <span class="forgot-password">Esqueci minha conta</span>
-                    <button class="login-button">Entra na sua conta</button>
-                </div>
-            </form>
+            <div class="google-button">
+                <img class="google-icon" src="dada/google.svg" alt="Logo da Google" />
+                <span class="google-text">Logar com Google</span>
+            </div>
+
+            <div class="form__div">
+                <input type="text" class="form__input" placeholder=" " />
+                <label for="" class="form__label">Email</label>
+            </div>
+
+            <div class="form__div">
+                <input type="password" class="form__input" placeholder=" " />
+                <label for="" class="form__label">Digite sua senha</label>
+            </div>
+
+            <span class="forgot-password">Esqueci minha conta</span>
+            <button class="form__button">Entra na sua conta</button>
+
             <span class="create-account-text">Não tem conta ainda? <u class="create-link">Criar</u></span>
-        </div>
-    </main>
+        </form>
+    </div>
 </body>
 </html>
