@@ -1,26 +1,36 @@
 ﻿:root {
-    --base-color: #FAFAFA;
-    --navbar-color: #288BE9;
-    --buttom-color: #288BE9;
-    --buttom-secondary-color: #717B84;
+    --base-color: #fafafa;
+    --navbar-color: #288be9;
+    --buttom-color: #288be9;
+    --buttom-secondary-color: #717b84;
     --footer-font-color: #fffff;
-    --colored-font: #2B94F9;
-    --primary-font-color: #191A20;
-    --secondary-font-color: #2D2F3D;
-    --tertiary-font-color: #9DA3A9;
+    --colored-font: #2b94f9;
+    --primary-font-color: #191a20;
+    --secondary-font-color: #2d2f3d;
+    --tertiary-font-color: #9da3a9;
     --card-font: #252733;
     --filter-font: #252733;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.75rem;
+    --first-color: #2b94f9;
+    --input-color: #80868b;
+    --border-color: #dadce0;
+    --hr-color: #8eb9e1;
+    --normal-font-size: 1rem;
+    --small-font-size: 1rem;
 }
 
-* {
+*,
+::before,
+::after {
     padding: 0;
     box-sizing: border-box;
     margin: 0;
-    font-family: 'Mulish';
+    font-family: "Mulish";
 }
 
 html {
-    font-size: 50%;
+    font-size: 60%;
 }
 
 body {
