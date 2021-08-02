@@ -200,12 +200,13 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fontawesome.css" />
+    <Content Include="Content\Imagens\google.svg" />
     <Content Include="Content\Imagens\x.svg" />
     <Content Include="Content\PartialsEcommerce\EmptyCart.css" />
     <Content Include="Content\PartialsEcommerce\Cart.css" />
     <Content Include="Content\PartialsEcommerce\ChangeAccount.css" />
     <Content Include="Content\PartialsEcommerce\Layout.css" />
-    <Content Include="Content\PartialsEcommerce\LoginEcommerce.css" />
+    <Content Include="Content\PartialsEcommerce\LogginEcommerce.css" />
     <Content Include="Content\PartialsEcommerce\TrackOrder.css" />
     <Content Include="Content\PartialsEcommerce\MyAccount.css" />
     <Content Include="Content\PartialsEcommerce\Receipt.css" />
@@ -224,7 +225,7 @@
     <Content Include="Content\Partials\List.css" />
     <Content Include="Content\Partials\pos.css" />
     <Content Include="Content\Partials\sidebar.css" />
-    <Content Include="Content\rootEcommerce.css" />
+    <Content Include="Content\rootE.css" />
     <Content Include="dom.ico" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -355,7 +356,6 @@
     <Content Include="Views\Home\ChangeName.cshtml" />
     <Content Include="Views\Home\ChangePassword.cshtml" />
     <Content Include="Views\Home\DeleteAccount.cshtml" />
-    <Content Include="Views\Home\Pet.cshtml" />
     <Content Include="Views\Home\Product.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />

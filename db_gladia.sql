@@ -56,6 +56,16 @@ create table if not exists tbl_items_order(
     primary key(fk_id_order,fk_id_prod)
 );
 
+ create view img 
+ as SELECT REPLACE(user_img, "~/", "../"),user_id from tbl_user;
+ 
+ create view Allproduct 
+ as SELECT prod_id,prod_name,prod_desc,prod_brand,prod_price,prod_quant,prod_min_quant,fk_category,category_id,category_name,
+ REPLACE(prod_img, "~/", "../") as img
+ FROM db_asp.tbl_product 
+ join tbl_category
+ on tbl_product.fk_category = tbl_category.category_id;
+
 ALTER TABLE tbl_product
 ADD FOREIGN KEY (fk_category) REFERENCES tbl_category (category_id);
 
@@ -70,3 +80,6 @@ ADD FOREIGN KEY (fk_id_order) REFERENCES tbl_order(order_id);
 
 ALTER TABLE tbl_items_order
 ADD FOREIGN KEY (fk_id_prod) REFERENCES tbl_product(prod_id);
+
+CREATE USER 'gladia'@'localhost' IDENTIFIED BY '123456';
+GRANT ALL PRIVILEGES ON db_asp.* TO 'gladia'@'localhost' WITH GRANT OPTION;
