@@ -6,6 +6,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Pagamento - Dom Tchochoro</title>
+    @Styles.Render("~/Content/css")
     <link href="~/Content/rootE.css" rel="stylesheet" />
     <link href="~/Content/PartialsEcommerce/Cart.css" rel="stylesheet" />
     <link href="~/Content/PartialsEcommerce/Payment.css" rel="stylesheet" />
@@ -51,14 +52,44 @@
         <h1>
             Informaçoes do Pagamento
         </h1>
-        <fieldset>
+        <fieldset class="">
             <legend>Informações de cobrança</legend>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <span class="input-group-text" id="basic-addon2">🔍</span>
-                </div>
+            @*<div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">🔍</span>
             </div>
+            </div>*@
+
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-2">
+                        <label for="inputZip">CEP</label>
+                        <input type="text" class="form-control" id="inputZip">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputUF">UF</label>
+                        <input type="text" class="form-control" id="inputUF">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputCity">Cidade</label>
+                        <input type="text" class="form-control" id="inputCity">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputNeighboor">Bairro</label>
+                        <input type="text" class="form-control" id="inputNeighboor">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress">Endereço</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress2">Complemento *Opcional*</label>
+                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                </div>
+                <button type="submit" class="btn btn-primary">Sign in</button>
+            </form>
         </fieldset>
     </div>
 </main>
