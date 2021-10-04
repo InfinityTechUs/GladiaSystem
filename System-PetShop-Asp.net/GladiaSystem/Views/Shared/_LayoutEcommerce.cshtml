@@ -1,0 +1,152 @@
+﻿@{ Layout = null; }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/PartialsEcommerce/Layout.css" rel="stylesheet" />
+    <link href="~/Content/rootE.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <title>@ViewBag.Title - Dom Tchochoro</title>
+    <link rel="icon" href="/dom.ico" type="image/x-icon">
+</head>
+<body>
+    <div id="nav-mobile" class="sidenav-language">
+        <header class="nav-mobile-header">
+            <div class="nav-identification">
+                <div class="mobile-logo" onclick="closeNav()"><img src="~/Content/Imagens/mobile-nav-logo.svg" alt="" class="response-logo"></div>
+                <div class="identification-name">Vitor Vieira de Oliveira</div>
+            </div>
+            <ul class="nav-account-link">
+                <li class="nav-links-item">
+                    <a class="account-links" href="">Minha conta <img src="~/Content/Imagens/arrow-left.svg" alt="" class="arrow-left"></a>
+                </li>
+                <li class="nav-links-item">
+                    <a class="account-links" href="">Meus pedidos <img src="~/Content/Imagens/arrow-left.svg" alt="" class="arrow-left"></a>
+                </li>
+            </ul>
+        </header>
+        <img src="~/Content/Imagens/arrow-left.svg" alt="">
+        <div class="nav-mobile-scroll">
+            <ul class="mobile-menu">
+                <li class="menu-category">
+                    <button class="menu-category-label ">Todas as categorias<img class="img-menu" src="" alt=""></button>   
+                </li>
+                <li class="menu-category">
+                    <button class="menu-category-label ">Gatos<img class="img-menu" src="" alt=""></button>
+                <li class="menu-category">
+                    <button class="menu-category-label ">Cachorros<img class="img-menu" src="" alt=""></button>
+                </li>
+                <li class="menu-category">
+                    <button class="menu-category-label ">Medicamentos <img class="img-menu" src="" alt=""></button>
+                </li>
+                <li class="menu-category">
+                    <button class="menu-category-label ">Transporte<img class="img-menu" src="" alt=""></button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="header-shadow" id="header-shadow" onclick="closeNav()"></div>
+    
+    <div id="main">
+        <header class="desktop-header">
+            <div class="container">
+            </div>
+            <div class="desktop-main">
+                <div class="desktop-container container">
+                    <a href="" class="desktop-main-logo"><img src="~/Content/Imagens/Logo-mobile.svg" alt=""></a>
+                    <form class="desktop-search" action="/">
+                        <input value="product"
+                               type="hidden">
+                        <input class="desktop-search-input"
+                               type="search"
+                               placeholder="O que você está procurando?">
+                        <button class="desktop-search-button">
+                            <img src="~/Content/Imagens/SearchLogo.svg" alt="" class="desktop-search-button-image">
+                        </button>
+                    </form>
+                    <nav class="desktop-logged-in">
+                        <div class="desktop-trigger">
+                            <img src="~/Content/Imagens/Person.svg" alt="">
+                            <div class="header-text">
+                                <span class="desktop-primary-text">Olá, Entre</span>
+                                <span class="desktop-secondary-text">ou cadastre-se</span>
+                            </div>
+                            <div class="desktop-trigger-arrow">
+                                <img src="~/Content/Imagens/ArrowDown.svg" alt="">
+                            </div>
+                        </div>
+                    </nav>
+                    <a class="desktop-cart" href="">
+                        <img src="~/Content/Imagens/Cart.svg" alt="">
+                    </a>
+                </div>
+            </div>
+            <nav class="desktop-nav">
+                <div class="desktop-nav-container container">
+                    <ul class="desktop-nav-menu">
+                        <li class="desktop-nav-parent">
+                            <a class="blue-nav-category" href="">Todas⠀as⠀categorias</a>
+                        </li>
+                        <li class="desktop-nav-parent">
+                            <a class="nav-category" href="">Gatos</a>
+                        </li>
+                        <li class="desktop-nav-parent">
+                            <a class="nav-category" href="">Cachorros</a>
+                        </li>
+                        <li class="desktop-nav-parent">
+                            <a class="nav-category" href="">Medicamentos</a>
+                        </li>
+                        <li class="desktop-nav-parent last">
+                            <a class="nav-category" href="">Transporte</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <header class="mobile-header">
+            <div class="mobile-main">
+                <button class="mobile-trigger" Onclick="openNav()"><img src="~/Content/Imagens/menu.svg" alt="menu" class="mobile-menu-image"></button>
+                <a href="" class="mobile-logo"><img src="~/Content/Imagens/Logo-mobile.svg" alt="logo" class="mobile-menu-logo"></a>
+                <a href="" class="mobile-cart"><img src="~/Content/Imagens/Cart.svg" alt="" class="mobile-menu-cart"></a>
+            </div>
+            <form action="" class="mobile-search-bar">
+                <input name="post_type"
+                       value="product"
+                       type="hidden">
+                <input class="mobile-input-search"
+                       type="search"
+                       placeholder="O que está procurando?">
+                <button class="mobile-search-icon" type="submit">
+                    <img src="~/Content/Imagens/SearchLogo.svg" alt="Lupa" class="mobile-search-image">
+                </button>
+            </form>
+        </header>
+
+        @RenderBody()
+
+        <footer class="footer">
+            <div class="footer-content">
+                <ul class="socials">
+                    <li><a href="#"><img src="~/Content/Imagens/Instagram.svg" alt="Instagram" class="social-images"></a></li>
+                    <li><a href="#"><img src="~/Content/Imagens/Twitter.svg" alt="Twitter" class="social-images"></a></li>
+                    <li><a href="#"><img src="~/Content/Imagens/Email.svg" alt="Email" class="social-images"></a></li>
+                </ul>
+                <h3 class="footer-text">Desenvolvido por Infinity Tech Us™</h3>
+                <div class="logo-footer">
+                    <img src="/images/InfinityLogo.svg" alt="">
+                </div>
+                <span class="footer-copyright">Copyright © Dom Tchochoro. Todos os direitos reservados.</span>
+            </div>
+        </footer>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+        @Scripts.Render("~/Scripts/scripts.js")
+        @Scripts.Render("~/Scripts/lightslider.js")
+
+</body>
+</html>

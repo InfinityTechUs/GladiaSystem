@@ -1,0 +1,61 @@
+﻿@model GladiaSystem.Models.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login - Dom Tchochoro</title>
+    <link href="~/Content/rootE.css" rel="stylesheet" />
+    <link href="~/Content/PartialsEcommerce/LogginEcommerce.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="l-form">
+        @using (Html.BeginForm("RegisterUserEcommerce", "RegisterEcommerce", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form" }))
+        {
+            <img class="logo" src="~/Content/Imagens/logo-bill.svg" alt="D da Dom Tchochoro" />
+
+            <h1 class="form__title">Criar conta</h1>
+
+            <div class="form__div">
+                @Html.ValidationMessageFor(m => m.email, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
+                <label for="" class="form__label">Email</label>
+            </div>
+
+            <div class="form__div">
+                @Html.ValidationMessageFor(m => m.name, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form__input", placeholder = " " } }) 
+                <label for="" class="form__label">Digite seu nome</label>
+            </div>
+
+            <div class="form__div">
+                @Html.ValidationMessageFor(m => m.Celular, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Celular, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
+                <label for="" class="form__label">Digite seu telefone</label>
+            </div>
+
+            <div class="form__div">
+                @Html.ValidationMessageFor(m => m.Cpf, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Cpf, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
+                <label for="" class="form__label">Digite seu cpf</label>
+            </div>
+
+            <div class="form__div">
+                @Html.ValidationMessageFor(m => m.password, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
+                <label for="" class="form__label">Digite sua senha</label>
+            </div>
+
+            <button class="form__button">Criar sua conta</button>
+
+            <span class="create-account-text">
+                Já tem uma conta?
+                @Html.ActionLink("Faça login", "Login", new { controller = "LoginEcommerce" }, new { @class = "create-link" })
+            </span>
+        }
+    </div>
+</body>
+</html>

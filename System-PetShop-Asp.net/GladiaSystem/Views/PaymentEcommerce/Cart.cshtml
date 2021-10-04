@@ -1,0 +1,167 @@
+﻿
+@{
+    ViewBag.Title = "Cart";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta name="viewport" content="width=device-width" />
+		<title>Login - Dom Tchochoro</title>
+		<link href="~/Content/rootE.css" rel="stylesheet" />
+		<link href="~/Content/PartialsEcommerce/Cart.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;700;800&display=swap"
+			  rel="stylesheet" />
+	</head>
+	<body style="height: 100%">
+		<main>
+			<section class="steps">
+				<div id="first-step-container" class="step-container">
+					<div id="first" class="number-container">
+						<span id="first-text" class="step-number">1</span>
+					</div>
+					<span class="step-text">Recibo</span>
+				</div>
+				<div id="second-step-container" class="step-container">
+					<div id="second" class="number-container">
+						<span id="second-text" class="step-number">2</span>
+					</div>
+					<span class="step-text">Pagamento</span>
+				</div>
+				<div id="third-step-container" class="step-container">
+					<div id="third" class="number-container">
+						<span id="third-text" class="step-number">3</span>
+					</div>
+					<span class="step-text">Recibo</span>
+				</div>
+			</section>
+
+			<div class="container-table">
+				<div class="prodtable_container">
+					<div class="prodtable_row header">
+						<div class="prodtable_block col_product">Produto</div>
+						<div class="prodtable_block col_price font-size-table">Preço</div>
+						<div class="prodtable_block col_quantity font-size-table">Quantidade</div>
+						<div class="prodtable_block col_total font-size-table">Total</div>
+						<div class="prodtable_block col_del"></div>
+					</div>
+					<div class="prodtable_row">
+						<div class="prodtable_block col_product">
+							<img
+								class="col_product_img"
+								src="/Content/Imagens/fotoExemplo.png"
+								alt="Foto do produto"
+							/>
+							<div class="col_product_title">
+								Ração Royal Canin Club Performance Cães Adultos
+							</div>
+						</div>
+						<div class="prodtable_block col_price">R$ 59,90</div>
+						<div class="prodtable_block col_quantity">
+							<span class="product-quant">1</span>
+						</div>
+						<div class="prodtable_block col_total">R$ 59,90</div>
+						<div class="prodtable_block col_del">
+							<img class="trash-icon" src="~/Content/Imagens/trash-icon.png" alt="lixo" />
+						</div>
+					</div>
+					<div class="prodtable_row">
+						<div class="prodtable_block col_product">
+							<img
+								class="col_product_img"
+								src="/Content/Imagens/fotoExemplo.png"
+								alt="Foto do produto"
+							/>
+							<div class="col_product_title">
+								Ração Royal Canin Club Performance Cães Adultos
+							</div>
+						</div>
+						<div class="prodtable_block col_price">R$ 59,90</div>
+						<div class="prodtable_block col_quantity">
+							<span class="product-quant">1</span>
+						</div>
+						<div class="prodtable_block col_total">R$ 59,90</div>
+						<div class="prodtable_block col_del">
+							<img class="trash-icon" src="~/Content/Imagens/trash-icon.png" alt="lixo" />
+						</div>
+					</div>
+					<div class="prodtable_row">
+						<div class="prodtable_block col_product">
+							<img
+								class="col_product_img"
+								src="/Content/Imagens/fotoExemplo.png"
+								alt="Foto do produto"
+							/>
+							<div class="col_product_title">
+								Ração Royal Canin Club Performance Cães Adultos
+							</div>
+						</div>
+						<div class="prodtable_block col_price">R$ 59,90</div>
+						<div class="prodtable_block col_quantity">
+							<span class="product-quant">1</span>
+						</div>
+						<div class="prodtable_block col_total">R$59.95</div>
+						<div class="prodtable_block col_del">
+							<img class="trash-icon" src="~/Content/Imagens/trash-icon.png" alt="lixo" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="container-section">
+				<section class="shipping">
+					<h1 class="shipping-title">Calcule o frete</h1>
+
+					<div class="input-group mb-3">
+						<input
+							type="text"
+							class="form-control"
+							placeholder="Insira o seu CEP"
+							aria-label="Insira o seu CEP"
+							aria-describedby="basic-addon2"
+						/>
+						<div class="input-group-append">
+							<span class="input-group-text" id="basic-addon2">Ok</span>
+						</div>
+					</div>
+				</section>
+
+				<section class="order-summary">
+					<div class="title-summary">
+						<h1>Resumo do pedido</h1>
+					</div>
+
+					<div class="order-summary-row">
+						<div class="left-summary">Produto</div>
+						<div class="prices">R$ 119,8</div>
+					</div>
+
+					<div class="order-summary-row">
+						<div class="left-summary">Frete</div>
+						<div class="prices">R$ 119,8</div>
+					</div>
+
+					<div class="hr-summary"></div>
+
+					<div class="order-summary-row">
+						<div id="total-text" class="left-summary">Total</div>
+						<div id="total-price" class="prices">R$ 119,8</div>
+					</div>
+
+					<div id="payment-button">
+						<button class="goto-payment">Ir para o pagamento</button>
+					</div>
+				</section>
+			</div>
+
+			<div class="back">
+				<span class="back-span">Talvez você queira voltar?</span>
+				<button class="back-button">
+					<img class="arrow-icon" src="./dada/arrow-back.png" alt="" />
+					Voltar
+				</button>
+			</div>
+		</main>
+	</body>
+</html>
