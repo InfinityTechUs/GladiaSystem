@@ -3,6 +3,62 @@
     ViewBag.Title = "Payment";
     Layout = "~/Views/Shared/_LayoutEcommerce.cshtml";
 }
-
-<h2>Payment</h2>
-
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Pagamento - Dom Tchochoro</title>
+    <link href="~/Content/rootE.css" rel="stylesheet" />
+    <link href="~/Content/PartialsEcommerce/Cart.css" rel="stylesheet" />
+    <link href="~/Content/PartialsEcommerce/Payment.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;700;800&display=swap"
+          rel="stylesheet" />
+</head>
+<style>
+    #first {
+        background-color: transparent;
+    }
+    #first-text {
+        color: var(--buttom-color);
+    }
+    #second {
+        background-color: var(--buttom-color);
+    }
+    #second-text {
+        color: var(--base-color);
+    }
+</style>
+<section class="steps">
+    <div id="first-step-container" class="step-container">
+        <div id="first" class="number-container">
+            <span id="first-text" class="step-number">1</span>
+        </div>
+        <span class="step-text">Recibo</span>
+    </div>
+    <div id="second-step-container" class="step-container">
+        <div id="second" class="number-container">
+            <span id="second-text" class="step-number">2</span>
+        </div>
+        <span class="step-text">Pagamento</span>
+    </div>
+    <div id="third-step-container" class="step-container">
+        <div id="third" class="number-container">
+            <span id="third-text" class="step-number">3</span>
+        </div>
+        <span class="step-text">Recibo</span>
+    </div>
+</section>
+<main class="main-payment">
+    <div class="Payment-informations">
+        <h1>
+            Informaçoes do Pagamento
+        </h1>
+        <fieldset>
+            <legend>Informações de cobrança</legend>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2">🔍</span>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</main>
