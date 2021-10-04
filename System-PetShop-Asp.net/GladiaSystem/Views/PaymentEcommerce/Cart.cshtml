@@ -149,9 +149,11 @@
 						<div id="total-price" class="prices">R$ 119,8</div>
 					</div>
 
-					<div id="payment-button">
-						<button class="goto-payment">Ir para o pagamento</button>
-					</div>
+                    <div id="payment-button">
+                        <button class="goto-payment">
+                            @Html.ActionLink("Ir para o pagamento", "Payment", new { controller = "PaymentEcommerce" }, new { @class = "no-link" })
+                        </button>
+                    </div>
 				</section>
 			</div>
 
