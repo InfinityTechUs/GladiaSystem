@@ -1,2 +1,6 @@
-﻿body {
+﻿.main-payment {
+    margin-right: 25vw;
+    margin-left: 25vw;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
 }

@@ -45,6 +45,12 @@
 
 .step-text {
     margin-left: 15px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.2em;
+    line-height: 23px;
+    letter-spacing: -0.005em;
 }
 
 .prodtable_container {
@@ -180,6 +186,7 @@
     border: 2px solid var(--border-color);
     padding: 5px;
     margin-bottom: 2vh;
+    padding: 2vh;
 }
 
 .shipping-title {
@@ -287,7 +294,15 @@
 }
 
 .back-span {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 30px;
+    letter-spacing: -0.005em;
+    margin-top: 5vh;
     margin-bottom: 2vh;
+    color: var(--tertiary-font-color);
 }
 
 .back-button {
@@ -301,6 +316,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 1.2rem;
+    margin-bottom: 3vh;
 }
 
 .arrow-icon {
@@ -423,4 +440,9 @@
     .arrow-icon {
         margin-right: 1vw;
     }
+}
+
+.no-link, .no-link:link, .no-link:visited, .no-link:hover, .no-link:active {
+    text-decoration: none;
+    color: var(--colored-font);
 }

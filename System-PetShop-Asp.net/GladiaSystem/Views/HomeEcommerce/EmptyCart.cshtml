@@ -16,7 +16,7 @@
                 <div class="empty-cart-image">
                     <img src="~/Content/Imagens/EmptyCart.svg" alt="" class="cart-image">
                 </div>
-                <a href="#" class="cart-button">Continuar comprando</a>
+                @Html.ActionLink("Continuar comprando", "Cart", new { controller = "PaymentEcommerce" }, new { @class = "cart-button" })
             </div>
         </section>
     </main>

@@ -39,11 +39,12 @@
     border: 2px solid #2B94F9;
     background-color: #fff;
     text-decoration: none;
-    margin-bottom: 60px; /*Pode mudar*/
+    margin-bottom: 1vh;
     font-family: Mulish;
     font-style: normal;
     font-weight: bold;
-    font-size: 14px;
+    margin-top: 5vh;
+    font-size: 1.4rem;
 }
 
 @media (max-width:720px) {

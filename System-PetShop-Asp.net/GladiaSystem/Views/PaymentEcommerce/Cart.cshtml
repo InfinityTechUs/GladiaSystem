@@ -1,14 +1,14 @@
 ﻿
 @{
     ViewBag.Title = "Cart";
-    Layout = null;
+    Layout = "~/Views/Shared/_LayoutEcommerce.cshtml";
 }
 
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
 		<meta name="viewport" content="width=device-width" />
-		<title>Login - Dom Tchochoro</title>
+		<title>Carrinho - Dom Tchochoro</title>
 		<link href="~/Content/rootE.css" rel="stylesheet" />
 		<link href="~/Content/PartialsEcommerce/Cart.css" rel="stylesheet" />
 		<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;700;800&display=swap"
@@ -149,19 +149,18 @@
 						<div id="total-price" class="prices">R$ 119,8</div>
 					</div>
 
-					<div id="payment-button">
-						<button class="goto-payment">Ir para o pagamento</button>
-					</div>
+                    <div id="payment-button">
+                        <button class="goto-payment">
+                            @Html.ActionLink("Ir para o pagamento", "Payment", new { controller = "PaymentEcommerce" }, new { @class = "no-link" })
+                        </button>
+                    </div>
 				</section>
 			</div>
 
-			<div class="back">
-				<span class="back-span">Talvez você queira voltar?</span>
-				<button class="back-button">
-					<img class="arrow-icon" src="./dada/arrow-back.png" alt="" />
-					Voltar
-				</button>
-			</div>
+            <div class="back">
+                <span class="back-span">Talvez você queira voltar?</span>
+                @Html.ActionLink("Voltar", "Home", new { controller = "HomeEcommerce" }, new { @class = "back-button" })
+            </div>
 		</main>
 	</body>
 </html>
