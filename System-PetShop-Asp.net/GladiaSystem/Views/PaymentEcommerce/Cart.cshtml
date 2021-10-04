@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "Cart";
-    Layout = null;
+    Layout = "~/Views/Shared/_LayoutEcommerce.cshtml";
 }
 
 <!DOCTYPE html>
@@ -155,13 +155,10 @@
 				</section>
 			</div>
 
-			<div class="back">
-				<span class="back-span">Talvez você queira voltar?</span>
-				<button class="back-button">
-					<img class="arrow-icon" src="./dada/arrow-back.png" alt="" />
-					Voltar
-				</button>
-			</div>
+            <div class="back">
+                <span class="back-span">Talvez você queira voltar?</span>
+                @Html.ActionLink("Voltar", "Home", new { controller = "HomeEcommerce" }, new { @class = "back-button" })
+            </div>
 		</main>
 	</body>
 </html>
