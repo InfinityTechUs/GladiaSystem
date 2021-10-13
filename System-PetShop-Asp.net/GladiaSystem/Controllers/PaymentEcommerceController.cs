@@ -13,7 +13,10 @@ namespace GladiaSystem.Controllers
         {
             return View();
         }
-
+        public ActionResult EmptyCart()
+        {
+            return View();
+        }
         public ActionResult Cart()
         {
             return View();

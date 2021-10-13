@@ -1,4 +1,14 @@
-﻿$("#close-sidebar").click(function () {
+﻿$(document).ready(function () {
+    $('#autoWidth').lightSlider({
+        autoWidth: true,
+        loop: true,
+        onSliderLoad: function () {
+            $('#autoWidth').removeClass('cS-hidden');
+        }
+    });
+});
+
+$("#close-sidebar").click(function () {
   $(".page-wrapper").removeClass("toggled");
 });
 $("#show-sidebar").click(function() {
@@ -23,7 +33,6 @@ const myslide = document.querySelectorAll('.myslide'),
     dot = document.querySelectorAll('.dot');
 let counter = 1;
 slidefun(counter);
-
 let timer = setInterval(autoSlide, 8000);
 function autoSlide() {
     counter += 1;
@@ -144,16 +153,5 @@ function formatCurrency(input, blur) {
     caret_pos = updated_len - original_len + caret_pos;
     input[0].setSelectionRange(caret_pos, caret_pos);
 }
-
-
-$(document).ready(function () {
-    $('#autoWidth').lightSlider({
-        autoWidth: true,
-        loop: true,
-        onSliderLoad: function () {
-            $('#autoWidth').removeClass('cS-hidden');
-        }
-    });
-});
 
 

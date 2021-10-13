@@ -75,6 +75,7 @@ ol, ul {
     margin-top: 0;
     margin-bottom: 0px;
     list-style: none;
+    margin-bottom: 0 !important;
 }
 
 a {
@@ -102,3 +103,12 @@ a {
     margin-right: auto;
 }
 
+
+strong {
+    color: #42464d;
+    font-weight: bold;
+}
+
+hr {
+    color: #DADDDF;
+}

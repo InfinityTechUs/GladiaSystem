@@ -104,7 +104,6 @@ ol,
 ul,
 dl {
   margin-top: 0;
-  margin-bottom: 1rem;
 }
 
 ol ol,
@@ -158,10 +157,7 @@ a {
   background-color: transparent;
 }
 
-a:hover {
-  color: #0056b3;
-  text-decoration: underline;
-}
+
 
 a:not([href]):not([class]) {
   color: inherit;

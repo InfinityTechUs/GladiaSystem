@@ -1,8 +1,199 @@
 ﻿
 @{
-    ViewBag.Title = "ProductSelected";
+
     Layout = "~/Views/Shared/_LayoutEcommerce.cshtml";
 }
 
-<h2>ProductSelected</h2>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Home - Dom Tchochoro</title>
+    <link href="~/Content/PartialsEcommerce/ProductSelected.css" rel="stylesheet">
+    <link href="~/Content/PartialsEcommerce/Home.css" rel="stylesheet" />
+    <link href="~/Content/rootE.css/" rel="stylesheet">
+    <link href="~/Content/PartialsEcommerce/lightslider.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    @Scripts.Render("~/Scripts/lightslider.js")
+</head>
+<body>
+ 
+    <section class="container">
+        <article class="row">
+            <figure class="col-md-7 mb-3">
+                <img src="~/Content/Imagens/product.png" class="img-fluid" alt="Camiseta manga Comprida">
+            </figure>
+            <div class="col-md-5 mb-3 d-flex flex-column justify-content-around">
+                <article class="product-content container">
+                    <div class="top-information">
+                        <h1 class="product-title">Snack Petz Cuidado Oral para Cães de Pequeno Porte</h1>
+                        <div class="block-information">
+                            <span><strong>Código:</strong> 34534543534</span>
+                            <span class="product-brand"><strong>Marca:</strong> Petz</span>
+                        </div>
+                        <hr>
+                        <p class="product-price">R$ 40,00</p>
+                        <p class="inventory">Em estoque</p>
+                    </div>
+                    <form action="#" class="form-button">
+                        <div class="input-container">
+                            <button type="submit" class="buy-button">Adicionar ao carrinho</button>
+                            <button id="sub">-</button>
+                            <input type="text" id="qtyBox" readonly="" value="0" class="input-style">
+                            <button id="add">+</button>
+                        </div>
+                    </form>
+                    <div class="more-information">
+                        <p class="more-information-title">Informações</p>
+                        <p>
+                            Indicado para cães;
+                            Ajuda na redução da placa bacteriana
+                            Auxilia na redução do acúmulo do tártaro
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </article>
+    </section>
+    <section class="container">
+        <h3 class="specifications-title">Especificações</h3>
+        <p>
+            Idade: Filhote, Sênior e Adulto <br>
+            Pet: Cachorros <br>
+            Porte de Raça: Pequeno<br>
+            Uso: Oral<br>
+            Tipo: Antipulgas e carrapatos<br>
+            Apresentação: Embalagem com 1 comprimido mastigável de 250 mg<br>
+            Composição: Cada 1 g contém: 136,4 mg de fluralaner e 1 g de excipiente q.s.p<br>
+            Indicação: Prevenção e tratamento de pulgas e carrapatos em cães com mais de 8 semanas de vida<br>
+            Código de barras: 8713184136992
+        </p>
+        <hr>
+    </section>
+    <section class="container">
+        <h2 class="teste">Você também pode gostar de...</h2>
+    </section>
 
+    <div class="container">
+        <!--slider------------------->
+        <ul id="autoWidth" class="cs-hidden">
+            <!--1------------------------------>
+            <li class="item-a">
+                <!--slider-box-->
+                <div class="box">
+                    <div class="thumb-wrapper">
+                        <div class="img-box">
+                            <img src="~/Content/Imagens/pet.png" class="img-responsive " alt="">
+                        </div>
+                        <div class="thumb-content">
+                            <p class="item-title">Ração Prescription Diet Z/D Alergias Alimentares e da Pele Hills </p>
+                            <p class="item-price"><b>$369.00</b></p>
+                            <a href="#" class="btn btn-primary">Ver produto</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!--2------------------------------>
+            <li class="item-a">
+                <!--slider-box-->
+                <div class="box">
+                    <div class="thumb-wrapper">
+                        <div class="img-box">
+                            <img src="~/Content/Imagens/pet.png" class="img-responsive " alt="">
+                        </div>
+                        <div class="thumb-content">
+                            <p class="item-title">Ração Prescription Diet Z/D Alergias Alimentares e da Pele Hills</p>
+                            <p class="item-price"><b>$369.00</b></p>
+                            <a href="#" class="btn btn-primary">Ver produto</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!--3------------------------------>
+            <li class="item-a">
+                <!--slider-box-->
+                <div class="box">
+                    <div class="thumb-wrapper">
+                        <div class="img-box">
+                            <img src="~/Content/Imagens/pet.png" class="img-responsive " alt="">
+                        </div>
+                        <div class="thumb-content">
+                            <p class="item-title">Ração Prescription Diet Z/D Alergias Alimentares e da Pele Hills</p>
+                            <p class="item-price"><b>$369.00</b></p>
+                            <a href="#" class="btn btn-primary">Ver produto</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!--4------------------------------>
+            <li class="item-a">
+                <!--slider-box-->
+                <div class="box">
+                    <div class="thumb-wrapper">
+                        <div class="img-box">
+                            <img src="~/Content/Imagens/pet.png" class="img-responsive " alt="">
+                        </div>
+                        <div class="thumb-content">
+                            <p class="item-title">Ração Prescription Diet Z/D Alergias Alimentares e da Pele Hills</p>
+                            <p class="item-price"><b>$369.00</b></p>
+                            <a href="#" class="btn btn-primary">Ver produto</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="item-a">
+                <!--slider-box-->
+                <div class="box">
+                    <div class="thumb-wrapper">
+                        <div class="img-box">
+                            <img src="~/Content/Imagens/pet.png" class="img-responsive " alt="">
+                        </div>
+                        <div class="thumb-content">
+                            <p class="item-title">Ração Prescription Diet Z/D Alergias Alimentares e da Pele Hills</p>
+                            <p class="item-price"><b>$369.00</b></p>
+                            <a href="#" class="btn btn-primary">Ver produto</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!--5------------------------------>
+            <li class="item-a">
+                <!--slider-box-->
+                <div class="box">
+                    <div class="thumb-wrapper">
+                        <div class="img-box">
+                            <img src="~/Content/Imagens/pet.png" class="img-responsive " alt="">
+                        </div>
+                        <div class="thumb-content">
+                            <p class="item-title">Ração Prescription Diet Z/D Alergias Alimentares e da Pele Hills</p>
+                            <p class="item-price"><b>$369.00</b></p>
+                            <a href="#" class="btn btn-primary">Ver produto</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!--6------------------------------>
+            <li class="item-a">
+                <!--slider-box-->
+                <div class="box">
+                    <div class="thumb-wrapper">
+                        <div class="img-box">
+                            <img src="~/Content/Imagens/pet.png" class="img-responsive " alt="">
+                        </div>
+                        <div class="thumb-content">
+                            <p class="item-title">Ração Prescription Diet Z/D Alergias Alimentares e da Pele Hills</p>
+                            <p class="item-price"><b>$369.00</b></p>
+                            <a href="#" class="btn btn-primary">Ver produto</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/scripts.js")
+    @Scripts.Render("~/Scripts/product.js")
+</body>
+</html>

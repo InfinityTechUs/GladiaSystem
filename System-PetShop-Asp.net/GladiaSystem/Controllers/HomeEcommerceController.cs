@@ -12,8 +12,8 @@ namespace GladiaSystem.Controllers
         public ActionResult Home()
         {
             return View();
-        }
-        public ActionResult EmptyCart()
+        }   
+        public ActionResult ProductSelected()
         {
             return View();
         }

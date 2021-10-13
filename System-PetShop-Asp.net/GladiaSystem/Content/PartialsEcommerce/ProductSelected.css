@@ -1,2 +1,128 @@
-﻿body {
+﻿.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.mb-3, .my-3 {
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    margin-top: 35px;
+}
+
+.product-title {
+    font-style: normal;
+    font-weight: 600;
+    color: #42464d;
+    font-size: 32px;
+}
+
+.block-information {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-price {
+    color: #2B94F9;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 28px;
+}
+
+.inventory {
+    color: #3BA749;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.more-information-title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    color: #42464d;
+}
+
+.specifications-title {
+    font-style: normal;
+    font-size: 20px;
+    font-weight: bold;
+    color: #42464d;
+}
+
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 35px;
+}
+
+.buy-button {
+    border-radius: 41px;
+    margin-bottom: 20px;
+    background-color: #2B94F9;
+    color: #fff;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 8px 12px;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    touch-action: manipulation;
+    border: 1px solid transparent;
+    user-select: none;
+    background-image: none;
+    cursor: pointer;
+    margin-right: 10px;
+    width: 100%;
+}
+
+.buy-button:hover {
+    background-color: #1c8ffa;
+}
+
+#sub {
+    color: #1c8ffa;
+    background-color: #fff;
+    border: none;
+    padding: 8px 12px;
+    width: 60px;
+    height: 60px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border: 1px solid #edeff2;
+    height: 40px;
+}
+
+#add {
+    color: #1c8ffa;
+    background-color: #fff;
+    border: none;
+    padding: 8px 12px;
+    width: 60px;
+    height: 60px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: 1px solid #edeff2;
+    border-right: none;
+    height: 40px;
+}
+.input-style {
+    font-size: 14px;
+    color: #42464d;
+    font-weight: 600;
+    border: none;
+    border-left: 0px;
+    height: 40px;
+    padding: 2px 16px;
+    width: 50px;
+    border-top: 1px solid #edeff2;
+    border-bottom: 1px solid #edeff2;
 }
