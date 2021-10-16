@@ -20,7 +20,7 @@ $("#show-sidebar").click(function() {
 function openNav() {
     document.getElementById("nav-mobile").style.width = "300px";
     document.getElementById("main").style.marginLeft = "0px";
-    document.getElementById("header-shadow").style.display = "initial";;
+    document.getElementById("header-shadow").style.display = "initial";
 }
 
 function closeNav() {

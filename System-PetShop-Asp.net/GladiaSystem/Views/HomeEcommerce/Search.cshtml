@@ -1,8 +1,214 @@
 ﻿
 @{
-    ViewBag.Title = "Search";
     Layout = "~/Views/Shared/_LayoutEcommerce.cshtml";
 }
 
-<h2>Search</h2>
 
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Search - Dom Tchochoro</title>
+    <link href="~/Content/PartialsEcommerce/Search.css" rel="stylesheet" />
+    <link href="~/Content/rootE.css/" rel="stylesheet">
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="page-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 form">
+                    <h2 class="sidebar-title"><b>Categorias</b></h2>
+                    <p class="sidebar-list"><a href="">Brinquedos</a></p>
+                    <p class="sidebar-list">Ração</p>
+                    <p class="sidebar-list">Remédio</p>
+                    <p class="sidebar-list">Petiscos</p>
+
+                    <h2 class="sidebar-title"><b>Mais buscados</b></h2>
+
+                    <p class="sidebar-list">Brinquedos</p>
+                    <p class="sidebar-list">Ração</p>
+                    <p class="sidebar-list">Remédio</p>
+                    <p class="sidebar-list">Petiscos</p>
+
+                    <h2 class="sidebar-title"><b>Filtrar por:</b></h2>
+                    <div class="filter-box">
+                        <div class="item-filter">
+                            <p class="filter-title">Preço</p>
+                            <p class="sidebar-list">De R$5,00 até R$20,00</p>
+                            <p class="sidebar-list">De R$20,00 até R$40,00</p>
+                            <p class="sidebar-list">De R$40,00 até R$80,00</p>
+                            <p class="sidebar-list">Acima de R$90,00</p>
+                        </div>
+                        <div class="item-filter">
+                            <p class="filter-title">Marcas</p>
+                            <p class="sidebar-list">Adidas</p>
+                            <p class="sidebar-list">Pet-life</p>
+                        </div>
+                        <div class="item-filter">
+                            <p class="filter-title">Categorias</p>
+                            <p class="sidebar-list">Comida</p>
+                            <p class="sidebar-list">Brinquedos</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 all-products">
+                    <div class="container row order">
+                        <label class="label-order" for="#">
+                            <p class="title-order">Ordenar</p>
+                            <select class="form-control">
+                                <option value="">Mais procurados</option>
+                                <option value="popularity">Preço crescente</option>
+                                <option value="average">Preço decrescente</option>
+                            </select>
+                        </label>
+                        <div class="total-products">
+                            <p class="text-total-products"><b>10 </b>Produtos</p>
+                        </div>
+                    </div>
+                    <div class="container row">
+                        <button type="button" class="btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Filtros</button>
+
+                    </div>
+                    <hr>
+
+
+                    <div class="products-item">
+                        <div class="product">
+                            <div class="card">
+                                <div class="card-body">
+                                    <img src="~/Content/Imagens/product.png" class="product-image">
+                                    <div class="information-card">
+                                        <p class="card-text">Anti Pulgas Vectra Ceva para Gatos...</p>
+                                        <p class="card-price">R$ 69,90</p>
+                                        <a href="" target="_blank" class="btn-card">Ver produto</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="card">
+                                <div class="card-body">
+                                    <img src="~/Content/Imagens/product.png" class="product-image">
+                                    <div class="information-card">
+                                        <p class="card-text">Anti Pulgas Vectra Ceva para Gatos...</p>
+                                        <p class="card-price">R$ 69,90</p>
+                                        <a href="" target="_blank" class="btn-card">Ver produto</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="card">
+                                <div class="card-body">
+                                    <img src="~/Content/Imagens/product.png" class="product-image">
+                                    <div class="information-card">
+                                        <p class="card-text">Anti Pulgas Vectra Ceva para Gatos...</p>
+                                        <p class="card-price">R$ 69,90</p>
+                                        <a href="" target="_blank" class="btn-card">Ver produto</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="card">
+                                <div class="card-body">
+                                    <img src="~/Content/Imagens/product.png" class="product-image">
+                                    <div class="information-card">
+                                        <p class="card-text">Anti Pulgas Vectra Ceva para Gatos...</p>
+                                        <p class="card-price">R$ 69,90</p>
+                                        <a href="" target="_blank" class="btn-card">Ver produto</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="card">
+                                <div class="card-body">
+                                    <img src="~/Content/Imagens/product.png" class="product-image">
+                                    <div class="information-card">
+                                        <p class="card-text">Anti Pulgas Vectra Ceva para Gatos...</p>
+                                        <p class="card-price">R$ 69,90</p>
+                                        <a href="" target="_blank" class="btn-card">Ver produto</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="card">
+                                <div class="card-body">
+                                    <img src="~/Content/Imagens/product.png" class="product-image">
+                                    <div class="information-card">
+                                        <p class="card-text">Anti Pulgas Vectra Ceva para Gatos...</p>
+                                        <p class="card-price">R$ 69,90</p>
+                                        <a href="" target="_blank" class="btn-card">Ver produto</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <div class="card">
+                                <div class="card-body">
+                                    <img src="~/Content/Imagens/product.png" class="product-image">
+                                    <div class="information-card">
+                                        <p class="card-text">Anti Pulgas Vectra Ceva para Gatos...</p>
+                                        <p class="card-price">R$ 69,90</p>
+                                        <a href="" target="_blank" class="btn-card">Ver produto</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <ul>
+                        <li class="archive-block">
+                            <p class="sidebar-title">Categorias</p>
+                            <ul>
+                                <li class="sidebar-list text-archive"><a href="">Brinquedos</a></li>
+                                <li class="sidebar-list text-archive"><a href="">Ração</a></li>
+                                <li class="sidebar-list text-archive"><a href="">Remédio</a></li>
+                                <li class="sidebar-list text-archive"><a href="">Petiscos</a></li>
+                            </ul>
+                        </li>
+                        <li class="archive-block">
+                            <p class="sidebar-title">Mais buscados</p>
+                            <ul>
+                                <li class="sidebar-list text-archive"><a href="">Brinquedos</a></li>
+                                <li class="sidebar-list text-archive"><a href="">Ração</a></li>
+                                <li class="sidebar-list text-archive"><a href="">Remédio</a></li>
+                                <li class="sidebar-list text-archive"><a href="">Petiscos</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p class="sidebar-title">Filtrar por:</p>
+                            <ul class="archive-block">
+                                <li class="filter-title archive-block">Preço</li>
+                                <li class="sidebar-list text-archive"> <a href="">De R$5,00 até R$20,00</a></li>
+                                <li class="sidebar-list text-archive"><a href="">De R$20,00 até R$40,00</a></li>
+                                <li class="sidebar-list text-archive"><a href="">De R$40,00 até R$80,00</a></li>
+                                <li class="sidebar-list text-archive"><a href="">Acima de R$90,00</a></li>
+                            </ul>
+                            <ul class="archive-block">
+                                <li class="filter-title archive-block">Marcas</li>
+                                <li class="sidebar-list text-archive"><a href="">Adidas</a></li>
+                                <li class="sidebar-list text-archive"><a href="">Pet-life</a></li>
+                            </ul>
+                            <ul class="archive-block">
+                                <li class="filter-title archive-block">Categorias</li>
+                                <li class="sidebar-list text-archive"><a href="">Comida</a></li>
+                                <li class="sidebar-list text-archive"><a href="">Brinquedos</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -433,21 +433,19 @@ footer {
     text-align: center;
 }
 
-    .footer-content .footer-text {
-        color: #fff;
-        font-style: normal;
-        font-size: 18px;
-        font-weight: 700;
-        line-height: 23px;
-        margin-bottom: 15px;
-    }
+.footer-content .footer-text {
+    color: #fff;
+    font-style: normal;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 23px;
+    margin-bottom: 15px;
+}
 
 .footer-copyright {
     color: #fff;
     margin-top: 10px;
 }
-  
-
 
 
 @media (max-width: 1130px) {
