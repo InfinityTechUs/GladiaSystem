@@ -23,5 +23,10 @@ namespace GladiaSystem.Controllers
         {
             return View();
         }
+
+        public ActionResult RegisterAddress()
+        {
+            return View();
+        }
     }
 }

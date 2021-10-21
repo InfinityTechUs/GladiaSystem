@@ -7,9 +7,10 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Login - Dom Tchochoro</title>
+    <title>Registrar - Dom Tchochoro</title>
     <link href="~/Content/rootE.css" rel="stylesheet" />
     <link href="~/Content/PartialsEcommerce/LogginEcommerce.css" rel="stylesheet" />
+    <link href="~/Content/PartialsEcommerce/Register.css" rel="stylesheet" />
 </head>
 <body>
     <div class="l-form">
@@ -27,7 +28,7 @@
 
             <div class="form__div">
                 @Html.ValidationMessageFor(m => m.name, "", new { @class = "text-danger" })
-                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form__input", placeholder = " " } }) 
+                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
                 <label for="" class="form__label">Digite seu nome</label>
             </div>
 
@@ -49,7 +50,7 @@
                 <label for="" class="form__label">Digite sua senha</label>
             </div>
 
-            <button class="form__button">Criar sua conta</button>
+            @Html.ActionLink("Próxima", "RegisterAddress", new { controller = "LoginEcommerce" }, new { @class = "form__button" })
 
             <span class="create-account-text">
                 Já tem uma conta?

@@ -14,11 +14,11 @@ use db_asp;
  
  Create table if not exists tbl_address(
 	address_id int primary key auto_increment,
-	address_cep varchar(8) not null,
-    address_uf enum('RO','AC','AM','RR','PA','AP','TO','MA','PI','CE','RN','PB','PE','AL','SE','BA','MG','ES','RJ','SP','PR','SC','RS','MS','MT','GO','DF') not null,
-    address_city varchar(80) not null,
-    address_district varchar(80) not null,
-    address_public_place varchar(120) not null, /*logradouro*/
+	address_cep varchar(8),
+    address_uf enum('RO','AC','AM','RR','PA','AP','TO','MA','PI','CE','RN','PB','PE','AL','SE','BA','MG','ES','RJ','SP','PR','SC','RS','MS','MT','GO','DF'),
+    address_city varchar(80),
+    address_district varchar(80),
+    address_public_place varchar(120), /*logradouro*/
     address_complement varchar(80),
     fk_user_id int not null
  );
