@@ -245,10 +245,10 @@
     <Content Include="Content\PartialsEcommerce\Layout.css" />
     <Content Include="Content\PartialsEcommerce\lightslider.css" />
     <Content Include="Content\PartialsEcommerce\LogginEcommerce.css" />
+    <Content Include="Content\PartialsEcommerce\ReceiptE.css" />
     <Content Include="Content\PartialsEcommerce\style.css" />
     <Content Include="Content\PartialsEcommerce\TrackOrder.css" />
     <Content Include="Content\PartialsEcommerce\MyAccount.css" />
-    <Content Include="Content\PartialsEcommerce\Receipt.css" />
     <Content Include="Content\PartialsEcommerce\Payment.css" />
     <Content Include="Content\PartialsEcommerce\Register.css" />
     <Content Include="Content\PartialsEcommerce\Search.css" />

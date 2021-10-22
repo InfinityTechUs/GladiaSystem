@@ -3,6 +3,50 @@
     ViewBag.Title = "Receipt";
     Layout = "~/Views/Shared/_LayoutEcommerce.cshtml";
 }
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Carrinho - Dom Tchochoro</title>
+    <link href="~/Content/rootE.css" rel="stylesheet" />
+    <link href="~/Content/PartialsEcommerce/Cart.css" rel="stylesheet" />
+    <link href="~/Content/PartialsEcommerce/ReceiptE.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;700;800&display=swap"
+          rel="stylesheet" />
+</head>
+<style>
+    #first {
+        background-color: transparent;
+    }
 
-<h2>Receipt</h2>
+    #first-text {
+        color: var(--buttom-color);
+    }
+
+    #third {
+        background-color: var(--buttom-color);
+    }
+
+    #third-text {
+        color: var(--base-color);
+    }
+</style>
+<section class="steps">
+    <div id="first-step-container" class="step-container">
+        <div id="first" class="number-container">
+            <span id="first-text" class="step-number">1</span>
+        </div>
+        <span class="step-text">Carrinho</span>
+    </div>
+    <div id="second-step-container" class="step-container">
+        <div id="second" class="number-container">
+            <span id="second-text" class="step-number">2</span>
+        </div>
+        <span class="step-text">Pagamento</span>
+    </div>
+    <div id="third-step-container" class="step-container">
+        <div id="third" class="number-container">
+            <span id="third-text" class="step-number">3</span>
+        </div>
+        <span class="step-text">Recibo</span>
+    </div>
+</section>
 
