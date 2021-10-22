@@ -32,7 +32,7 @@
         <div id="first" class="number-container">
             <span id="first-text" class="step-number">1</span>
         </div>
-        <span class="step-text">Recibo</span>
+        <span class="step-text">Carrinho</span>
     </div>
     <div id="second-step-container" class="step-container">
         <div id="second" class="number-container">
@@ -48,48 +48,47 @@
     </div>
 </section>
 <main class="main-payment">
-    <div class="Payment-informations">
-        <h1>
-            Informaçoes do Pagamento
-        </h1>
-        <fieldset class="">
-            <legend>Informações de cobrança</legend>
-            @*<div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-                <span class="input-group-text" id="basic-addon2">🔍</span>
-            </div>
-            </div>*@
+    <h2 class="main-text">
+        Escolha a opção de pagamento a abaixo<br />
+        e complete com as informações apropriadas
+    </h2>
+    <div class="payment-method">
+        <img class="picpay" src="~/Content/Imagens/a.png" alt="Pic Pay" />
+    </div>
+    <h1 class="order-text">
+        Revise seu pedido
+    </h1>
 
-            <form>
-                <div class="form-row">
-                    <div class="form-group col-md-2">
-                        <label for="inputZip">CEP</label>
-                        <input type="text" class="form-control" id="inputZip">
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="inputUF">UF</label>
-                        <input type="text" class="form-control" id="inputUF">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="inputCity">Cidade</label>
-                        <input type="text" class="form-control" id="inputCity">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="inputNeighboor">Bairro</label>
-                        <input type="text" class="form-control" id="inputNeighboor">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputAddress">Endereço</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                </div>
-                <div class="form-group">
-                    <label for="inputAddress2">Complemento *Opcional*</label>
-                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                </div>
-                <button type="submit" class="btn btn-primary">Sign in</button>
-            </form>
-        </fieldset>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="left" scope="col">Item</th>
+                <th scope="col"></th>
+                <th scope="col">Preço</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="left">Arroz de cachorro 39kg</td>
+                <th class="left" scope="row">x1</th>
+                <td>R$ 40,99</td>
+            </tr>
+            <tr>
+                <td class="left">Petisco de gato 1kg</td>
+                <th class="left" scope="row">x2</th>
+                <td>R$ 30,00</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h1 class="order-total">
+        <span class="order-total-text">Total</span>
+        <span class="order-total-value">R$ 70,99</span>
+    </h1>
+
+    <div class="continue">
+        <div class="hr-continue"></div>
+            @Html.ActionLink("Continuar", "Receipt", new { controller = "PaymentEcommerce" }, new { @class = "button-continue" })
+        <div class="hr-continue"></div>
     </div>
 </main>
