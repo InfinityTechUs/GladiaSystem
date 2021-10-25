@@ -203,6 +203,7 @@
     <Content Include="Content\Imagens\a.png" />
     <Content Include="Content\Imagens\arrow-left.svg" />
     <Content Include="Content\Imagens\ArrowDown.svg" />
+    <Content Include="Content\Imagens\back-home.svg" />
     <Content Include="Content\Imagens\blueArrow.svg" />
     <Content Include="Content\Imagens\Cart.svg" />
     <Content Include="Content\Imagens\Cat-banner-desktop.svg" />
@@ -211,8 +212,10 @@
     <Content Include="Content\Imagens\Dog-banner-mobile.png" />
     <Content Include="Content\Imagens\Email.svg" />
     <Content Include="Content\Imagens\EmptyCart.svg" />
+    <Content Include="Content\Imagens\file-text.svg" />
     <Content Include="Content\Imagens\fotoExemplo.png" />
     <Content Include="Content\Imagens\google.svg" />
+    <Content Include="Content\Imagens\grid.svg" />
     <Content Include="Content\Imagens\InfinityLogo.svg" />
     <Content Include="Content\Imagens\Instagram.svg" />
     <Content Include="Content\Imagens\Logo-mobile.svg" />
@@ -221,6 +224,7 @@
     <Content Include="Content\Imagens\mobile-nav-logo.svg" />
     <Content Include="Content\Imagens\noImage.svg" />
     <Content Include="Content\Imagens\package.svg" />
+    <Content Include="Content\Imagens\person-blue.svg" />
     <Content Include="Content\Imagens\Person.svg" />
     <Content Include="Content\Imagens\pet.png" />
     <Content Include="Content\Imagens\petiscos.png" />
@@ -230,6 +234,8 @@
     <Content Include="Content\Imagens\racoes.png" />
     <Content Include="Content\Imagens\SearchLogo.svg" />
     <Content Include="Content\Imagens\shield-off.svg" />
+    <Content Include="Content\Imagens\shopping-bag.svg" />
+    <Content Include="Content\Imagens\shopping-cart.svg" />
     <Content Include="Content\Imagens\Slide1.svg" />
     <Content Include="Content\Imagens\teste.png" />
     <Content Include="Content\Imagens\teste2.png" />
@@ -425,6 +431,7 @@
     <Content Include="Views\AccountEcommerce\ChangePassword.cshtml" />
     <Content Include="Views\AccountEcommerce\ChangeName.cshtml" />
     <Content Include="Views\AccountEcommerce\TrackOrder.cshtml" />
+    <Content Include="Views\LoginEcommerce\RegisterAddress.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />

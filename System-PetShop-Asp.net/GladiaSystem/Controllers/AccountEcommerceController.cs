@@ -13,5 +13,9 @@ namespace GladiaSystem.Controllers
         {
             return View();
         }
+        public ActionResult MyAccount()
+        {
+            return View();
+        }
     }
 }

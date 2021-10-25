@@ -1,7 +1,116 @@
-﻿
-@{
-    ViewBag.Title = "MyAccount";
+﻿@model GladiaSystem.Models.User
+@{ 
+  Layout = "~/Views/Shared/_LayoutEcommerce.cshtml";
 }
 
-<h2>MyAccount</h2>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Minha conta - Dom Tchochoro</title>
+    <link href="~/Content/PartialsEcommerce/MyAccount.css" rel="stylesheet" />
+    <link href="~/Content/rootE.css/" rel="stylesheet">
+    <link href="~/Content/PartialsEcommerce/LogginEcommerce.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container page-content">
+        <div class="title-page">
+            <img class="person-blue" src="~/Content/Imagens/person-blue.svg" alt="Person-blue" />
+            <h1 class="title-about">Detalhes da minha conta</h1>
+        </div>
+        <section class="itens-container">
+            <div class="individual-item">
+                <div class="save-data-title">
+                    <div class="info-title">
+                        <img class="file-text" src="~/Content/Imagens/file-text.svg" alt="Alternate Text" />
+                        <p class="info-text">Seus dados</p>
+                    </div>
+                    <button type="button" class="password-button" data-toggle="modal" data-target=".bd-example-modal-lg">Alterar senha</button>
+                </div>
+                @using (Html.BeginForm("LoginUser", "LoginEcommerce", FormMethod.Post, new { enctype = "multipart/form-data", @class = "data-form" }))
+                {
+                    <div class="form__div">
+                        @Html.ValidationMessageFor(m => m.name, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
+                        <label for="" class="form__label">Nome completo</label>
+                    </div>
+                    <div class="form__div">
+                        @Html.ValidationMessageFor(m => m.email, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
+                        <label for="" class="form__label">Email/Login</label>
+                    </div>
+                    <div class="form__div">
+                        @Html.ValidationMessageFor(m => m.Cpf, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.Cpf, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
+                        <label for="" class="form__label">CPF</label>
+                    </div>
+                    <div class="form__div">
+                        @Html.ValidationMessageFor(m => m.name, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
+                        <label for="" class="form__label">Telefone</label>
+                    </div>
+                     <button class="form__button">Salvar</button>
+                 }
+            </div>
+        </section>
+        <div class="container">
+            <div class="shortcut-title">
+                <img class="grid-icon"src="~/Content/Imagens/grid.svg" alt="Alternate Text" />
+                <h1 class="shortcut-text">Atalhos</h1>
+            </div>
+            <div class="shortcut-container">
+                <div class="single-item">
+                    <img src="~/Content/Imagens/back-home.svg" alt="Alternate Text" />
+                    <a href="#">Home</a>
+                </div>
+                <div class="single-item">
+                    <img src="~/Content/Imagens/shopping-bag.svg" alt="Alternate Text" />
+                    <a href="#">Pedidos</a>
+                </div>
+                <div class="single-item">
+                    <img src="~/Content/Imagens/shopping-cart.svg" alt="Alternate Text" />
+                    <a href="#">Carrinho</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+ <div class="modal bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-title">
+                <h2>Alterar senha</h2>
+                <p>Informe uma nova senha para sua conta</p>
+            </div>
+                @using (Html.BeginForm("LoginUser", "LoginEcommerce", FormMethod.Post, new { enctype = "multipart/form-data", @class = "data-form" }))
+                {
+            <div class="form__div">
+                @Html.ValidationMessageFor(m => m.password, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
+                <label for="" class="form__label">Senha atual</label>
+            </div>
+            <div class="form__div">
+                @Html.ValidationMessageFor(m => m.password, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
+                <label for="" class="form__label">Nova senha</label>
+            </div>
+            <div class="form__div">
+                @Html.ValidationMessageFor(m => m.confPassword, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.confPassword, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
+                <label for="" class="form__label">Confirmar nova senha</label>
+            </div>
+                <button class="form__button">Salvar</button>
+                }
+        </div>
+    </div>
+</div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap.js")
+    @Scripts.Render("~/Scripts/scripts.js")
+</body>
+</html>
 

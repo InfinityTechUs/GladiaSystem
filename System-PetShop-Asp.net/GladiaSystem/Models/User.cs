@@ -43,6 +43,25 @@ namespace GladiaSystem.Models
         [DataType(DataType.Password)]
         public string confPassword { get; set; }
 
+        [RegularExpression(@"^\d{5}-\d{3}$", ErrorMessage = "Insira o Cep corretamente")]
+        [Required(ErrorMessage = "O campo Cep é obrigatório!")]
+        public string Cep { get; set; }
+
+        [Required(ErrorMessage = "O UF é obrigatório!")]
+        [RegularExpression(@"^[0-9]{2}$", ErrorMessage = "Insira o UF corretamente")]
+        public string UF { get; set; }
+
+        [Required(ErrorMessage = "A cidade é obrigatório!")]
+        public string City { get; set; }
+
+        [Required(ErrorMessage = "O bairro é obrigatório!")]
+        public string District { get; set; }
+
+        [Required(ErrorMessage = "O endereço é obrigatório!")]
+        public string PublicPlace { get; set; }
+
+        public string Complement { get; set; }
+
         public string img { get; set; }
 
         public string userLvl { get; set; }

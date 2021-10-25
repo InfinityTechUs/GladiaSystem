@@ -447,13 +447,21 @@ footer {
     margin-top: 10px;
 }
 
+@media(max-width: 1136px) {
+    .desktop-nav-parent {
+        margin-right: 33.2%;
+    }
+}
 
 @media (max-width: 1130px) {
     .desktop-header {
         display: none;
     }
-}
 
+    .cart-image {
+        width: 439px;
+    }
+}
 
 @media (max-width: 459px) {
     .flex-title {
@@ -467,15 +475,6 @@ footer {
     }
 }
 
-@media (max-width: 1130px) {
-    .desktop-header {
-        display: none;
-    }
-
-    .cart-image {
-        width: 439px;
-    }
-}
 
 @media (min-width: 1131px) {
     .mobile-header {
@@ -492,3 +491,4 @@ footer {
         display: block;
     }
 }
+

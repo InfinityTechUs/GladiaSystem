@@ -1,2 +1,179 @@
-﻿body {
+﻿.page-content {
+    margin-top: 2rem;
+}
+
+.title-page {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.person-blue {
+    width: 30px;
+    margin-bottom: 0.5rem;
+    margin-right: 14px;
+}
+
+.file-text {
+    display: flex;
+    width: 28px;
+    margin-bottom: 1rem;
+}
+
+.title-about {
+    display: flex;
+    font-size: 28px;
+    font-weight: bold;
+    color: rgb(66, 70, 77);
+    margin-left: 5px
+}
+
+.itens-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10rem;
+    margin-top: 5rem;
+}
+
+.data-form {
+    width: 100%;
+    padding: 20px 28px 30px;
+}
+
+.individual-item {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    height: 100%;
+    width: 40%;
+}
+
+
+.save-data-title {
+    display: flex;
+    justify-content: space-between;
+    padding: 32px;
+}
+
+.info-text {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(66, 70, 77);
+    margin-right: 80px;
+}
+
+.info-title {
+    display: flex;
+}
+
+.password-button {
+    width: 120px;
+    height: 30px;
+    color: #2B94F9;
+    font-size: 12px;
+    font-weight: 700;
+    background-color: transparent;
+    border-color: #2B94F9;
+    border-radius: 5px;
+}
+
+
+.shortcut-title {
+    display: flex;
+}
+
+.grid-icon {
+    width: 23px;
+    margin-bottom: 0.5rem;
+    margin-right: 10px;
+}
+
+.shortcut-text {
+    display: flex;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(66, 70, 77);
+    margin-left: 16px;
+}
+
+.shortcut-container {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    margin-top: 2rem;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.single-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    height: 128px;
+    width: 100%;
+    padding: 1rem;
+    text-decoration: none;
+    border: 1px solid rgb(222, 224, 228);
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.modal-title {
+    padding: 20px 28px 30px;
+}
+
+.modal-dialog {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 98%;
+    overflow: auto;
+    z-index: 99999;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 1140px) {
+    .info-text {
+        margin-right: 20px;
+    }
+
+    .individual-item {
+        width: 50%;
+    }
+}
+
+@media (max-width: 900px) {
+    .individual-item {
+        width: 70%;
+    }
+
+    .save-data-title {
+        display: grid;
+    }
+
+    .shortcut-container {
+        display: initial;
+    }
+
+    .single-item {
+        margin-bottom: 2rem;
+    }
+}
+
+
+@media (max-width: 500px) {
+    .individual-item {
+        width: 80%;
+    }
 }
