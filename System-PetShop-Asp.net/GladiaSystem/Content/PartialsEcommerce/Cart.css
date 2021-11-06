@@ -173,6 +173,10 @@
     border: 2px solid var(--border-color);
 }
 
+.trash-icon{
+    height: 35px;
+}
+
 .trash-icon:hover {
     cursor: pointer;
 }

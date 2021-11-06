@@ -241,6 +241,7 @@
     <Content Include="Content\Imagens\teste.png" />
     <Content Include="Content\Imagens\teste2.png" />
     <Content Include="Content\Imagens\trash-icon.png" />
+    <Content Include="Content\Imagens\Trash_font_awesome.svg" />
     <Content Include="Content\Imagens\Truck-banner-desktop.svg" />
     <Content Include="Content\Imagens\Truck-banner-mobile.png" />
     <Content Include="Content\Imagens\truck.svg" />
