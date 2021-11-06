@@ -1,0 +1,73 @@
+﻿.main-receipt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.receipt {
+    background-color: #ffffff;
+    width: 30vw;
+    padding-bottom: 2vh;
+    padding-bottom: 3vh;
+    margin-top: 10vh;
+    background: #F3F4F7;
+    box-shadow: 0px 0px 10px 3px rgb(0 0 0 / 15%);
+    border-radius: 8px;
+}
+
+.receipt-h2 {
+    text-align: center;
+    margin-top: 5vh;
+    font-size: 2.4rem;
+}
+
+.second-line{
+    color: var(--tertiary-font-color);
+}
+
+.continue {
+    margin-bottom: 10vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-content: center;
+    margin-top: 5vh;
+}
+
+.picpay-img{
+    height:85px;
+}
+
+.date-receipt {
+    display: flex;
+    align-items: center;
+    color: var(--tertiary-font-color);
+    font-size: 1.2rem;
+}
+
+.buy-text {
+    text-align: center;
+    margin-top: 4vh;
+    margin-bottom: 2vh;
+}
+
+.order-total {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2rem;
+    line-height: 45px;
+    text-align: center;
+    letter-spacing: -0.005em;
+    color: var(--primary-font-color);
+    width: 27vw;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4vh;
+}

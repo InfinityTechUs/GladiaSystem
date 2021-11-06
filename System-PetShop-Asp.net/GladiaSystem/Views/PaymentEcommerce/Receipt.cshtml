@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Receipt";
     Layout = "~/Views/Shared/_LayoutEcommerce.cshtml";
 }
@@ -8,7 +7,8 @@
     <title>Carrinho - Dom Tchochoro</title>
     <link href="~/Content/rootE.css" rel="stylesheet" />
     <link href="~/Content/PartialsEcommerce/Cart.css" rel="stylesheet" />
-    <link href="~/Content/PartialsEcommerce/ReceiptE.css" rel="stylesheet" />
+    <link href="~/Content/PartialsEcommerce/Payment.css" rel="stylesheet" />
+    <link href="~/Content/PartialsEcommerce/ReceiptEcommerce.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;700;800&display=swap"
           rel="stylesheet" />
 </head>
@@ -50,3 +50,48 @@
     </div>
 </section>
 
+<main class="main-receipt">
+    <div class="receipt">
+        <div class="header">
+            <img class="picpay-img" src="~/Content/Imagens/picpay.png" />
+            <p class="date-receipt">11/05/2021</p>
+        </div>
+        <div class="second-line">
+            <p class="buy-text">Você comprou (3) items</p>
+        </div>
+        <h2 class="receipt-h2">Recibo:</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="left" scope="col">Item</th>
+                    <th scope="col"></th>
+                    <th scope="col">Preço</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="left">Arroz de cachorro 39kg</td>
+                    <th class="left" scope="row">x1</th>
+                    <td>R$ 40,99</td>
+                </tr>
+                <tr>
+                    <td class="left">Petisco de gato 1kg</td>
+                    <th class="left" scope="row">x2</th>
+                    <td>R$ 30,00</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h1 class="order-total">
+            <span class="order-total-text">Total</span>
+            <span class="order-total-value">R$ 70,99</span>
+        </h1>
+
+    </div>
+
+    <div class="continue">
+        <div class="hr-continue"></div>
+        @Html.ActionLink("Voltar a comprar", "Home", new { controller = "HomeEcommerce" }, new { @class = "button-continue" })
+        <div class="hr-continue"></div>
+    </div>
+</main>

@@ -88,7 +88,12 @@
 
     <div class="continue">
         <div class="hr-continue"></div>
-            @Html.ActionLink("Continuar", "Receipt", new { controller = "PaymentEcommerce" }, new { @class = "button-continue" })
+        @Html.ActionLink("Continuar", "Receipt", new { controller = "PaymentEcommerce" }, new { @class = "button-continue" })
         <div class="hr-continue"></div>
+    </div>
+
+    <div class="back">
+        <span class="back-span">Talvez você queira voltar?</span>
+        @Html.ActionLink("Voltar", "Home", new { controller = "HomeEcommerce" }, new { @class = "back-button" })
     </div>
 </main>

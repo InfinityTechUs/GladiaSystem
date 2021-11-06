@@ -228,6 +228,7 @@
     <Content Include="Content\Imagens\Person.svg" />
     <Content Include="Content\Imagens\pet.png" />
     <Content Include="Content\Imagens\petiscos.png" />
+    <Content Include="Content\Imagens\picpay.png" />
     <Content Include="Content\Imagens\product-arrow-left.svg" />
     <Content Include="Content\Imagens\product-arrow-right.svg" />
     <Content Include="Content\Imagens\product.png" />
@@ -251,7 +252,7 @@
     <Content Include="Content\PartialsEcommerce\Layout.css" />
     <Content Include="Content\PartialsEcommerce\lightslider.css" />
     <Content Include="Content\PartialsEcommerce\LogginEcommerce.css" />
-    <Content Include="Content\PartialsEcommerce\ReceiptE.css" />
+    <Content Include="Content\PartialsEcommerce\ReceiptEcommerce.css" />
     <Content Include="Content\PartialsEcommerce\style.css" />
     <Content Include="Content\PartialsEcommerce\TrackOrder.css" />
     <Content Include="Content\PartialsEcommerce\MyAccount.css" />
