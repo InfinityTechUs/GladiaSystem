@@ -8,12 +8,12 @@ namespace GladiaSystem.Controllers
 {
     public class AccountEcommerceController : Controller
     {
-        // GET: AccountEcommerce
-        public ActionResult Index()
+        public ActionResult MyAccount()
         {
             return View();
         }
-        public ActionResult MyAccount()
+
+        public ActionResult TrackOrder()
         {
             return View();
         }

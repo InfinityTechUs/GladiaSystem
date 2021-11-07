@@ -255,13 +255,13 @@
     <Content Include="Content\PartialsEcommerce\LogginEcommerce.css" />
     <Content Include="Content\PartialsEcommerce\ReceiptEcommerce.css" />
     <Content Include="Content\PartialsEcommerce\style.css" />
-    <Content Include="Content\PartialsEcommerce\TrackOrder.css" />
     <Content Include="Content\PartialsEcommerce\MyAccount.css" />
     <Content Include="Content\PartialsEcommerce\Payment.css" />
     <Content Include="Content\PartialsEcommerce\Register.css" />
     <Content Include="Content\PartialsEcommerce\Search.css" />
     <Content Include="Content\PartialsEcommerce\ProductSelected.css" />
     <Content Include="Content\PartialsEcommerce\Home.css" />
+    <Content Include="Content\PartialsEcommerce\TrackOrderE.css" />
     <Content Include="Content\Partials\agenda.css" />
     <Content Include="Content\Partials\animation.css" />
     <Content Include="Content\Partials\config.css" />
@@ -430,8 +430,6 @@
     <Content Include="Views\LoginEcommerce\Login.cshtml" />
     <Content Include="Views\LoginEcommerce\Register.cshtml" />
     <Content Include="Views\AccountEcommerce\MyAccount.cshtml" />
-    <Content Include="Views\AccountEcommerce\ChangePassword.cshtml" />
-    <Content Include="Views\AccountEcommerce\ChangeName.cshtml" />
     <Content Include="Views\AccountEcommerce\TrackOrder.cshtml" />
     <Content Include="Views\LoginEcommerce\RegisterAddress.cshtml" />
   </ItemGroup>
