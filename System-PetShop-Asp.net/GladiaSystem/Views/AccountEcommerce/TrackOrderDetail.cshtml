@@ -1,0 +1,90 @@
+﻿@model GladiaSystem.Models.Product
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TrackOrderDetail</title>
+</head>
+<body>
+    <div>
+        <h4>Product</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Desc)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Desc)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Brand)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Brand)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Quant)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Quant)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.QuantMin)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.QuantMin)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.img)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.img)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CategoryName)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

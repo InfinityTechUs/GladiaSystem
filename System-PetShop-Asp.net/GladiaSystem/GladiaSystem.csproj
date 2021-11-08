@@ -212,6 +212,7 @@
     <Content Include="Content\Imagens\Dog-banner-mobile.png" />
     <Content Include="Content\Imagens\Email.svg" />
     <Content Include="Content\Imagens\EmptyCart.svg" />
+    <Content Include="Content\Imagens\external-link.svg" />
     <Content Include="Content\Imagens\file-text.svg" />
     <Content Include="Content\Imagens\fotoExemplo.png" />
     <Content Include="Content\Imagens\google.svg" />
@@ -432,6 +433,7 @@
     <Content Include="Views\AccountEcommerce\MyAccount.cshtml" />
     <Content Include="Views\AccountEcommerce\TrackOrder.cshtml" />
     <Content Include="Views\LoginEcommerce\RegisterAddress.cshtml" />
+    <Content Include="Views\AccountEcommerce\TrackOrderDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
