@@ -10,6 +10,7 @@
     <title>Login - Dom Tchochoro</title>
     <link href="~/Content/rootE.css" rel="stylesheet" />
     <link href="~/Content/PartialsEcommerce/LogginEcommerce.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="l-form">
@@ -21,6 +22,7 @@
 
             <h1 class="form__title">Fazer Login</h1>
 
+            @Html.ValidationSummary(true)
             <div class="form__div">
                 @Html.ValidationMessageFor(m => m.email, "", new { @class = "text-danger" })
                 @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
