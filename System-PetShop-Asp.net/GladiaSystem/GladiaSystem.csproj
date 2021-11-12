@@ -270,6 +270,7 @@
     <Content Include="Content\Partials\home.css" />
     <Content Include="Content\Partials\List.css" />
     <Content Include="Content\Partials\pos.css" />
+    <Content Include="Content\Partials\Product.css" />
     <Content Include="Content\Partials\sidebar.css" />
     <Content Include="Content\rootE.css" />
     <Content Include="dom.ico" />
@@ -432,6 +433,7 @@
     <Content Include="Views\AccountEcommerce\TrackOrder.cshtml" />
     <Content Include="Views\LoginEcommerce\RegisterAddress.cshtml" />
     <Content Include="Views\AccountEcommerce\TrackOrderDetail.cshtml" />
+    <Content Include="Views\Home\ProductEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />

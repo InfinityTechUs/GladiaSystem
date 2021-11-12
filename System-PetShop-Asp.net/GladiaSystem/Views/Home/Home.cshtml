@@ -63,47 +63,5 @@
         materialChart.draw(data, materialOptions);
     }
 
-    google.charts.load('current', { 'packages': ['corechart'] });
-    google.charts.setOnLoadCallback(drawChart);
-    google.charts.setOnLoadCallback(pet);
-
-    function drawChart() {
-
-        var data = google.visualization.arrayToDataTable([
-            ['Category', 'Product per category'],
-            @{ 
-                foreach(GladiaSystem.Models.Product item in categoryQuant)
-                {
-                    <text>
-                        ['@item.CategoryName', @item.Quant],
-                    </text>
-                }
-            }
-            ['', 0]
-        ]);
-
-        var options = {
-            title: 'Percentual de Categoria'
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('second-graph'));
-
-        chart.draw(data, options);
-    }
-
-    function pet() {
-        var data = google.visualization.arrayToDataTable([
-            ['Pets', 'Pets per Agenda'],
-            ['Administrador', @ViewBag.Administrador],
-            ['Usuário Comum', @ViewBag.CommonUser]
-        ]);
-
-        var options = {
-            title: 'Pessoas cadastradas',
-            pieHole: 0.4,
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('third-graph'));
-        chart.draw(data, options);
-    }
+   
 </script>

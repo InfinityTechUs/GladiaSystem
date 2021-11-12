@@ -10,25 +10,25 @@ namespace GladiaSystem.Database
     {
         Connection con = new Connection();
 
-        //public bool CategoryExists(Category category)
-        //{
-        //    MySqlCommand cmd = new MySqlCommand("SELECT * FROM tbl_category WHERE category_name = @name", con.ConnectionDB());
-        //    cmd.Parameters.AddWithValue("@name", category.name);
-        //    MySqlDataReader reader;
-        //    reader = cmd.ExecuteReader();
-        //    if (reader.HasRows)
-        //    {
-        //        reader.Close();
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        reader.Close();
-        //        return false;
-        //    }
-        //}
+        public bool CategoryExists(Category category)
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM tbl_category WHERE category_name = @name", con.ConnectionDB());
+            cmd.Parameters.AddWithValue("@name", category.name);
+            MySqlDataReader reader;
+            reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                reader.Close();
+                return true;
+            }
+            else
+            {
+                reader.Close();
+                return false;
+            }
+        }
 
-         public string Login(User user)
+        public string Login(User user)
         {
             MySqlCommand cmd = new MySqlCommand("SELECT user_lvl FROM tbl_user where user_email = @email and user_password=@password;", con.ConnectionDB());
             cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = user.email;
@@ -318,7 +318,7 @@ namespace GladiaSystem.Database
             MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_pos` (`pos_quant_order`, `fk_product_id`) VALUES (@quantOrder, @prodId);", con.ConnectionDB());
             cmd.Parameters.Add("@quantOrder", MySqlDbType.VarChar).Value = pos.QuantOrder;
 
-            cmd.Parameters.Add("@prodId", MySqlDbType.VarChar).Value = getProdId(pos.Product.Name);
+            cmd.Parameters.Add("@prodId", MySqlDbType.VarChar).Value = GetProdId(pos.Product.Name);
 
             cmd.ExecuteNonQuery();
             con.DisconnectDB();
@@ -346,7 +346,7 @@ namespace GladiaSystem.Database
             return 0;
         }
 
-        public int getProdId(string name)
+        public int GetProdId(string name)
         {
             MySqlCommand cmd = new MySqlCommand("SELECT prod_id FROM db_asp.tbl_product WHERE prod_name LIKE @prodName;", con.ConnectionDB());
             string nameProduct = name + "%";
@@ -421,10 +421,44 @@ namespace GladiaSystem.Database
             return AllCategory;
         }
 
+        public Product GetProductByID(int productID)
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM db_asp.tbl_product where prod_id = @ID;", con.ConnectionDB());
+            cmd.Parameters.Add("@ID", MySqlDbType.VarChar).Value = productID;
+
+            MySqlDataReader reader;
+
+            reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Product dto = new Product();
+                    {
+                        dto.ID = Convert.ToInt32(reader[0]);
+                        dto.Name = Convert.ToString(reader[1]);
+                        dto.Desc = Convert.ToString(reader[2]);
+                        dto.Brand = Convert.ToString(reader[3]);
+                        dto.Price = (int)Convert.ToDouble(reader[4]);
+                        dto.Quant = Convert.ToInt32(reader[5]);
+                        dto.QuantMin = Convert.ToInt32(reader[7]);
+                        return dto;
+                    }
+                }
+            }
+            else
+            {
+                //return null;
+            }
+            reader.Close();
+
+            Product productReturn = new Product();
+            return productReturn;
+        }
 
         public List<Product> ListProduct()
         {
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM db_asp.allproduct", con.ConnectionDB());
+            MySqlCommand cmd = new MySqlCommand("select * from allproduct", con.ConnectionDB());
             var ProductDatas = cmd.ExecuteReader();
             return ListAllProduct(ProductDatas);
         }
@@ -449,6 +483,21 @@ namespace GladiaSystem.Database
             }
             dt.Close();
             return AllProduct;
+        }
+
+        public void UpdateProduct(Product product)
+        {
+            MySqlCommand cmd = new MySqlCommand("UPDATE `db_asp`.`tbl_product` SET `prod_name` = @Name, `prod_desc` = @Desc, `prod_brand` = @Brand, `prod_price` = @Price, `prod_quant` = @Quant, `prod_min_quant` = @QuantMin WHERE (`prod_id` = @ID);", con.ConnectionDB());
+            cmd.Parameters.Add("@ID", MySqlDbType.VarChar).Value = product.ID;
+            cmd.Parameters.Add("@Name", MySqlDbType.VarChar).Value = product.Name;
+            cmd.Parameters.Add("@Desc", MySqlDbType.VarChar).Value = product.Desc;
+            cmd.Parameters.Add("@Brand", MySqlDbType.VarChar).Value = product.Brand;
+            cmd.Parameters.Add("@Price", MySqlDbType.VarChar).Value = product.Price;
+            cmd.Parameters.Add("@Quant", MySqlDbType.VarChar).Value = product.Quant;
+            cmd.Parameters.Add("@QuantMin", MySqlDbType.VarChar).Value = product.QuantMin;
+
+            cmd.ExecuteNonQuery();
+            con.DisconnectDB();
         }
     }
 }
