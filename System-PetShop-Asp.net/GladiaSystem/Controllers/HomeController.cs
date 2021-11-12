@@ -80,20 +80,7 @@ namespace GladiaSystem.Controllers
             return RedirectToAction("Home", "HomeEcommerce");
         }
 
-        public ActionResult Pet()
-        {
-            Pet pet = new Pet();
-            return View(pet);
-        }
-
-        [HttpPost]
-        public ActionResult RegisterPet(Pet pet)
-        {
-            queries.RegisterPet(pet);
-            TempData["Success"] = "Feito! 😄";
-            return RedirectToAction("Pet");
-        }
-
+       
         public ActionResult Category()
         {
             Category category = new Category();
@@ -106,14 +93,13 @@ namespace GladiaSystem.Controllers
                 return RedirectToAction("Category");
         }
 
+
         public ActionResult Product()
         {
-            Product product = new Product();
-
-            ViewBag.ListCategory = queries.ListCategory();
-            return View(product);
+            var ShowProduct = new Queries();
+            ViewBag.AllAgenda = ShowProduct.ListProduct();
+            return View("Product");
         }
-
         [HttpPost]
         public ActionResult RegisterProd(Product product)
         {
@@ -331,13 +317,5 @@ namespace GladiaSystem.Controllers
 
             return View("ProductList");
         }
-
-        public ActionResult ShowPets(string petName)
-        {
-            Pet pet = new Pet();
-            pet = queries.GetPet(petName);
-            return View(pet);
-        }
-        
     }
 }

@@ -221,19 +221,6 @@ namespace GladiaSystem.Database
             con.DisconnectDB();
         }
 
-        public void RegisterPet(Pet pet)
-        {
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_pet` (`pet_name`, `pet_owner`, `pet_tell`, `pet_size`, `pet_desc`) VALUES (@Name, @Owner, @Tel , @Size, @Desc);", con.ConnectionDB());
-            cmd.Parameters.Add("@Name", MySqlDbType.VarChar).Value = pet.Name;
-            cmd.Parameters.Add("@Owner", MySqlDbType.VarChar).Value = pet.Owner;
-            cmd.Parameters.Add("@Tel", MySqlDbType.VarChar).Value = pet.Tel;
-            cmd.Parameters.Add("@Size", MySqlDbType.VarChar).Value = pet.Size;
-            cmd.Parameters.Add("@Desc", MySqlDbType.VarChar).Value = pet.Desc;
-
-            cmd.ExecuteNonQuery();
-            con.DisconnectDB();
-
-        }
 
         public void RegisterAdm(User adm, string path)
         {
@@ -280,45 +267,11 @@ namespace GladiaSystem.Database
 
         public void DeleteItemProduct(int codItem)
         {
-            MySqlCommand cmd = new MySqlCommand("DELETE FROM `db_asp`.`tbl_product` WHERE (`prod_id` = @codAgenda);", con.ConnectionDB());
-            cmd.Parameters.Add("@codAgenda", MySqlDbType.VarChar).Value = codItem;
+            MySqlCommand cmd = new MySqlCommand("DELETE FROM `db_asp`.`tbl_product` WHERE (`prod_id` = @product_item);", con.ConnectionDB());
+            cmd.Parameters.Add("@product_item", MySqlDbType.VarChar).Value = codItem;
 
             cmd.ExecuteNonQuery();
             con.DisconnectDB();
-        }
-
-        public Pet GetPet(string petName)
-        {
-            MySqlCommand cmd = new MySqlCommand("SELECT pet_name, pet_owner, pet_tell, pet_size, pet_desc FROM db_asp.tbl_pet; ", con.ConnectionDB());
-            cmd.Parameters.Add("@itemName", MySqlDbType.VarChar).Value = petName;
-
-            MySqlDataReader reader;
-
-
-            reader = cmd.ExecuteReader();
-            if (reader.HasRows)
-            {
-                while (reader.Read())
-                {
-                    Pet dto = new Pet();
-                    {
-                        dto.Name = Convert.ToString(reader[0]);
-                        dto.Owner = Convert.ToString(reader[1]);
-                        dto.Tel = Convert.ToString(reader[2]);
-                        dto.Size = Convert.ToString(reader[3]);
-                        dto.Desc = Convert.ToString(reader[4]);
-
-                        return dto;
-                    }
-                }
-            }
-            else
-            {
-                //return null;
-            }
-            reader.Close();
-            Pet a = new Pet();
-            return a;
         }
 
         public Product GetProduct(string productName)
@@ -468,33 +421,10 @@ namespace GladiaSystem.Database
             return AllCategory;
         }
 
-        public List<Pet> ListPet()
-        {
-            MySqlCommand cmd = new MySqlCommand("SELECT pet_name,pet_id,pet_owner FROM db_asp.tbl_pet;", con.ConnectionDB());
-            var categoryPet = cmd.ExecuteReader();
-            return ListAllPet(categoryPet);
-        }
-
-        private List<Pet> ListAllPet(MySqlDataReader categoryPet)
-        {
-            var AllPet = new List<Pet>();
-
-            while (categoryPet.Read())
-            {
-                var tempPet = new Pet()
-                {
-                    Name = categoryPet["pet_name"].ToString(),
-                    ID = int.Parse(categoryPet["pet_id"].ToString()),
-                };
-                AllPet.Add(tempPet);
-            }
-            categoryPet.Close();
-            return AllPet;
-        }
 
         public List<Product> ListProduct()
         {
-            MySqlCommand cmd = new MySqlCommand("select * from allproduct", con.ConnectionDB());
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM db_asp.allproduct", con.ConnectionDB());
             var ProductDatas = cmd.ExecuteReader();
             return ListAllProduct(ProductDatas);
         }
