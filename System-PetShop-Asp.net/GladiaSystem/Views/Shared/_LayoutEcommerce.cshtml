@@ -70,31 +70,12 @@
                         <div class="desktop-trigger">
                             <img src="~/Content/Imagens/Person.svg" alt="">
                             <div class="header-text">
-                                @{
-                                    if (Session["name"] == null)
-                                    {
-                                        <span class="desktop-primary-text">Entre</span>
-                                        <span class="desktop-secondary-text">ou cadastre-se</span>
-                                    }
-                                    else
-                                    {
-                                        <span class="desktop-primary-text">Olá, @Session["name"]</span>
-                                    }
-                                }
+                                <span class="desktop-primary-text">Olá, Entre</span>
+                                <span class="desktop-secondary-text">ou cadastre-se</span>
                             </div>
-
-                                @{
-                                    if (Session["name"] == null)
-                                    {
-
-                                    }
-                                    else
-                                    {
-                                        <div class="desktop-trigger-arrow">
-                                            <img src="~/Content/Imagens/ArrowDown.svg" alt="">
-                                        </div>
-                                    }
-                                }
+                            <div class="desktop-trigger-arrow">
+                                <img src="~/Content/Imagens/ArrowDown.svg" alt="">
+                            </div>
                         </div>
                     </nav>
                     <a class="desktop-cart" href="">

@@ -19,6 +19,11 @@
 
             <h1 class="form__title">Fazer Login</h1>
 
+            <div class="google-button">
+                <img class="google-icon" src="~/Content/Imagens/google.svg" alt="Logo da Google" />
+                <span class="google-text">Logar com Google</span>
+            </div>
+
             <div class="form__div">
                 @Html.ValidationMessageFor(m => m.email, "", new { @class = "text-danger" })
                 @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
@@ -31,7 +36,9 @@
                 <label for="" class="form__label">Senha</label>
             </div>
 
+            <span class="forgot-password">Esqueci minha conta</span>
             <button class="form__button">Entra na sua conta</button>
+
 
             <span class="create-account-text">
                 Não tem conta ainda?
