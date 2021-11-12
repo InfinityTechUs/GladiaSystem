@@ -79,7 +79,20 @@ namespace GladiaSystem.Controllers
             Session.Abandon();
             return RedirectToAction("Home", "HomeEcommerce");
         }
+        
+        [HttpPost]
+        public ActionResult UpdateProduct(Product product)
+        {
+            queries.UpdateProduct(product);
+            return View("Home");
+        }
 
+        public ActionResult ProductEdit(int productID)
+        {
+            Product product = new Product();
+            product = queries.GetProductByID(productID);
+            return View(product);
+        }
        
         public ActionResult Category()
         {
@@ -90,16 +103,27 @@ namespace GladiaSystem.Controllers
         [HttpPost]
         public ActionResult RegisterCategory(Category category)
         {
+            Queries queries = new Queries();
+            if (ModelState.IsValid && !queries.CategoryExists(category))
+            {
+                queries.RegisterCategory(category);
+                TempData["Success"] = "Feito! 😄";
+            }
+            else
+            {
+                ViewData["Error"] = "Opss, algo deu errado 😢.";
+            }
             return RedirectToAction("Category");
         }
 
-
         public ActionResult Product()
         {
-            var ShowProduct = new Queries();
-            ViewBag.AllAgenda = ShowProduct.ListProduct();
-            return View("Product");
+            Product product = new Product();
+
+            ViewBag.ListCategory = queries.ListCategory();
+            return View(product);
         }
+
         [HttpPost]
         public ActionResult RegisterProd(Product product)
         {

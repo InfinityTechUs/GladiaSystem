@@ -1,0 +1,70 @@
+﻿@model GladiaSystem.Models.Product
+
+@{
+    ViewBag.Title = "Editar Produto";
+    ViewBag.Selected = "productList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ProductEdit</title>
+    <link href="~/Content/Partials/Product.css" rel="stylesheet" />
+</head>
+<body>
+    @using (Html.BeginForm("UpdateProduct", "Home", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <fieldset>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ID)
+
+            <div class="input-block">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control product-edit" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="input-block">
+                @Html.LabelFor(model => model.Desc, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.Desc, new { htmlAttributes = new { @class = "form-control product-edit" } })
+                @Html.ValidationMessageFor(model => model.Desc, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="input-block">
+                @Html.LabelFor(model => model.Brand, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.Brand, new { htmlAttributes = new { @class = "form-control product-edit" } })
+                @Html.ValidationMessageFor(model => model.Brand, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="input-block">
+                @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control " } })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="input-block">
+                @Html.LabelFor(model => model.Quant, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.Quant, new { htmlAttributes = new { @class = "form-control product-edit" } })
+                @Html.ValidationMessageFor(model => model.Quant, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="input-block">
+                @Html.LabelFor(model => model.QuantMin, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.QuantMin, new { htmlAttributes = new { @class = "form-control product-edit" } })
+                @Html.ValidationMessageFor(model => model.QuantMin, "", new { @class = "text-danger" })
+            </div>
+
+            @Html.ActionLink("Voltar aos produtos", "ProductList", new { @class= "sub-button" })
+            
+        </fieldset>
+    
+    }
+
+</body>
+</html>
