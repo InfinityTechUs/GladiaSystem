@@ -28,6 +28,36 @@ namespace GladiaSystem.Database
         //    }
         //}
 
+        public string Login(User user)
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT user_lvl FROM tbl_user where user_email = @email and user_password=@password;", con.ConnectionDB());
+            cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = user.email;
+            cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = user.password;
+
+            MySqlDataReader reader;
+
+            reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    User dto = new User();
+                    {
+                        dto.userLvl = Convert.ToString(reader[0]);
+                        reader.Close();
+                        return dto.userLvl;
+                    }
+                }
+            }
+            else
+            {
+                user.userLvl = null;
+            }
+            reader.Close();
+            return "error";
+        }
+
         public string GetUserName(User user)
         {
             MySqlCommand cmd = new MySqlCommand("SELECT user_name FROM tbl_user where user_email = @email and user_password=@password;", con.ConnectionDB());
@@ -92,37 +122,37 @@ namespace GladiaSystem.Database
             return "error";
         }
 
-        //public string GetUserID(User user)
-        //{
-        //    MySqlCommand cmd = new MySqlCommand("SELECT user_id FROM tbl_user where user_email = @email and user_password=@password;", con.ConnectionDB());
-        //    cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = user.email;
-        //    cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = user.password;
+        public string GetUserID(User user)
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT user_id FROM tbl_user where user_email = @email and user_password=@password;", con.ConnectionDB());
+            cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = user.email;
+            cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = user.password;
 
-        //    MySqlDataReader reader;
+            MySqlDataReader reader;
 
-        //    reader = cmd.ExecuteReader();
+            reader = cmd.ExecuteReader();
 
-        //    if (reader.HasRows)
-        //    {
-        //        while (reader.Read())
-        //        {
-        //            User dto = new User();
-        //            {
-        //                dto.userID = Convert.ToString(reader[0]);
-        //                reader.Close();
-        //                return dto.userID;
-        //            }
-        //        }
-        //    }
-        //    else
-        //    {
-        //        user.userLvl = null;
-        //        reader.Close();
-        //        return "error";
-        //    }
-        //    reader.Close();
-        //    return "error";
-        //}   
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    User dto = new User();
+                    {
+                        dto.userID = Convert.ToString(reader[0]);
+                        reader.Close();
+                        return dto.userID;
+                    }
+                }
+            }
+            else
+            {
+                user.userLvl = null;
+                reader.Close();
+                return "error";
+            }
+            reader.Close();
+            return "error";
+        }
 
         public string GetUserImages(string UserID)
         {

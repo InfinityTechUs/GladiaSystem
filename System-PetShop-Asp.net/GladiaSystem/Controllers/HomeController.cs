@@ -19,6 +19,8 @@ namespace GladiaSystem.Controllers
         // GET: Home
         public ActionResult Home()
         {
+            ViewBag.CategoryQuant = queries.ListCategoryQuant();
+
             return View();
         }
 
