@@ -15,10 +15,11 @@
         <header class="nav-mobile-header">
             <div class="nav-identification">
                 <div class="mobile-logo" onclick="closeNav()"><img src="~/Content/Imagens/mobile-nav-logo.svg" alt="" class="response-logo"></div>
-                @{ 
-                    if(Session["name"] == null)
+                @{
+                    if (Session["name"] == null)
                     {
-
+                        @Html.ActionLink("Entre", "Login", new { controller = "LoginEcommerce" }, new { @class = "desktop-primary-text" })
+                        @Html.ActionLink("ou cadastre-se", "Register", new { controller = "LoginEcommerce" }, new { @class = "desktop-secondary-text" })
                     }
                     else
                     {
@@ -35,10 +36,15 @@
                 {
                     <ul class="nav-account-link">
                         <li class="nav-links-item">
-                            <a class="account-links" href="">Minha conta <img src="~/Content/Imagens/arrow-left.svg" alt="" class="arrow-left"></a>
+                              <a href="@Url.Action("MyAccount", "AccountEcommerce")">
+                                <p class="account-links">Minha conta<img src="~/Content/Imagens/arrow-left.svg" alt="arrow-left" /></p> 
+                            </a>
+
                         </li>
                         <li class="nav-links-item">
-                            <a class="account-links" href="">Meus pedidos <img src="~/Content/Imagens/arrow-left.svg" alt="" class="arrow-left"></a>
+                            <a href="@Url.Action("TrackOrder", "AccountEcommerce")">
+                                <p class="account-links">Meus pedidos<img src="~/Content/Imagens/arrow-left.svg" alt="arrow-left" /></p> 
+                            </a>
                         </li>
                     </ul>
                 }
@@ -118,7 +124,10 @@
                                                 @Html.ActionLink("Minha conta", "MyAccount", new { controller = "AccountEcommerce" }, new { @class = "" })
                                                 @Html.ActionLink("Meus pedidos", "TrackOrder", new { controller = "AccountEcommerce" }, new { @class = "" })
                                                 <hr />
-                                                <a href="#" class="dropdown-exit">Sair</a>
+                                                <a href="@Url.Action("Logout", "Home")">
+                                                    <span class="dropdown-exit">Sair</span>
+                                                </a>
+                                        
                                             </div>
                                         </div>
                                     </div>

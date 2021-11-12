@@ -22,5 +22,12 @@ namespace GladiaSystem.Controllers
         {
             return View();
         }
+
+        public ActionResult Logout()
+        {
+            Session.Remove("access");
+            Session.Abandon();
+            return RedirectToAction("Home", "HomeEcommerce");
+        }
     }
 }

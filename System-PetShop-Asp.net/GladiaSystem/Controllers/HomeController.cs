@@ -77,7 +77,7 @@ namespace GladiaSystem.Controllers
         {
             Session.Remove("access");
             Session.Abandon();
-            return RedirectToAction("Login", "Login");
+            return RedirectToAction("Home", "HomeEcommerce");
         }
 
         public ActionResult Pet()
