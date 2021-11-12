@@ -90,7 +90,7 @@ namespace GladiaSystem.Controllers
         [HttpPost]
         public ActionResult RegisterCategory(Category category)
         {
-                return RedirectToAction("Category");
+            return RedirectToAction("Category");
         }
 
 

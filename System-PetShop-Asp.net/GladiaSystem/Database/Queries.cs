@@ -204,7 +204,37 @@ namespace GladiaSystem.Database
             con.DisconnectDB();
 
         }
-        
+
+        public void RegisterUserEcommerce(User user)
+        {
+
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_user` (`user_cpf`, `user_phone`, `user_name`, `user_email`, `user_password`,`user_lvl`) VALUES(@cpf, @phone, @name, @mail, @password, '0'); ", con.ConnectionDB());
+            cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = user.Cpf;
+            cmd.Parameters.Add("@phone", MySqlDbType.VarChar).Value = user.Celular;
+            cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = user.name;
+            cmd.Parameters.Add("@mail", MySqlDbType.VarChar).Value = user.email;
+            cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = user.password;
+
+
+            cmd.ExecuteNonQuery();
+            con.DisconnectDB();
+
+        }
+
+        public void RegisterNewAddress(User user, int userIDInt) {
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_address` (`address_cep`, `address_uf`, `address_city`, `address_district`, `address_public_place`, `address_complement`, `fk_user_id`) VALUES (@cep, @uf, @city, @district, @place, @complement, @user_id); ", con.ConnectionDB());
+            cmd.Parameters.Add("@cep", MySqlDbType.VarChar).Value = user.Cep;
+            cmd.Parameters.Add("@uf", MySqlDbType.VarChar).Value = user.UF;
+            cmd.Parameters.Add("@city", MySqlDbType.VarChar).Value = user.City;
+            cmd.Parameters.Add("@district", MySqlDbType.VarChar).Value = user.District;
+            cmd.Parameters.Add("@place", MySqlDbType.VarChar).Value = user.PublicPlace;
+            cmd.Parameters.Add("@complement", MySqlDbType.VarChar).Value = user.Complement;
+            cmd.Parameters.Add("@user_id", MySqlDbType.VarChar).Value = userIDInt;
+
+            cmd.ExecuteNonQuery();
+            con.DisconnectDB();
+        }
+
         public void RegisterProd(Product product, string path)
         {
             MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_product` (`prod_name`, `prod_desc`, `prod_brand`, `prod_price`, `prod_quant`, `prod_img`, `prod_min_quant`, `fk_category`) VALUES(@Name, @Desc, @Brand, @Price, @Quant, @Img, @QuantMin, @CategoryID);", con.ConnectionDB());

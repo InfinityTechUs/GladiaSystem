@@ -12,10 +12,11 @@
     <link href="~/Content/rootE.css" rel="stylesheet" />
     <link href="~/Content/PartialsEcommerce/LogginEcommerce.css" rel="stylesheet" />
     <link href="~/Content/PartialsEcommerce/Register.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="l-form">
-        @using (Html.BeginForm("RegisterUserEcommerce", "RegisterEcommerce", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form" }))
+        @using (Html.BeginForm("RegisterNewAddress", "LoginEcommerce", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form" }))
         {
             <a href="@Url.Action("Home", "HomeEcommerce")">
                 <img class="logo" src="~/Content/Imagens/logo-bill.svg" alt="D da Dom Tchochoro" />
