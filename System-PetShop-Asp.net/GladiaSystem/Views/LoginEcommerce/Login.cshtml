@@ -15,7 +15,9 @@
     <div class="l-form">
         @using (Html.BeginForm("LoginUser", "LoginEcommerce", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form" }))
         {
-            <img class="logo" src="~/Content/Imagens/logo-bill.svg" alt="D da Dom Tchochoro" />
+            <a href="@Url.Action("Home", "HomeEcommerce")">
+                <img class="logo" src="~/Content/Imagens/logo-bill.svg" alt="D da Dom Tchochoro" />
+            </a>
 
             <h1 class="form__title">Fazer Login</h1>
 

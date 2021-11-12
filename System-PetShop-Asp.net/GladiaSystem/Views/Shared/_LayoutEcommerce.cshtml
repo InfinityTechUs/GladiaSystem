@@ -55,7 +55,9 @@
             </div>
             <div class="desktop-main">
                 <div class="desktop-container container">
-                    <a href="" class="desktop-main-logo"><img src="~/Content/Imagens/Logo-mobile.svg" alt=""></a>
+                    <a href="@Url.Action("Home", "HomeEcommerce")">
+                        <img src="~/Content/Imagens/Logo-mobile.svg" class="desktop-main-logo" alt="Logo">
+                    </a>
                     <form class="desktop-search" action="/">
                         <input value="product"
                                type="hidden">
@@ -70,16 +72,24 @@
                         <div class="desktop-trigger">
                             <img src="~/Content/Imagens/Person.svg" alt="">
                             <div class="header-text">
-                                <span class="desktop-primary-text">Olá, Entre</span>
-                                <span class="desktop-secondary-text">ou cadastre-se</span>
+                                @Html.ActionLink("Olá,Entre", "Login", new { controller = "LoginEcommerce" }, new { @class = "desktop-primary-text" })
+                                @Html.ActionLink("ou cadastre-se", "Register", new { controller = "LoginEcommerce" }, new { @class = "desktop-secondary-text" })
                             </div>
                             <div class="desktop-trigger-arrow">
-                                <img src="~/Content/Imagens/ArrowDown.svg" alt="">
+                                <div class="dropdown">
+                                    <button class="dropbtn"><img src="~/Content/Imagens/ArrowDown.svg" alt=""></button>
+                                    <div class="dropdown-content">
+                                        @Html.ActionLink("Minha conta", "MyAccount", new { controller = "AccountEcommerce" }, new { @class = "" })
+                                        @Html.ActionLink("Meus pedidos", "TrackOrder", new { controller = "AccountEcommerce" }, new { @class = "" })
+                                        <hr />
+                                        <a href="#" class="dropdown-exit">Sair</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </nav>
-                    <a class="desktop-cart" href="">
-                        <img src="~/Content/Imagens/Cart.svg" alt="">
+                    <a href="@Url.Action("Cart", "PaymentEcommerce")">
+                        <img src="~/Content/Imagens/Cart.svg" alt="Carrinho" class="desktop-cart">
                     </a>
                 </div>
             </div>
@@ -109,8 +119,12 @@
         <header class="mobile-header">
             <div class="mobile-main">
                 <button class="mobile-trigger" Onclick="openNav()"><img src="~/Content/Imagens/menu.svg" alt="menu" class="mobile-menu-image"></button>
-                <a href="" class="mobile-logo"><img src="~/Content/Imagens/Logo-mobile.svg" alt="logo" class="mobile-menu-logo"></a>
-                <a href="" class="mobile-cart"><img src="~/Content/Imagens/Cart.svg" alt="" class="mobile-menu-cart"></a>
+                <a href="@Url.Action("Home", "HomeEcommerce")">
+                    <img src="~/Content/Imagens/Logo-mobile.svg" class="mobile-menu-logo" alt="Logo">
+                </a>
+                <a href="@Url.Action("Cart", "PaymentEcommerce")">
+                    <img src="~/Content/Imagens/Cart.svg" alt="Carrinho" class="mobile-menu-cart">
+                </a>
             </div>
             <form action="" class="mobile-search-bar">
                 <input name="post_type"

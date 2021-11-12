@@ -227,11 +227,13 @@
     display: block;
     font-size: 14px;
     font-weight: 700;
+    color: #f4f4f4;
 }
 
 .desktop-secondary-text {
     font-size: 14px;
     font-weight: 300;
+    color: #f4f4f4;
 }
 
 .desktop-trigger-arrow {
@@ -445,6 +447,63 @@ footer {
 .footer-copyright {
     color: #fff;
     margin-top: 10px;
+}
+
+.dropbtn {
+    background-color: #288BE9;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+.dropdown {
+    background-color: #FAFAFA;
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    z-index: 1;
+    background-color: #ffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.21);
+    border-radius: 8px;
+    border-style: none;
+   
+}
+
+.dropdown-content a {
+    padding: 15px 14px 10px 17px;
+    font-size: 14px;
+    color: #252733;
+    padding: 15px 12px;
+    text-decoration: none;
+    display: block;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.dropdown-exit {
+     padding: 7px !important;
+    line-height: 20px;
+    font-weight: bold !important;
+    color: #2B94F9 !important;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top-color: currentcolor;
+    border-top-style: none;
+    border-top-width: 0px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 @media(max-width: 1136px) {
