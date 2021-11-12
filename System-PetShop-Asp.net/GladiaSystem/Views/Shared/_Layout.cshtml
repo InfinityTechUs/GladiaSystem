@@ -59,41 +59,6 @@
                         </li>
 
                         <li class="sidebar">
-                            @if (ViewBag.Selected == "agenda")
-                            {
-                                <a id="activated">
-                                    <img src="~/Content/Imagens/agenda-selected.svg" alt="Schedule" />
-                                    <span>Agenda</span>
-                                </a>
-                            }
-                            else
-                            {
-                                <a href="@Url.Action("Agenda", "Home")">
-                                    <img src="~/Content/Imagens/agenda.svg" alt="Schedule" />
-                                    <span>Agenda</span>
-                                </a>
-
-                            }
-                        </li>
-
-                        <li class="sidebar">
-                            @if (ViewBag.Selected == "pdv")
-                            {
-                                <a id="activated" href="#">
-                                    <img src="~/Content/Imagens/dollar-selected.svg" alt="Pdv dollar" />
-                                    <span>PDV</span>
-                                </a>
-                            }
-                            else
-                            {
-                                <a href="@Url.Action("POS", "Home")">
-                                    <img src="~/Content/Imagens/dollar.svg" alt="Pdv dollar" />
-                                    <span>PDV</span>
-                                </a>
-                            }
-
-                        </li>
-                        <li class="sidebar">
                             @if (ViewBag.Selected == "func")
                             {
                                 <a id="activated" href="#">
@@ -124,24 +89,6 @@
                                     <span>Cadastrar Admin</span>
                                 </a>
                             }
-                        </li>
-                        <li class="sidebar">
-                            @if (ViewBag.Selected == "pet")
-                            {
-                                <a id="activated" href="#">
-                                    <img src="~/Content/Imagens/func-pet-selected.svg" alt="Register pet" />
-                                    <span>Cadastrar Pet</span>
-                                </a>
-                            }
-                            else
-                            {
-                                <a href="@Url.Action("Pet", "Home")">
-                                    <img src="~/Content/Imagens/func-pet.svg" alt="Register pet" />
-                                    <span>Cadastrar Pet</span>
-                                </a>
-
-                            }
-
                         </li>
                         <li class="sidebar">
                             @if (ViewBag.Selected == "category")
@@ -191,24 +138,6 @@
                                     <img src="~/Content/Imagens/eng.svg" alt="Register category" />
                                     <span>Configurações</span>
                                 </a>
-                            }
-
-                        </li>
-                        <li class="sidebar">
-                            @if (ViewBag.Selected == "language")
-                            {
-                                <a id="activated" href="#">
-                                    <img src="~/Content/Imagens/ido-selected.svg" alt="Register category" />
-                                    <span>Idiomas</span>
-                                </a>
-                            }
-                            else
-                            {
-                                <a href="#">
-                                    <img src="~/Content/Imagens/ido.svg" alt="Register category" />
-                                    <span>Idiomas</span>
-                                </a>
-
                             }
 
                         </li>

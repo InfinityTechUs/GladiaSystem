@@ -11,17 +11,20 @@
     <link href="~/Content/rootE.css" rel="stylesheet" />
     <link href="~/Content/PartialsEcommerce/LogginEcommerce.css" rel="stylesheet" />
     <link href="~/Content/PartialsEcommerce/Register.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="l-form">
-        @using (Html.BeginForm("RegisterUserEcommerce", "RegisterEcommerce", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form" }))
+        @using (Html.BeginForm("RegisterUserEcommerce", "LoginEcommerce", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form" }))
         {
-             <a href="@Url.Action("Home", "HomeEcommerce")">
+
+            <a href="@Url.Action("Home", "HomeEcommerce")">
                 <img class="logo" src="~/Content/Imagens/logo-bill.svg" alt="D da Dom Tchochoro" />
             </a>
 
             <h1 class="form__title">Criar conta</h1>
 
+            @Html.ValidationSummary(true)
             <div class="form__div">
                 @Html.ValidationMessageFor(m => m.email, "", new { @class = "text-danger" })
                 @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
@@ -52,7 +55,10 @@
                 <label for="" class="form__label">Digite sua senha</label>
             </div>
 
-            @Html.ActionLink("Próxima", "RegisterAddress", new { controller = "LoginEcommerce" }, new { @class = "form__button" })
+            //@Html.ActionLink("Próxima", "RegisterAddress", new { controller = "LoginEcommerce" }, new { @class = "form__button" })
+
+
+            <button class="form__button" type="submit">Próxima</button>
 
             <span class="create-account-text">
                 Já tem uma conta?

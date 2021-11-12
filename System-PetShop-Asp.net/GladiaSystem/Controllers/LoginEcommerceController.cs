@@ -11,6 +11,8 @@ namespace GladiaSystem.Controllers
     public class LoginEcommerceController : Controller
     {
          Queries queries = new Queries();
+        private string userID;
+
         // GET: LoginEcommerce
         public ActionResult Login()
         {
@@ -18,14 +20,11 @@ namespace GladiaSystem.Controllers
             return View(user);
         }
 
-        public ActionResult Register()
-        {
-            return View();
-        }
 
         public ActionResult RegisterAddress()
         {
-            return View();
+            User user = new User();
+            return View(user);
         }
 
         [HttpPost]
@@ -50,6 +49,32 @@ namespace GladiaSystem.Controllers
             {
                 return Redirect("Login");
             }
+        }
+         public ActionResult Register()
+        {
+            User user = new User();
+            return View(user);
+
+        }
+
+        [HttpPost]
+        public ActionResult RegisterUserEcommerce(User user)
+        {
+            queries.RegisterUserEcommerce(user);
+            Session["normalUserID"] = queries.GetUserID(user);
+            return RedirectToAction("RegisterAddress");
+
+        }
+
+        [HttpPost]
+        public ActionResult RegisterNewAddress(User user)
+        {
+            //string userID = Session["normalUserID"];
+            userID = (string)(Session["normalUserID"]);
+            int userIDInt = Convert.ToInt32(userID);
+            queries.RegisterNewAddress(user, userIDInt);
+
+            return RedirectToAction("Login");
         }
     }
 }
