@@ -15,16 +15,34 @@
         <header class="nav-mobile-header">
             <div class="nav-identification">
                 <div class="mobile-logo" onclick="closeNav()"><img src="~/Content/Imagens/mobile-nav-logo.svg" alt="" class="response-logo"></div>
-                <div class="identification-name">Vitor Vieira de Oliveira</div>
+                @{ 
+                    if(Session["name"] == null)
+                    {
+
+                    }
+                    else
+                    {
+                        <div class="identification-name">@Session["name"]</div>
+                    }
+                }
             </div>
-            <ul class="nav-account-link">
-                <li class="nav-links-item">
-                    <a class="account-links" href="">Minha conta <img src="~/Content/Imagens/arrow-left.svg" alt="" class="arrow-left"></a>
-                </li>
-                <li class="nav-links-item">
-                    <a class="account-links" href="">Meus pedidos <img src="~/Content/Imagens/arrow-left.svg" alt="" class="arrow-left"></a>
-                </li>
-            </ul>
+            @{
+                if (Session["name"] == null)
+                {
+
+                }
+                else
+                {
+                    <ul class="nav-account-link">
+                        <li class="nav-links-item">
+                            <a class="account-links" href="">Minha conta <img src="~/Content/Imagens/arrow-left.svg" alt="" class="arrow-left"></a>
+                        </li>
+                        <li class="nav-links-item">
+                            <a class="account-links" href="">Meus pedidos <img src="~/Content/Imagens/arrow-left.svg" alt="" class="arrow-left"></a>
+                        </li>
+                    </ul>
+                }
+            }
         </header>
         <img src="~/Content/Imagens/arrow-left.svg" alt="">
         <div class="nav-mobile-scroll">
@@ -84,6 +102,8 @@
                                 }
                             }
 
+                            
+                            </div>
                             @{
                                 if (Session["name"] == null)
                                 {
@@ -92,23 +112,18 @@
                                 else
                                 {
                                     <div class="desktop-trigger-arrow">
-                                        <img src="~/Content/Imagens/ArrowDown.svg" alt="">
+                                        <div class="dropdown">
+                                            <button class="dropbtn"><img src="~/Content/Imagens/ArrowDown.svg" alt=""></button>
+                                            <div class="dropdown-content">
+                                                @Html.ActionLink("Minha conta", "MyAccount", new { controller = "AccountEcommerce" }, new { @class = "" })
+                                                @Html.ActionLink("Meus pedidos", "TrackOrder", new { controller = "AccountEcommerce" }, new { @class = "" })
+                                                <hr />
+                                                <a href="#" class="dropdown-exit">Sair</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 }
                             }
-                            
-                            </div>
-                            <div class="desktop-trigger-arrow">
-                                <div class="dropdown">
-                                    <button class="dropbtn"><img src="~/Content/Imagens/ArrowDown.svg" alt=""></button>
-                                    <div class="dropdown-content">
-                                        @Html.ActionLink("Minha conta", "MyAccount", new { controller = "AccountEcommerce" }, new { @class = "" })
-                                        @Html.ActionLink("Meus pedidos", "TrackOrder", new { controller = "AccountEcommerce" }, new { @class = "" })
-                                        <hr />
-                                        <a href="#" class="dropdown-exit">Sair</a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </nav>
                     <a href="@Url.Action("Cart", "PaymentEcommerce")">
