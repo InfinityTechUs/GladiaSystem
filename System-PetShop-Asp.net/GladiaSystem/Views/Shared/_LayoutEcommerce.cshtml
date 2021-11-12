@@ -72,8 +72,31 @@
                         <div class="desktop-trigger">
                             <img src="~/Content/Imagens/Person.svg" alt="">
                             <div class="header-text">
-                                @Html.ActionLink("Olá,Entre", "Login", new { controller = "LoginEcommerce" }, new { @class = "desktop-primary-text" })
-                                @Html.ActionLink("ou cadastre-se", "Register", new { controller = "LoginEcommerce" }, new { @class = "desktop-secondary-text" })
+                             @{
+                                if (Session["name"] == null)
+                                {
+                                    @Html.ActionLink("Entre", "Login", new { controller = "LoginEcommerce" }, new { @class = "desktop-primary-text" })
+                                    @Html.ActionLink("ou cadastre-se", "Register", new { controller = "LoginEcommerce" }, new { @class = "desktop-secondary-text" })
+                                }
+                                else
+                                {
+                                    <span class="desktop-primary-text">Olá, @Session["name"]</span>
+                                }
+                            }
+
+                            @{
+                                if (Session["name"] == null)
+                                {
+
+                                }
+                                else
+                                {
+                                    <div class="desktop-trigger-arrow">
+                                        <img src="~/Content/Imagens/ArrowDown.svg" alt="">
+                                    </div>
+                                }
+                            }
+                            
                             </div>
                             <div class="desktop-trigger-arrow">
                                 <div class="dropdown">
