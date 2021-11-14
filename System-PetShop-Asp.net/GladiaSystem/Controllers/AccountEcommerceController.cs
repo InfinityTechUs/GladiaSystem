@@ -12,10 +12,47 @@ namespace GladiaSystem.Controllers
     {
         public ActionResult MyAccount()
         {
-            return View();
+            User user = new User();
+            string userinfo = (string)Session["userID"];
+            user = queries.GetUser(userinfo);
+            return View(user);
         }
-        
+
         Queries queries = new Queries();
+
+        public ActionResult ChangeName()
+        {
+            string session = (string)Session["userID"];
+            User changeName = new User();
+            return View(changeName);
+        }
+
+        [HttpPost]
+        public ActionResult ChangeNam(User changeName)
+        {
+            string session = (string)Session["userID"];
+            queries.ChangeName(changeName.name, session);
+            return RedirectToAction("Login", "LoginEcommerce");
+        }
+
+        public ActionResult ChangePassword()
+        {
+            string session = (string)Session["userID"];
+            ViewBag.Img = queries.GetUserImages(session);
+            User changePassword = new User();
+            return View(changePassword);
+        }
+
+        [HttpPost]
+        public ActionResult ChangePass(User changePassword)
+        {
+            if (changePassword.password == changePassword.confPassword)
+            {
+                string session = (string)Session["userID"];
+                queries.ChangePass(changePassword.password, session);
+            }
+            return RedirectToAction("MyAccount", "AccountEcommerce");
+        }
 
         public ActionResult TrackOrder()
         {

@@ -26,7 +26,7 @@ namespace GladiaSystem.Models
         [Display(Name = "CPF (sem pontuação)")]
         [Required(ErrorMessage = "O CPF é obrigatório")]
         [RegularExpression(@"^.{11,}$", ErrorMessage = "Digite um CPF válido")]
-        public long Cpf { get; set; }
+        public string Cpf { get; set; }
 
         [RegularExpression(@"([a-zA-Z]{1,})([0-9]{1,})", ErrorMessage = "Insira uma senha válida (Uma letra maiúscula e um número)")]
         [Required(ErrorMessage = "A Senha é obrigatória!")]
@@ -36,7 +36,7 @@ namespace GladiaSystem.Models
         [Display(Name = "Celular (Com DDD)")]
         [Required(ErrorMessage = "O número de celular é obrigatório")]
         [RegularExpression(@"^.{11,}$", ErrorMessage = "Minímo de 11 número")]
-        public long Celular { get; set; }
+        public string Celular { get; set; }
 
         [RegularExpression(@"([a-zA-Z]{1,})([0-9]{1,})", ErrorMessage = "Insira uma senha válida (Uma letra maiúscula e um número)")]
         [Required(ErrorMessage = "A Confirmar senha é obrigatório!")]

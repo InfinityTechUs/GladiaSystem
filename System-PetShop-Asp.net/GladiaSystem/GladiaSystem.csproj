@@ -218,6 +218,7 @@
     <Content Include="Content\Imagens\grid.svg" />
     <Content Include="Content\Imagens\InfinityLogo.svg" />
     <Content Include="Content\Imagens\Instagram.svg" />
+    <Content Include="Content\Imagens\lock.svg" />
     <Content Include="Content\Imagens\Logo-mobile.svg" />
     <Content Include="Content\Imagens\menu.svg" />
     <Content Include="Content\Imagens\minibannericon.png" />

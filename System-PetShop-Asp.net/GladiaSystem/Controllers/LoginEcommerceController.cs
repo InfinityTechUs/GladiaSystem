@@ -43,7 +43,7 @@ namespace GladiaSystem.Controllers
             else if (acessLevel == "1")
             {
                 Session["access"] = "1";
-                return RedirectToAction("Home", "Home");
+                return RedirectToAction("Home", "HomeEcommerce");
             }
             else
             {

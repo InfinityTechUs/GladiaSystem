@@ -58,6 +58,41 @@ namespace GladiaSystem.Database
             return "error";
         }
 
+        public User GetUser(string userID)
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM tbl_user where (user_id = @user_id);", con.ConnectionDB());
+            cmd.Parameters.Add("@user_id", MySqlDbType.VarChar).Value = userID;
+
+            MySqlDataReader reader;
+
+            reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    User dto = new User();
+                    {
+                        dto.userID = Convert.ToString(reader[0]);
+                        dto.Cpf = Convert.ToString(reader[1]);
+                        dto.Celular = Convert.ToString(reader[2]);
+                        dto.name = Convert.ToString(reader[3]);
+                        dto.email = Convert.ToString(reader[4]);
+                        reader.Close();
+                        return dto;
+                    }
+                }
+            }
+            else
+            {
+                //return null;
+            }
+            reader.Close();
+            User a = new User();
+            return a;
+        }
+
+
         public string GetUserName(User user)
         {
             MySqlCommand cmd = new MySqlCommand("SELECT user_name FROM tbl_user where user_email = @email and user_password=@password;", con.ConnectionDB());
@@ -89,6 +124,7 @@ namespace GladiaSystem.Database
             reader.Close();
             return "error";
         }
+
 
         public string GetUserEmail(User user)
         {
@@ -153,6 +189,7 @@ namespace GladiaSystem.Database
             reader.Close();
             return "error";
         }
+
 
         public string GetUserImages(string UserID)
         {

@@ -143,6 +143,17 @@
     justify-content: center;
 }
 
+.shortcut-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.form__input:disabled {
+    border-color: #EAEBED;
+}
+
 @media (max-width: 1140px) {
     .info-text {
         margin-right: 20px;
