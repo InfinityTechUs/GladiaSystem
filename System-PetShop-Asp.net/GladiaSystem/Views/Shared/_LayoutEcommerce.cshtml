@@ -96,24 +96,43 @@
                         <div class="desktop-trigger">
                             <img src="~/Content/Imagens/Person.svg" alt="">
                             <div class="header-text">
-                             @{
-                                if (Session["name"] == null)
-                                {
-                                    @Html.ActionLink("Entre", "Login", new { controller = "LoginEcommerce" }, new { @class = "desktop-primary-text" })
-                                    @Html.ActionLink("ou cadastre-se", "Register", new { controller = "LoginEcommerce" }, new { @class = "desktop-secondary-text" })
+                                @{
+                                    if (Session["name"] == null)
+                                    {
+                                        @Html.ActionLink("Entre", "Login", new { controller = "LoginEcommerce" }, new { @class = "desktop-primary-text" })
+                                        @Html.ActionLink("ou cadastre-se", "Register", new { controller = "LoginEcommerce" }, new { @class = "desktop-secondary-text" })
+                                    }
+                                    else
+                                    {
+                                        <span class="desktop-primary-text">Olá, @Session["name"]</span>
+                                    }
                                 }
-                                else
-                                {
-                                    <span class="desktop-primary-text">Olá, @Session["name"]</span>
-                                }
-                            }
 
-                            
+
                             </div>
                             @{
+                                string userinfo = (string)Session["access"];
+
                                 if (Session["name"] == null)
                                 {
-
+                                    
+                                }
+                                else if (userinfo == "1")
+                                {
+                                    <div class="desktop-trigger-arrow">
+                                        <div class="dropdown">
+                                            <button class="dropbtn"><img src="~/Content/Imagens/ArrowDown.svg" alt=""></button>
+                                            <div class="dropdown-content">
+                                                @Html.ActionLink("Minha conta", "MyAccount", new { controller = "AccountEcommerce" }, new { @class = "" })
+                                                @Html.ActionLink("Meus pedidos", "TrackOrder", new { controller = "AccountEcommerce" }, new { @class = "" })
+                                                @Html.ActionLink("Dashbord", "Home", new { controller = "Home" }, new { @class = "" })
+                                                <hr />
+                                                <a href="@Url.Action("Logout", "Home")">
+                                                    <span class="dropdown-exit">Sair</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 }
                                 else
                                 {
@@ -125,9 +144,8 @@
                                                 @Html.ActionLink("Meus pedidos", "TrackOrder", new { controller = "AccountEcommerce" }, new { @class = "" })
                                                 <hr />
                                                 <a href="@Url.Action("Logout", "Home")">
-                                                    <span class="dropdown-exit">Sair</span>
+                                                    <span class="dropdown-exit">Sair </span>
                                                 </a>
-                                        
                                             </div>
                                         </div>
                                     </div>
