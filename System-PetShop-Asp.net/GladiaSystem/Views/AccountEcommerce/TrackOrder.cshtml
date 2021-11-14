@@ -1,6 +1,7 @@
 ﻿@{
     ViewBag.Title = "Meus Pedidos";
     Layout = "~/Views/Shared/_LayoutEcommerce.cshtml";
+    List<GladiaSystem.Models.Order> orders = ViewBag.AllOrders;
 }
 
 <head>
@@ -15,97 +16,32 @@
 <main class="main-track-order">
     <h2 class="title-track-order">Meus Pedidos</h2>
 
-    <section class="order-block">
-        <div class="number-order">
-            <h3 class="h3-order">Número do Pedido</h3>
-            <span class="span-order">#144</span>
-        </div>
-        <div class="date-order">
-            <h3 class="h3-order">Data</h3>
-            <span class="span-order">25/11/2021</span>
-        </div>
-        <div class="payment-order">
-            <h3 class="h3-order">Pagamento</h3>
-            <span class="span-order">PicPay</span>
-        </div>
-        <div class="subtotal-order">
-            <h3 class="h3-order">Total</h3>
-            <span class="span-order">R$ 144,00</span>
-        </div>
-        <div class="details-order">
-            @Html.ActionLink("Detalhes do pedido", "TrackOrderDetail", new { @class = "details-order-text" }, new { orderID = 1 })
-            <img class="external-link" src="~/Content/Imagens/external-link.svg" alt="abrir detalhes" />
-        </div>
-    </section>
+    @foreach (GladiaSystem.Models.Order item in orders)
+    { 
+        <section class="order-block">
+            <div class="number-order">
+                <h3 class="h3-order">Número do Pedido</h3>
+                <span class="span-order">#@item.ID</span>
+            </div>
+            <div class="date-order">
+                <h3 class="h3-order">Data</h3>
+                <span class="span-order">@item.DateOrder</span>
+            </div>
+            <div class="payment-order">
+                <h3 class="h3-order">Pagamento</h3>
+                <span class="span-order">@item.Payment</span>
+            </div>
+            <div class="subtotal-order">
+                <h3 class="h3-order">Total</h3>
+                <span class="span-order">R$ @item.PriceTotal</span>
+            </div>
+            <div class="details-order">
+                @Html.ActionLink("Detalhes do pedido", "TrackOrderDetail", new { @class = "details-order-text" }, new { orderID = item.ID })
+                <img class="external-link" src="~/Content/Imagens/external-link.svg" alt="abrir detalhes" />
+            </div>
+        </section>
+    }
 
-    <section class="order-block">
-        <div class="number-order">
-            <h3 class="h3-order">Número do Pedido</h3>
-            <span class="span-order">#144</span>
-        </div>
-        <div class="date-order">
-            <h3 class="h3-order">Data</h3>
-            <span class="span-order">25/11/2021</span>
-        </div>
-        <div class="payment-order">
-            <h3 class="h3-order">Pagamento</h3>
-            <span class="span-order">PicPay</span>
-        </div>
-        <div class="subtotal-order">
-            <h3 class="h3-order">Total</h3>
-            <span class="span-order">R$ 144,00</span>
-        </div>
-        <div class="details-order">
-            @Html.ActionLink("Detalhes do pedido", "TrackOrderDetail", new { @class = "details-order-text" }, new { orderID = 1 })
-            <img class="external-link" src="~/Content/Imagens/external-link.svg" alt="abrir detalhes" />
-        </div>
-    </section>
-
-    <section class="order-block">
-        <div class="number-order">
-            <h3 class="h3-order">Número do Pedido</h3>
-            <span class="span-order">#144</span>
-        </div>
-        <div class="date-order">
-            <h3 class="h3-order">Data</h3>
-            <span class="span-order">25/11/2021</span>
-        </div>
-        <div class="payment-order">
-            <h3 class="h3-order">Pagamento</h3>
-            <span class="span-order">PicPay</span>
-        </div>
-        <div class="subtotal-order">
-            <h3 class="h3-order">Total</h3>
-            <span class="span-order">R$ 144,00</span>
-        </div>
-        <div class="details-order">
-            @Html.ActionLink("Detalhes do pedido", "TrackOrderDetail", new { @class = "details-order-text" }, new { orderID = 1 })
-            <img class="external-link" src="~/Content/Imagens/external-link.svg" alt="abrir detalhes" />
-        </div>
-    </section>
-
-    <section class="order-block">
-        <div class="number-order">
-            <h3 class="h3-order">Número do Pedido</h3>
-            <span class="span-order">#144</span>
-        </div>
-        <div class="date-order">
-            <h3 class="h3-order">Data</h3>
-            <span class="span-order">25/11/2021</span>
-        </div>
-        <div class="payment-order">
-            <h3 class="h3-order">Pagamento</h3>
-            <span class="span-order">PicPay</span>
-        </div>
-        <div class="subtotal-order">
-            <h3 class="h3-order">Total</h3>
-            <span class="span-order">R$ 144,00</span>
-        </div>
-        <div class="details-order">
-            @Html.ActionLink("Detalhes do pedido", "TrackOrderDetail", new { @class = "details-order-text" }, new { orderID = 1 })
-            <img class="external-link" src="~/Content/Imagens/external-link.svg" alt="abrir detalhes" />
-        </div>
-    </section>
 </main>
 
 @Scripts.Render("~/bundles/jquery")

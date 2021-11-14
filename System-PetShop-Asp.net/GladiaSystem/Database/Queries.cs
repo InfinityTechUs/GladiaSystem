@@ -304,6 +304,63 @@ namespace GladiaSystem.Database
             con.DisconnectDB();
         }
 
+        public Order GetOrderByID(int orderID)
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM db_asp.tbl_order where order_id = @orderID;", con.ConnectionDB());
+            cmd.Parameters.Add("@orderID", MySqlDbType.VarChar).Value = orderID;
+
+            MySqlDataReader reader;
+
+            reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Order dto = new Order();
+                    {
+                        dto.DateOrder = Convert.ToString(reader[1]);
+
+                        reader.Close();
+                        return dto;
+                    }
+                }
+            }
+            else
+            {
+                //return null;
+            }
+            reader.Close();
+            Order orderReturn = new Order();
+            return orderReturn;
+        }
+
+        public List<Order> ListOrder(string ID)
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM db_asp.tbl_order where fk_id_user = @ID;", con.ConnectionDB());
+            cmd.Parameters.Add("@ID", MySqlDbType.VarChar).Value = ID;
+            var OrderDatas = cmd.ExecuteReader();
+            return ListAllOrder(OrderDatas);
+        }
+
+        public List<Order> ListAllOrder(MySqlDataReader dt)
+        {
+            var AllOrders = new List<Order>();
+            while (dt.Read())
+            {
+                var OrderTemp = new Order()
+                {
+                    ID = (dt["order_id"].ToString()),
+                    DateOrder = (dt["order_date"].ToString()),
+                    Payment = (dt["order_payment"].ToString()),
+                    PriceTotal = (dt["order_total"].ToString()),
+                };
+                AllOrders.Add(OrderTemp);
+            }
+            dt.Close();
+            return AllOrders;
+        }
+
         public Product GetProduct(string productName)
         {
             MySqlCommand cmd = new MySqlCommand("SELECT prod_id,prod_name,prod_desc,prod_brand,prod_price,prod_quant,prod_min_quant,fk_category,category_id,category_name, REPLACE(prod_img, '~/', '../') FROM db_asp.tbl_product join tbl_category on tbl_product.fk_category = tbl_category.category_id WHERE prod_name LIKE @name;", con.ConnectionDB());
