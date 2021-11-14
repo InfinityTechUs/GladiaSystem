@@ -43,17 +43,17 @@ use db_asp;
  
  create table if not exists tbl_order(
 	order_id int primary key auto_increment,
-    order_date timestamp,
+    order_date varchar(255),
     order_payment enum("PicPay"),
-    order_subtotal varchar(25),
     order_total varchar(25),
     fk_id_user int not null
 );
 
 create table if not exists tbl_items_order(
-	fk_id_order int auto_increment,
+	fk_id_order int,
     fk_id_prod int,
     items_quant int not null,
+    item_subtotal int,
     primary key(fk_id_order,fk_id_prod)
 );
 
@@ -124,7 +124,6 @@ DELIMITER ;
 
 call inserirDados();*/
 
-
 INSERT INTO `db_asp`.`tbl_user` (`user_cpf`, `user_phone`, `user_name`, `user_email`, `user_password`, `user_lvl`) VALUES ('22286781801', '994635598', 'Rafael Ioshi', 'rafa.ioshi@gmail.com', 'rafael00', '1');
 INSERT INTO `db_asp`.`tbl_category` (`category_name`) VALUES ('Comida');
 INSERT INTO `db_asp`.`tbl_category` (`category_name`) VALUES ('Brinquedos');
@@ -133,6 +132,3 @@ INSERT INTO `db_asp`.`tbl_product` (`prod_name`, `prod_desc`, `prod_brand`, `pro
 INSERT INTO `db_asp`.`tbl_address` (`address_cep`, `address_uf`, `address_city`, `address_district`, `address_public_place`, `address_complement`, `fk_user_id`) VALUES ('06020194', 'SP', 'Osasco', 'Parque Continental', 'Av Manoel Pedro Pimentel 200', 'Bl 15 Ap 81', '1');
 INSERT INTO `db_asp`.`tbl_user` (`user_cpf`, `user_phone`, `user_name`, `user_email`, `user_password`, `user_lvl`) VALUES ('23151315121', '994564511', 'Vitor Vieira', 'vitor@gmail.com', 'vitor00', '0');
 INSERT INTO `db_asp`.`tbl_user` (`user_cpf`, `user_phone`, `user_name`, `user_email`, `user_password`, `user_lvl`) VALUES ('23151315121', '994564511', 'Ioshi ', 'ioshi@gmail.com', 'ioshi00', '1');
-
-
-

@@ -184,6 +184,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Pet.cs" />
     <Compile Include="Models\Pos.cs" />
     <Compile Include="Models\Product.cs" />
