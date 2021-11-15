@@ -54,7 +54,7 @@
         <div class="nav-mobile-scroll">
             <ul class="mobile-menu">
                 <li class="menu-category">
-                    <button class="menu-category-label ">Todas as categorias<img class="img-menu" src="" alt=""></button>   
+                    <button class="menu-category-label ">Todas as categorias<img class="img-menu" src="" alt=""></button>
                 </li>
                 <li class="menu-category">
                     <button class="menu-category-label ">Gatos<img class="img-menu" src="" alt=""></button>
@@ -162,7 +162,7 @@
                 <div class="desktop-nav-container container">
                     <ul class="desktop-nav-menu">
                         <li class="desktop-nav-parent">
-                            <a class="blue-nav-category" href="">Todas⠀as⠀categorias</a>
+                            @Html.ActionLink("Todas as categorias", "Search", new { controller = "HomeEcommerce" }, new { @class = "blue-nav-category" })
                         </li>
                         <li class="desktop-nav-parent">
                             <a class="nav-category" href="">Gatos</a>

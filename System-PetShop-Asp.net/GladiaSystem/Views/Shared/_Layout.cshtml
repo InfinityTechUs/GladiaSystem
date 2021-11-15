@@ -57,23 +57,6 @@
 
                             }
                         </li>
-
-                        <li class="sidebar">
-                            @if (ViewBag.Selected == "func")
-                            {
-                                <a id="activated" href="#">
-                                    <img src="~/Content/Imagens/funcregister-selected.svg" alt="Register official" />
-                                    <span>Cadastrar Funcionário</span>
-                                </a>
-                            }
-                            else
-                            {
-                                <a href="@Url.Action("Employee", "Home")">
-                                    <img src="~/Content/Imagens/funcregister.svg" alt="Register official" />
-                                    <span>Cadastrar Funcionário</span>
-                                </a>
-                            }
-                        </li>
                         <li class="sidebar">
                             @if (ViewBag.Selected == "adm")
                             {

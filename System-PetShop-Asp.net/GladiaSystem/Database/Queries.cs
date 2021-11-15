@@ -291,7 +291,9 @@ namespace GladiaSystem.Database
 
         public void RegisterAdm(User adm, string path)
         {
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_user` (`user_name`, `user_email`, `user_password`, `user_img`, `user_lvl`) VALUES(@name, @email, @password, @img, '1');", con.ConnectionDB());
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_user` (`user_cpf`,`user_phone`,`user_name`, `user_email`, `user_password`, `user_img`, `user_lvl`) VALUES(@cpf, @phone, @name, @email, @password, @img, '1');", con.ConnectionDB());
+            cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = adm.Cpf;
+            cmd.Parameters.Add("@phone", MySqlDbType.VarChar).Value = adm.Celular;
             cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = adm.name;
             cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = adm.email;
             cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = adm.password;
