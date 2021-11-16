@@ -32,6 +32,16 @@
                 @Html.EditorFor(model => model.name)
                 @Html.ValidationMessageFor(m => m.name, "", new { @class = "text-danger" })
             </div>
+              <div class="input-block">
+                <label for="name">CPF</label>
+                @Html.EditorFor(model => model.Cpf)
+                @Html.ValidationMessageFor(m => m.Cpf, "", new { @class = "text-danger" })
+            </div>
+               <div class="input-block">
+                <label for="name">Telefone</label>
+                @Html.EditorFor(model => model.Celular)
+                @Html.ValidationMessageFor(m => m.Celular, "", new { @class = "text-danger" })
+            </div>
 
             <div class="input-block">
                 <label for="avatar">

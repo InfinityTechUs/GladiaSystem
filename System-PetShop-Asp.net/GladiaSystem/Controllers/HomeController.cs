@@ -183,7 +183,7 @@ namespace GladiaSystem.Controllers
                 string session = (string)Session["userID"];
                 queries.ChangeName(changeName.name, session);
             }
-            return RedirectToAction("Login", "Login");
+            return RedirectToAction("Login", "LoginEcommerce");
         }
 
         [HttpPost]
