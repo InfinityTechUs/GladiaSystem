@@ -584,7 +584,7 @@ namespace GladiaSystem.Database
 
         public List<Product> ListProduct()
         {
-            MySqlCommand cmd = new MySqlCommand("select * from allproduct", con.ConnectionDB());
+            MySqlCommand cmd = new MySqlCommand("select * from allproduct;", con.ConnectionDB());
             var ProductDatas = cmd.ExecuteReader();
             return ListAllProduct(ProductDatas);
         }
