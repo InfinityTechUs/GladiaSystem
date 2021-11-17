@@ -1,6 +1,8 @@
-﻿@{
+﻿@model GladiaSystem.Models.Product
+@{
     Layout = "~/Views/Shared/_LayoutEcommerce.cshtml";
     ViewBag.Title = "Procurar";
+    List<GladiaSystem.Models.Product> products = ViewBag.AllProduct;
 }
 
 
@@ -73,90 +75,28 @@
 
 
                     <div class="products-item">
-                        <div class="product">
-                            <div class="card">
-                                <div class="card-body">
-                                    <img src="~/Content/Imagens/product.png" class="product-image">
-                                    <div class="information-card">
-                                        <p class="card-text">Anti Pulgas Vectra Ceva para Gatos...</p>
-                                        <p class="card-price">R$ 69,90</p>
-                                        @Html.ActionLink("Ver produto", "ProductSelected", new { controller = "HomeEcommerce" }, new { @class = "btn-card" })
+
+                        @foreach (GladiaSystem.Models.Product item in products)
+                        {
+                            <div class="product">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <img src="@item.img" class="product-image">
+                                        <div class="information-card">
+                                            <p class="card-text">@item.Name</p>
+                                            <p class="card-price">R$ @item.Price</p>
+                                            @*@Html.ActionLink("Ver produto", "Productected", new { controller = "HomeEcommerce" }, new { @class = "btn-card" })*@
+                                            <a href='@Url.Action("ProductSelected", "HomeEcommerce", new { ProductID = item.ID })'>
+                                                <button class="btn-card" type="submit">
+                                                    Ver produto
+                                                </button>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="product">
-                            <div class="card">
-                                <div class="card-body">
-                                    <img src="~/Content/Imagens/product.png" class="product-image">
-                                    <div class="information-card">
-                                        <p class="card-text">Anti Pulgas Vectra Ceva para Gatos...</p>
-                                        <p class="card-price">R$ 69,90</p>
-                                        @Html.ActionLink("Ver produto", "ProductSelected", new { controller = "HomeEcommerce" }, new { @class = "btn-card" })
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <div class="card">
-                                <div class="card-body">
-                                    <img src="~/Content/Imagens/product.png" class="product-image">
-                                    <div class="information-card">
-                                        <p class="card-text">Anti Pulgas Vectra Ceva para Gatos...</p>
-                                        <p class="card-price">R$ 69,90</p>
-                                        @Html.ActionLink("Ver produto", "ProductSelected", new { controller = "HomeEcommerce" }, new { @class = "btn-card" })
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <div class="card">
-                                <div class="card-body">
-                                    <img src="~/Content/Imagens/product.png" class="product-image">
-                                    <div class="information-card">
-                                        <p class="card-text">Anti Pulgas Vectra Ceva para Gatos...</p>
-                                        <p class="card-price">R$ 69,90</p>
-                                        @Html.ActionLink("Ver produto", "ProductSelected", new { controller = "HomeEcommerce" }, new { @class = "btn-card" })
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <div class="card">
-                                <div class="card-body">
-                                    <img src="~/Content/Imagens/product.png" class="product-image">
-                                    <div class="information-card">
-                                        <p class="card-text">Anti Pulgas Vectra Ceva para Gatos...</p>
-                                        <p class="card-price">R$ 69,90</p>
-                                        @Html.ActionLink("Ver produto", "ProductSelected", new { controller = "HomeEcommerce" }, new { @class = "btn-card" })
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <div class="card">
-                                <div class="card-body">
-                                    <img src="~/Content/Imagens/product.png" class="product-image">
-                                    <div class="information-card">
-                                        <p class="card-text">Anti Pulgas Vectra Ceva para Gatos...</p>
-                                        <p class="card-price">R$ 69,90</p>
-                                        @Html.ActionLink("Ver produto", "ProductSelected", new { controller = "HomeEcommerce" }, new { @class = "btn-card" })
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <div class="card">
-                                <div class="card-body">
-                                    <img src="~/Content/Imagens/product.png" class="product-image">
-                                    <div class="information-card">
-                                        <p class="card-text">Anti Pulgas Vectra Ceva para Gatos...</p>
-                                        <p class="card-price">R$ 69,90</p>
-                                        @Html.ActionLink("Ver produto", "ProductSelected", new { controller = "HomeEcommerce" }, new { @class = "btn-card" })
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        }
+
                     </div>
                 </div>
             </div>
