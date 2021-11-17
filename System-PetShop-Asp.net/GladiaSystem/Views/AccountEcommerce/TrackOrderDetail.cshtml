@@ -1,8 +1,8 @@
-﻿@model GladiaSystem.Models.Product
+﻿@model GladiaSystem.Models.TrackOrder
 
 @{
     Layout = null;
-    ViewBag.Title = "Editar Meus Pedidos";
+    List<GladiaSystem.Models.TrackOrder> trackOrders = ViewBag.AllOrders;
 }
 
 <!DOCTYPE html>
@@ -10,80 +10,76 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <title>TrackOrderDetail</title>
+    <link href="~/Content/Partials/Product.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/rootE.css" rel="stylesheet" />
+    <link href="~/Content/PartialsEcommerce/Cart.css" rel="stylesheet" />
+    <link href="~/Content/PartialsEcommerce/Payment.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;700;800&display=swap"
+          rel="stylesheet" />
+
 </head>
 <body>
     <div>
-        <h4>Product</h4>
+        <h4>TrackOrder</h4>
         <hr />
         <dl class="dl-horizontal">
             <dt>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.OrderID)
             </dt>
     
             <dd>
-                @Html.DisplayFor(model => model.Name)
+                @Html.DisplayFor(model => model.OrderID)
             </dd>
     
             <dt>
-                @Html.DisplayNameFor(model => model.Desc)
+                @Html.DisplayNameFor(model => model.Date)
             </dt>
     
             <dd>
-                @Html.DisplayFor(model => model.Desc)
+                @Html.DisplayFor(model => model.Date)
             </dd>
     
             <dt>
-                @Html.DisplayNameFor(model => model.Brand)
+                @Html.DisplayNameFor(model => model.Payment)
             </dt>
     
             <dd>
-                @Html.DisplayFor(model => model.Brand)
+                @Html.DisplayFor(model => model.Payment)
             </dd>
     
-            <dt>
-                @Html.DisplayNameFor(model => model.Price)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Price)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Quant)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Quant)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.QuantMin)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.QuantMin)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.img)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.img)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.CategoryName)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.CategoryName)
-            </dd>
-    
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="left" scope="col"></th>
+                        <th class="left" scope="col">Item</th>
+                        <th scope="col"></th>
+                        <th scope="col">Preço</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{int totalValueGlobal = 0; }
+
+                    @foreach (var item in trackOrders)
+                    {
+                        <tr>
+                            <td class="left"><img src="@item.Image"/></td>
+                            <td class="left">@item.Name</td>
+                            <th class="left" scope="row">x @item.Quant</th>
+                            @{
+                                int totalValue = item.Quant * item.Price;
+                                totalValueGlobal += totalValue;
+                            }
+                            <td>R$ @totalValue</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
         </dl>
     </div>
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
         @Html.ActionLink("Back to List", "Index")
     </p>
 </body>

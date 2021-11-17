@@ -36,7 +36,7 @@
                 <span class="span-order">R$ @item.PriceTotal</span>
             </div>
             <div class="details-order">
-                @Html.ActionLink("Detalhes do pedido", "TrackOrderDetail", new { @class = "details-order-text" }, new { orderID = item.ID })
+                @Html.ActionLink("Detalhes do pedido", "TrackOrderDetail", new { @class = "details-order-text", orderID = item.ID })
                 <img class="external-link" src="~/Content/Imagens/external-link.svg" alt="abrir detalhes" />
             </div>
         </section>

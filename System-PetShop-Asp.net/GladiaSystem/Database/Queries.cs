@@ -236,7 +236,7 @@ namespace GladiaSystem.Database
 
             MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_category` (`category_name`) VALUES (@name);", con.ConnectionDB());
             cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = category.name;
-          
+
             cmd.ExecuteNonQuery();
             con.DisconnectDB();
 
@@ -376,7 +376,7 @@ namespace GladiaSystem.Database
 
         public List<Order> ListOrder(string ID)
         {
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM db_asp.tbl_order where fk_id_user = @ID;", con.ConnectionDB());
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM db_asp.tbl_order where fk_id_user = @ID AND order_status = 1;", con.ConnectionDB());
             cmd.Parameters.Add("@ID", MySqlDbType.VarChar).Value = ID;
             var OrderDatas = cmd.ExecuteReader();
             return ListAllOrder(OrderDatas);
@@ -533,7 +533,7 @@ namespace GladiaSystem.Database
         private List<Category> ListAllCategory(MySqlDataReader categoryData)
         {
             var AllCategory = new List<Category>();
-           
+
             while (categoryData.Read())
             {
                 var tempCategory = new Category()
@@ -625,6 +625,132 @@ namespace GladiaSystem.Database
 
             cmd.ExecuteNonQuery();
             con.DisconnectDB();
+        }
+
+        public void OpenOrder(string owner, int totalValue)
+        {
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_order` (`order_date`, `order_payment`, `order_total`, `order_status`, `fk_id_user`) VALUES (@DateNow, 'PicPay', @TotalValue, '0', @Owner);", con.ConnectionDB());
+            DateTime aDate = DateTime.Now;
+            cmd.Parameters.Add("@DateNow", MySqlDbType.VarChar).Value = aDate.ToString("dd/MM/yyyy");
+            cmd.Parameters.Add("@Owner", MySqlDbType.VarChar).Value = owner;
+            cmd.Parameters.Add("@TotalValue", MySqlDbType.VarChar).Value = totalValue;
+
+            cmd.ExecuteNonQuery();
+            con.DisconnectDB();
+        }
+
+        public int GetOrderOpen(string userOwner)
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT order_id FROM db_asp.tbl_order where fk_id_user = @Owner AND order_status = 0;", con.ConnectionDB());
+            cmd.Parameters.Add("@Owner", MySqlDbType.VarChar).Value = userOwner;
+
+            MySqlDataReader reader;
+
+            reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    int dto = new int();
+                    {
+                        dto = Convert.ToInt32(reader[0]);
+                        reader.Close();
+                        return dto;
+                    }
+                }
+            }
+            reader.Close();
+            return 0;
+        }
+
+        public void InserItemsOrder(int orderOpenID, List<Product> productList)
+        {
+
+            foreach (var item in productList)
+            {
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_items_order` (`fk_id_order`, `fk_id_prod`, `items_quant`, `item_subtotal`) VALUES(@OrderOpenID, @ItemID, @ItemQuant, '60');", con.ConnectionDB());
+                int subTotalValue = item.Price * item.Quant;
+
+                cmd.Parameters.Add("@OrderOpenID", MySqlDbType.VarChar).Value = orderOpenID;
+                cmd.Parameters.Add("@ItemID", MySqlDbType.VarChar).Value = item.ID;
+                cmd.Parameters.Add("@ItemQuant", MySqlDbType.VarChar).Value = item.Quant;
+                cmd.Parameters.Add("@SubTotal", MySqlDbType.VarChar).Value = subTotalValue;
+
+                cmd.ExecuteNonQuery();
+                con.DisconnectDB();
+            }
+
+        }
+
+        public void CloseOrder(int orderOpenID)
+        {
+            MySqlCommand cmd = new MySqlCommand("UPDATE `db_asp`.`tbl_order` SET `order_status` = '1' WHERE (`order_id` = @OrderOpenID);", con.ConnectionDB());
+            cmd.Parameters.Add("@OrderOpenID", MySqlDbType.VarChar).Value = orderOpenID;
+
+            cmd.ExecuteNonQuery();
+            con.DisconnectDB();
+        }
+
+        public List<TrackOrder> Track(int orderID)
+        {
+            MySqlCommand cmd = new MySqlCommand("select * from trackOrder WHERE order_id = @OrderID", con.ConnectionDB());
+            cmd.Parameters.Add("@OrderID", MySqlDbType.VarChar).Value = orderID;
+            var TrackDatas = cmd.ExecuteReader();
+            return ListAllTrack(TrackDatas);
+        }
+
+        public List<TrackOrder> ListAllTrack(MySqlDataReader dt)
+        {
+            var AllTrack = new List<TrackOrder>();
+            while (dt.Read())
+            {
+                var TrackTemp = new TrackOrder()
+                {
+                    OrderID = int.Parse(dt["order_id"].ToString()),
+                    Name = (dt["prod_name"].ToString()),
+                    Payment = (dt["order_payment"].ToString()),
+                    Date = (dt["order_date"].ToString()),
+                    Desc = (dt["prod_desc"].ToString()),
+                    Price = int.Parse(dt["prod_price"].ToString()),
+                    Quant = int.Parse(dt["items_quant"].ToString()),
+                    Image = (dt["prod_img"].ToString())
+                };
+                AllTrack.Add(TrackTemp);
+            }
+            dt.Close();
+            return AllTrack;
+        }
+
+        public TrackOrder GetTrack(int orderID)
+        {
+            MySqlCommand cmd = new MySqlCommand("select * from trackOrder WHERE order_id = @OrderID", con.ConnectionDB());
+            cmd.Parameters.Add("@OrderID", MySqlDbType.VarChar).Value = orderID;
+
+            MySqlDataReader reader;
+
+            reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    TrackOrder dto = new TrackOrder();
+                    {
+                        dto.OrderID = Convert.ToInt32(reader[0]);
+                        dto.Date = Convert.ToString(reader[1]);
+                        dto.Payment = Convert.ToString(reader[2]);
+                        return dto;
+                    }
+                }
+            }
+            else
+            {
+                //return null;
+            }
+            reader.Close();
+
+            TrackOrder trackReturn = new TrackOrder();
+            return trackReturn;
         }
     }
 }

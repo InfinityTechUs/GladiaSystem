@@ -1,6 +1,7 @@
 ﻿@{
     ViewBag.Title = "Recibo";
     Layout = "~/Views/Shared/_LayoutEcommerce.cshtml";
+    List<GladiaSystem.Models.Product> products = ViewBag.AllProducts;
 }
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -54,10 +55,14 @@
     <div class="receipt">
         <div class="header">
             <img class="picpay-img" src="~/Content/Imagens/picpay.png" />
-            <p class="date-receipt">11/05/2021</p>
+            @{ 
+                DateTime aDate = DateTime.Now;
+                string dateNow = aDate.ToString("dd/MM/yyyy");
+            }
+            <p class="date-receipt">@dateNow</p>
         </div>
         <div class="second-line">
-            <p class="buy-text">Você comprou (3) items</p>
+            <p class="buy-text">Você comprou (@products.Count) items</p>
         </div>
         <h2 class="receipt-h2">Recibo:</h2>
         <table class="table">
@@ -69,22 +74,28 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="left">Arroz de cachorro 39kg</td>
-                    <th class="left" scope="row">x1</th>
-                    <td>R$ 40,99</td>
-                </tr>
-                <tr>
-                    <td class="left">Petisco de gato 1kg</td>
-                    <th class="left" scope="row">x2</th>
-                    <td>R$ 30,00</td>
-                </tr>
+                @{
+                    int totalValueGlobal = 0;
+                }
+                @foreach (var item in products)
+                {
+                    <tr>
+                        <td class="left">@item.Name</td>
+                        <th class="left" scope="row">x @item.Quant</th>
+                        <td>R$ @item.Price</td>
+                    </tr>
+
+                   
+                    int totalValue = item.Price * item.Quant;
+                    totalValueGlobal += totalValue;
+                    
+                }
             </tbody>
         </table>
 
         <div class="order-total">
             <span class="order-total-text">Total</span>
-            <span class="order-total-value">R$ 70,99</span>
+            <span class="order-total-value">R$ @totalValueGlobal</span>
         </div>
 
     </div>

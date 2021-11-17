@@ -191,6 +191,7 @@
     <Compile Include="Models\Pet.cs" />
     <Compile Include="Models\Pos.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\TrackOrder.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -437,8 +438,8 @@
     <Content Include="Views\AccountEcommerce\MyAccount.cshtml" />
     <Content Include="Views\AccountEcommerce\TrackOrder.cshtml" />
     <Content Include="Views\LoginEcommerce\RegisterAddress.cshtml" />
-    <Content Include="Views\AccountEcommerce\TrackOrderDetail.cshtml" />
     <Content Include="Views\Home\ProductEdit.cshtml" />
+    <Content Include="Views\AccountEcommerce\TrackOrderDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />

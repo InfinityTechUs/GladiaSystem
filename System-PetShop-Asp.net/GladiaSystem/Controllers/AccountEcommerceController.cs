@@ -63,9 +63,11 @@ namespace GladiaSystem.Controllers
 
         public ActionResult TrackOrderDetail(int orderID)
         {
-            Order order = new Order();
-            order = queries.GetOrderByID(orderID);
-            return View();
+            TrackOrder trackOrder = new TrackOrder();
+            ViewBag.AllOrders = queries.Track(orderID);
+            trackOrder = queries.GetTrack(orderID);
+
+            return View(trackOrder);
         }
 
         public ActionResult ProductEdit(int productID)
@@ -74,5 +76,6 @@ namespace GladiaSystem.Controllers
             product = queries.GetProductByID(productID);
             return View(product);
         }
+
     }
 }
