@@ -1,5 +1,6 @@
 ﻿using GladiaSystem.Database;
 using GladiaSystem.Models;
+using Hanssens.Net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,8 +35,19 @@ namespace GladiaSystem.Controllers
         [HttpPost]
         public ActionResult AddCart(Product product)
         {
+            var config = new LocalStorageConfiguration(){};
+            var storage = new LocalStorage(config);
+
+            int quantInput = product.Quant;
+
             product = queries.GetProductByID(product.ID);
-            return View();
+
+            product.Quant = quantInput;
+
+            storage.Store("DT"+product.ID, product);
+            storage.Persist();
+
+            return RedirectToAction("Cart", "PaymentEcommerce");
         }
 
         public ActionResult Logout()
@@ -43,6 +55,11 @@ namespace GladiaSystem.Controllers
             Session.Remove("access");
             Session.Abandon();
             return RedirectToAction("Home", "HomeEcommerce");
+        }
+
+        public ActionResult EmptyCart()
+        {
+            return View();
         }
     }
 }

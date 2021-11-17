@@ -32,7 +32,7 @@ use db_asp;
  Create Table if not exists tbl_product (
     prod_id int primary key auto_increment ,
     prod_name varchar(80) Not null,
-    prod_desc varchar(200) Not null,
+    prod_desc text Not null,
     prod_brand varchar(80) Not null,
     prod_price varchar(255) Not null,
     prod_quant int not null,
@@ -46,7 +46,7 @@ use db_asp;
     order_date varchar(255),
     order_payment enum("PicPay"),
     order_total varchar(25),
-    order_status varchar(2) not null,
+    order_status varchar(2) not null,/*0 = open and 1 = closed*/
     fk_id_user int not null
 );
 
@@ -91,6 +91,14 @@ FROM db_asp.tbl_product
 join tbl_category
 on tbl_product.fk_category = tbl_category.category_id;
 
+create view trackOrder as SELECT  o.order_id, o.order_date, o.order_payment,o.order_total, p.prod_name, p.prod_price, p.prod_desc, REPLACE(prod_img, "~/", "../") as prod_img, i.items_quant
+FROM db_asp.tbl_order as o
+JOIN tbl_items_order as i
+ON o.order_id = i.fk_id_order
+JOIN tbl_product as p
+ON p.prod_id = i.fk_id_prod;
+
+
 /*CREATE USER 'gladia'@'localhost' IDENTIFIED BY '123456';
 GRANT ALL PRIVILEGES ON db_asp.* TO 'gladia'@'localhost' WITH GRANT OPTION;
 
@@ -127,8 +135,9 @@ call inserirDados();*/
 INSERT INTO `db_asp`.`tbl_user` (`user_cpf`, `user_phone`, `user_name`, `user_email`, `user_password`, `user_lvl`) VALUES ('22286781801', '994635598', 'Rafael Ioshi', 'rafa.ioshi@gmail.com', 'rafael00', '1');
 INSERT INTO `db_asp`.`tbl_category` (`category_name`) VALUES ('Comida');
 INSERT INTO `db_asp`.`tbl_category` (`category_name`) VALUES ('Brinquedos');
-INSERT INTO `db_asp`.`tbl_product` (`prod_name`, `prod_desc`, `prod_brand`, `prod_price`, `prod_quant`, `prod_min_quant`, `fk_category`) VALUES ('Brinquedo Macaco Dom', 'Indicado para cães', 'Dom', '39', '5', '1', '2');
-INSERT INTO `db_asp`.`tbl_product` (`prod_name`, `prod_desc`, `prod_brand`, `prod_price`, `prod_quant`, `prod_min_quant`, `fk_category`) VALUES ('Brinquedo Fodase', 'fodase para cães', 'foda', '49', '15', '1', '2');
 INSERT INTO `db_asp`.`tbl_address` (`address_cep`, `address_uf`, `address_city`, `address_district`, `address_public_place`, `address_complement`, `fk_user_id`) VALUES ('06020194', 'SP', 'Osasco', 'Parque Continental', 'Av Manoel Pedro Pimentel 200', 'Bl 15 Ap 81', '1');
 INSERT INTO `db_asp`.`tbl_user` (`user_cpf`, `user_phone`, `user_name`, `user_email`, `user_password`, `user_lvl`) VALUES ('23151315121', '994564511', 'Vitor Vieira', 'vitor@gmail.com', 'vitor00', '0');
-INSERT INTO `db_asp`.`tbl_user` (`user_cpf`, `user_phone`, `user_name`, `user_email`, `user_password`, `user_lvl`) VALUES ('23151315121', '994564511', 'Ioshi ', 'ioshi@gmail.com', 'ioshi00', '1');
+INSERT INTO `db_asp`.`tbl_user` (`user_id`, `user_cpf`, `user_phone`, `user_name`, `user_email`, `user_password`, `user_img`, `user_lvl`) VALUES ('3', '23151315121', '994564511', 'Ioshi ', 'ioshi@gmail.com', 'ioshi00', '~/Images/58371762-5fbd-4163-bcef-6e21e24bb1fd_01.png', '1');
+INSERT INTO `db_asp`.`tbl_category` (`category_id`, `category_name`) VALUES ('3', 'Higiene');
+INSERT INTO `db_asp`.`tbl_product` (`prod_id`, `prod_name`, `prod_desc`, `prod_brand`, `prod_price`, `prod_quant`, `prod_img`, `prod_min_quant`, `fk_category`) VALUES ('1', 'Tapete Higiênico Petix Supersecão Max Citrus 30 Unidades', '- Indicado para cães;', 'Supersecão ', '68', '30', '~/Images/48412d34-a350-43af-be07-080621f64931_1.png', '5', '3');
+

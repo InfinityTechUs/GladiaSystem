@@ -1,5 +1,6 @@
 ﻿using GladiaSystem.Database;
 using GladiaSystem.Models;
+using Hanssens.Net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace GladiaSystem.Controllers
 {
     public class LoginEcommerceController : Controller
     {
-         Queries queries = new Queries();
+        Queries queries = new Queries();
         private string userID;
 
         // GET: LoginEcommerce
@@ -69,11 +70,9 @@ namespace GladiaSystem.Controllers
         [HttpPost]
         public ActionResult RegisterNewAddress(User user)
         {
-            //string userID = Session["normalUserID"];
             userID = (string)(Session["normalUserID"]);
             int userIDInt = Convert.ToInt32(userID);
             queries.RegisterNewAddress(user, userIDInt);
-
             return RedirectToAction("Login");
         }
     }
