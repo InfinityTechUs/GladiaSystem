@@ -146,6 +146,8 @@ namespace GladiaSystem.Controllers
             TempData["Success"] = "Feito! 😄";
             ViewBag.ListCategory = queries.ListCategory();
             return RedirectToAction("Product");
+
+
         }
 
         public ActionResult ChangePassword()

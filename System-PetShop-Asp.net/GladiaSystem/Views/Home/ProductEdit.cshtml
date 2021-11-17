@@ -60,10 +60,9 @@
                 @Html.ValidationMessageFor(model => model.QuantMin, "", new { @class = "text-danger" })
             </div>
 
-            @Html.ActionLink("Voltar aos produtos", "ProductList", new { controller = "Home" }, new { @class = "sub-button" })
-            
+            <button class="sub-button" type="submit">Editar</button>
+
         </fieldset>
-    
     }
 
 </body>

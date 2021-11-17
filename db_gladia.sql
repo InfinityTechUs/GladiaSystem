@@ -46,6 +46,7 @@ use db_asp;
     order_date varchar(255),
     order_payment enum("PicPay"),
     order_total varchar(25),
+    order_status varchar(2) not null,
     fk_id_user int not null
 );
 
@@ -121,14 +122,13 @@ begin
 		end if;
 end$$
 DELIMITER ;
-
 call inserirDados();*/ 
 
 INSERT INTO `db_asp`.`tbl_user` (`user_cpf`, `user_phone`, `user_name`, `user_email`, `user_password`, `user_lvl`) VALUES ('22286781801', '994635598', 'Rafael Ioshi', 'rafa.ioshi@gmail.com', 'rafael00', '1');
 INSERT INTO `db_asp`.`tbl_category` (`category_name`) VALUES ('Comida');
 INSERT INTO `db_asp`.`tbl_category` (`category_name`) VALUES ('Brinquedos');
-INSERT INTO `db_asp`.`tbl_product` (`prod_name`, `prod_desc`, `prod_brand`, `prod_price`, `prod_quant`, `fk_category`) VALUES ('Ração Golden Power Training', 'Indicada para cães adultos', 'Golden', '164', '10','1', '1');
 INSERT INTO `db_asp`.`tbl_product` (`prod_name`, `prod_desc`, `prod_brand`, `prod_price`, `prod_quant`, `prod_min_quant`, `fk_category`) VALUES ('Brinquedo Macaco Dom', 'Indicado para cães', 'Dom', '39', '5', '1', '2');
+INSERT INTO `db_asp`.`tbl_product` (`prod_name`, `prod_desc`, `prod_brand`, `prod_price`, `prod_quant`, `prod_min_quant`, `fk_category`) VALUES ('Brinquedo Fodase', 'fodase para cães', 'foda', '49', '15', '1', '2');
 INSERT INTO `db_asp`.`tbl_address` (`address_cep`, `address_uf`, `address_city`, `address_district`, `address_public_place`, `address_complement`, `fk_user_id`) VALUES ('06020194', 'SP', 'Osasco', 'Parque Continental', 'Av Manoel Pedro Pimentel 200', 'Bl 15 Ap 81', '1');
 INSERT INTO `db_asp`.`tbl_user` (`user_cpf`, `user_phone`, `user_name`, `user_email`, `user_password`, `user_lvl`) VALUES ('23151315121', '994564511', 'Vitor Vieira', 'vitor@gmail.com', 'vitor00', '0');
 INSERT INTO `db_asp`.`tbl_user` (`user_cpf`, `user_phone`, `user_name`, `user_email`, `user_password`, `user_lvl`) VALUES ('23151315121', '994564511', 'Ioshi ', 'ioshi@gmail.com', 'ioshi00', '1');

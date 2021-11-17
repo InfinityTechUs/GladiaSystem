@@ -1,4 +1,4 @@
-﻿
+﻿@model GladiaSystem.Models.Product
 @{
 
     Layout = "~/Views/Shared/_LayoutEcommerce.cshtml";
@@ -18,57 +18,46 @@
     @Scripts.Render("~/Scripts/lightslider.js")
 </head>
 <body>
- 
+
     <section class="container">
         <article class="row">
             <figure class="col-md-7 mb-3">
-                <img src="~/Content/Imagens/product.png" class="img-fluid" alt="Camiseta manga Comprida">
+                <img src="@Model.img" class="img-fluid" alt="Camiseta manga Comprida">
             </figure>
             <div class="col-md-5 mb-3 d-flex flex-column justify-content-around">
                 <article class="product-content container">
                     <div class="top-information">
-                        <h1 class="product-title">Snack Petz Cuidado Oral para Cães de Pequeno Porte</h1>
+                        <h1 class="product-title">@Model.Name</h1>
                         <div class="block-information">
-                            <span><strong>Código:</strong> 34534543534</span>
-                            <span class="product-brand"><strong>Marca:</strong> Petz</span>
+                            <span><strong>Código:</strong> @Model.ID</span>
+                            <span class="product-brand"><strong>Marca:</strong> @Model.Brand</span>
                         </div>
                         <hr>
-                        <p class="product-price">R$ 40,00</p>
-                        <p class="inventory">Em estoque</p>
+                        <p class="product-price">R$ @Model.Price</p>
+                        <p class="inventory">Em estoque</p><!--Verificar-->
                     </div>
                     <form action="#" class="form-button">
                         <div class="input-container">
-                            <button type="submit" class="buy-button">Adicionar ao carrinho</button>
-                            <button id="sub">-</button>
+                            @{ 
+                                int quantity = 0;
+                            }
+                            <a href='@Url.Action("AddCart", "HomeEcommerce", new { @class="buy-button", product = Model.ID, quant = quantity })'>
+                                Adicionar ao carrinho
+                            </a>
+                            <asp:button id="sub">-</asp:button>
                             <input type="text" id="qtyBox" readonly="" value="0" class="input-style">
                             <button id="add">+</button>
+
                         </div>
                     </form>
-                    <div class="more-information">
-                        <p class="more-information-title">Informações</p>
-                        <p>
-                            Indicado para cães;
-                            Ajuda na redução da placa bacteriana
-                            Auxilia na redução do acúmulo do tártaro
-                        </p>
-                    </div>
+
                 </article>
             </div>
         </article>
     </section>
     <section class="container">
         <h3 class="specifications-title">Especificações</h3>
-        <p>
-            Idade: Filhote, Sênior e Adulto <br>
-            Pet: Cachorros <br>
-            Porte de Raça: Pequeno<br>
-            Uso: Oral<br>
-            Tipo: Antipulgas e carrapatos<br>
-            Apresentação: Embalagem com 1 comprimido mastigável de 250 mg<br>
-            Composição: Cada 1 g contém: 136,4 mg de fluralaner e 1 g de excipiente q.s.p<br>
-            Indicação: Prevenção e tratamento de pulgas e carrapatos em cães com mais de 8 semanas de vida<br>
-            Código de barras: 8713184136992
-        </p>
+        <p>@Model.Desc</p>
         <hr>
     </section>
     <section class="container">

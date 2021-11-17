@@ -549,7 +549,7 @@ namespace GladiaSystem.Database
 
         public Product GetProductByID(int productID)
         {
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM db_asp.tbl_product where prod_id = @ID;", con.ConnectionDB());
+            MySqlCommand cmd = new MySqlCommand("select * from allproduct where prod_id = @ID;", con.ConnectionDB());
             cmd.Parameters.Add("@ID", MySqlDbType.VarChar).Value = productID;
 
             MySqlDataReader reader;
@@ -567,7 +567,8 @@ namespace GladiaSystem.Database
                         dto.Brand = Convert.ToString(reader[3]);
                         dto.Price = (int)Convert.ToDouble(reader[4]);
                         dto.Quant = Convert.ToInt32(reader[5]);
-                        dto.QuantMin = Convert.ToInt32(reader[7]);
+                        dto.img = Convert.ToString(reader[10]);
+                        dto.QuantMin = Convert.ToInt32(reader[6]);
                         return dto;
                     }
                 }
