@@ -81,16 +81,12 @@
                             <div class="product">
                                 <div class="card">
                                     <div class="card-body">
-                                        <img src="@item.img" class="product-image">
+                                        <img src="@item.img" class="product-image img-fluid">
                                         <div class="information-card">
                                             <p class="card-text">@item.Name</p>
                                             <p class="card-price">R$ @item.Price</p>
                                             @*@Html.ActionLink("Ver produto", "Productected", new { controller = "HomeEcommerce" }, new { @class = "btn-card" })*@
-                                            <a href='@Url.Action("ProductSelected", "HomeEcommerce", new { ProductID = item.ID })'>
-                                                <button class="btn-card" type="submit">
-                                                    Ver produto
-                                                </button>
-                                            </a>
+                                            <a href="@Url.Action("ProductSelected", "HomeEcommerce", new {@class = "btn-card", ProductID = item.ID })" class="btn-card">Ver produto<a>
                                         </div>
                                     </div>
                                 </div>

@@ -31,8 +31,10 @@ namespace GladiaSystem.Controllers
             return View();
         }
 
-        public ActionResult AddCart(int productID, int productQuant)
+        [HttpPost]
+        public ActionResult AddCart(Product product)
         {
+            product = queries.GetProductByID(product.ID);
             return View();
         }
 
