@@ -18,89 +18,93 @@
 }
 
 @Styles.Render("~/Content/Partials/List.css")
-<head>
-    <link href="~/Content/PartialsEcommerce/Search.css" rel="stylesheet" />
-</head>
 
-<div class="container-list">
-    <div class="input-group" id="input-prod">
-        @using (Html.BeginForm("SearchProduct", "Home", FormMethod.Post, new { @class = "form-none" }))
-        {
-            @Html.TextBoxFor(m => m.Name, new { placeholder = "Digite o nome do produto", @class = "form-control search" })
-        }
+<div class="input-group mb-3" id="input-prod">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1"><img src="~/Content/Imagens/search.svg" alt="Search" class="search-img" /></span>
     </div>
-
-    <div class="card-grid">
-        @{if (IDs != null & NameList != null & QuantList != null)
-            {
-                for (int i = 0; i < IDs.Count; i++)
-                {
-                    <div class="icon-photo" id="small-card">
-                        <div class="card-body">
-                            <img src=@Images[i] alt="" class="card-img-top" />
-                            <div class="card-body">
-                                <p class="card-text-title">@NameList[i]</p>
-                                <p id="card-text">@Brands[i]</p>
-                                <p id="card-text-desc">@Desc[i]</p>
-                                <p id="card-text">@CategoryNames[i]</p>
-                                <p id="card-price">R$ @PriceList[i]</p>
-                                <p id="card-price">Quantidade: @QuantList[i]</p>
-                                @{if (QuantList[i] <= QuantMinList[i])
-                                    {
-                                        <p id="card-price-red">Qtd Min: @QuantMinList[i]</p>
-                                    }
-                                    else
-                                    {
-                                        <p id="card-price">Qtd Min: @QuantMinList[i]</p>
-                                    }
-                                }
-                                <a href='@Url.Action("ProdDelete", "Home", new { ProductID = IDs[i] })'>
-                                    <button class="btn-card" type="submit">
-                                        Deletar
-                                    </button>
-                                </a>
-                                <a href='@Url.Action("ProductEdit", "Home", new { productID = IDs[i] })'>
-                                    <button class="btn-card" type="submit">
-                                        Editar
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                }
-            }
-            else
-            {
-                foreach (GladiaSystem.Models.Product item in products)
-                {
-                    <div class="icon-photo" id="small-card">
-                        <div class="card-body">
-                            <img src="@item.img" alt="" class="card-img-top" />
-                            <div class="card-body">
-                                <p id="card-text-title">@item.Name</p>
-                                <p id="card-text">@item.Brand</p>
-                                <p id="card-text-desc">@item.Desc</p>
-                                <p id="card-text">@item.Category.name</p>
-                                <p id="card-price">R$ @item.Price</p>
-                                <p id="card-price">Quant: @item.Quant</p>
-                                @{
-                                    if (item.Quant <= item.QuantMin)
-                                    {
-                                        <p id="card-price-red">Min: @item.QuantMin</p>
-                                    }
-                                    else
-                                    {
-                                        <p id="card-price">Min: @item.QuantMin</p>
-                                    }
-                                }
-                                <a href="@Url.Action("ProdDelete", "Home", new {@class = "btn-card", productID = item.ID })" class="btn-card">Deletar<a>
-                                <a href="@Url.Action("ProductEdit", "Home", new {@class = "btn-card", productID = item.ID })" class="btn-card">Editar<a>
-                            </div>
-                        </div>
-                    </div>
-                }
-            }
-        }
-    </div>
+    @using (Html.BeginForm("SearchProduct", "Home", FormMethod.Post, new { @class = "form-none" }))
+    {
+        @Html.TextBoxFor(m => m.Name, new { placeholder = "Digite o nome do produto", @class = "form-control search" })
+    }
 </div>
 
+<div class="card-grid">
+    @{if (IDs != null & NameList != null & QuantList != null)
+        {
+            for (int i = 0; i < IDs.Count; i++)
+            {
+            <div class="icon-photo" id="small-card">
+                <div class="info">
+                    <img src=@Images[i] alt="" class="avatar-img" />
+                    <p id="title-prod">@NameList[i]</p>
+                    <p id="marc-prod">@Brands[i]</p>
+                    <p id="desc-prod">@Desc[i]</p>
+                    <p id="tp-prod">@CategoryNames[i]</p>
+                    <p id="price-prod">R$ @PriceList[i]</p>
+                    <p id="quant-prod">Quantidade: @QuantList[i]</p>
+                    @{if (QuantList[i] <= QuantMinList[i])
+                        {
+                            <p class="min-prod red">Qtd Min: @QuantMinList[i]</p>
+                        }
+                        else
+                        {
+                            <p class="min-prod">Qtd Min: @QuantMinList[i]</p>
+                        }
+                    }
+                </div>
+         
+
+                <a href='@Url.Action("ProdDelete", "Home", new { @class="sub-button button-product-list", ProductID = IDs[i] })'>
+                    <button class="sub-button" type="submit">
+                        Deletar
+                    </button>
+                </a>
+                <a href='@Url.Action("ProductEdit", "Home", new { @class="sub-button button-product-list", productID = IDs[i] })'>
+                    <button class="sub-button"  type="submit">
+                        Editar
+                    </button>
+                </a>
+            </div>
+            }
+        }
+        else
+        {
+            foreach (GladiaSystem.Models.Product item in products)
+            {
+            <div class="icon-photo" id="small-card">
+                <div class="info">
+                    <img src="@item.img" alt="Osso" class="avatar-img" />
+                    <p id="title-prod">@item.Name</p>
+                    <p id="marc-prod">@item.Brand</p>
+                    <p id="desc-prod">@item.Desc</p>
+                    <p id="tp-prod">@item.Category.name</p>
+                    <p id="price-prod">R$ @item.Price</p>
+                    <p id="quant-prod">Quant: @item.Quant</p>
+                    @{
+                        if (item.Quant <= item.QuantMin)
+                        {
+                            <p class="red min-prod">Min: @item.QuantMin</p>
+                        }
+                        else
+                        {
+                            <p class="min-prod">Min: @item.QuantMin</p>
+                        }
+                    }
+                </div>
+
+                <a href='@Url.Action("ProdDelete", "Home", new { @class="sub-button button-product-list", ProductID = item.ID })'>
+                    <button class="sub-button" type="submit">
+                        Deletar
+                    </button>
+                </a>
+                <a href='@Url.Action("ProductEdit", "Home", new { @class="sub-button button-product-list", productID = item.ID })'>
+                    <button class="sub-button"  type="submit">
+                        Editar
+                    </button>
+                </a>
+            </div>
+            }
+        }
+    }
+</div> 

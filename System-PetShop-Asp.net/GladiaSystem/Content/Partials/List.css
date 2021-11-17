@@ -89,90 +89,22 @@ p {
     margin-right: auto;
     margin-top: 2%;
     padding: 10%;
-    width: 101%;
-}
-
-#card-text-title {
-    font-style: normal;
-    font-weight: bold;
-    font-size: 20px;
-    color: #252733;
-    overflow: hidden;
-    margin-top: 4px;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    justify-self: auto;
-}
-
-#card-text {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    color: #252733;
-    overflow: hidden;
-    margin-bottom: 0px;
-}
-
-#card-text-desc {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    color: #252733;
-    overflow: hidden;
-}
-
-#card-text-desc {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    color: #252733;
-    margin-top: 20px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    justify-self: auto;
-}
-
-#card-price {
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    color: #252733;
-}
-
-#card-price-red {
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    color: red;
-}
-
-.card-body {
-    padding: 0px !important;
-    filter: inherit !important;
 }
 
 #search-bar {
     height: 35px;
 }
 
-.container-list {
-    width: 100%;
-    max-width: 1130px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 @media (min-width: 1297px) {
     .card-grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        grid-template-columns: 6fr 6fr 6fr;
+        place-items: flex-start;
         margin-top: 3%;
-        grid-gap: 30px;
+        grid-gap: 55px;
     }
 
     #small-card {
@@ -188,4 +120,4 @@ p {
         width: 103%;
         padding: 12px;
     }
-}
+} 

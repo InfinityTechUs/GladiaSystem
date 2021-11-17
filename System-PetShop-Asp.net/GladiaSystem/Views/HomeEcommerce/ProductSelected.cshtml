@@ -36,16 +36,20 @@
                         <p class="product-price">R$ @Model.Price</p>
                         <p class="inventory">Em estoque</p><!--Verificar-->
                     </div>
+                    <form action="#" class="form-button">
+                        <div class="input-container">
+                            @{ 
+                                int quantity = 0;
+                            }
+                            <a href='@Url.Action("AddCart", "HomeEcommerce", new { @class="buy-button", product = Model.ID, quant = quantity })'>
+                                Adicionar ao carrinho
+                            </a>
+                            <asp:button id="sub">-</asp:button>
+                            <input type="text" id="qtyBox" readonly="" value="0" class="input-style">
+                            <button id="add">+</button>
 
-                    @using (Html.BeginForm("AddCart", "HomeEcommerce", FormMethod.Post, new { @class = "form-button" }))
-                    {
-                    <div class="input-container">
-                        <button type="submit" class="buy-button">Adicionar ao carrinho</button>
-                        @Html.TextBoxFor(model => model.ID, new { @class = "hidden"})
-                        @Html.TextBoxFor(model => model.Quant, new { @Value = "1", @class = "input-decoration" })
-                        @Html.ValidationMessageFor(m => m.Quant, "", new { @class = "text-danger" })
-                    </div>
-                     }
+                        </div>
+                    </form>
 
                 </article>
             </div>
