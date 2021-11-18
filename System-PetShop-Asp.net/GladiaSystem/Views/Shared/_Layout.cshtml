@@ -33,7 +33,9 @@
         <nav id="sidebar" class="sidebar-wrapper">
             <div class="sidebar-content">
                 <div class="sidebar-brand">
-                    <img src="~/Content/Imagens/logo.svg" alt="Company logo" />
+                    <a href="@Url.Action("Home", "HomeEcommerce")">
+                        <img src="~/Content/Imagens/logo.svg" alt="Company logo" />
+                    </a>
                     <div id="close-sidebar">
                         <img src="~/Content/Imagens/x.svg" alt="Close button" class="close" />
                     </div>
@@ -123,6 +125,12 @@
                                 </a>
                             }
 
+                        </li>
+                        <li class="sidebar">
+                            <a href="@Url.Action("Home", "HomeEcommerce")">
+                                <img src="~/Content/Imagens/corner-down-left.svg" alt="Voltar a navegar" />
+                                <span>Voltar a navegar</span>
+                            </a>
                         </li>
                         <li class="sidebar">
                             <a href="@Url.Action("Logout", "Home")">

@@ -1,7 +1,8 @@
-﻿
+﻿@model GladiaSystem.Models.Product
 @{
     Layout = "~/Views/Shared/_LayoutEcommerce.cshtml";
     ViewBag.Title = "Home";
+    List<GladiaSystem.Models.Product> products = ViewBag.AllProduct;
 }
 
 <!DOCTYPE html>
@@ -11,6 +12,7 @@
     <link href="~/Content/PartialsEcommerce/Home.css" rel="stylesheet" />
     <link href="~/Content/rootE.css/" rel="stylesheet">
     <link href="~/Content/PartialsEcommerce/lightslider.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     @Scripts.Render("~/Scripts/lightslider.js")
 </head>
@@ -44,7 +46,7 @@
         <ul class="flex-features">
             <li class="flex-item">
                 <img src="~/Content/Imagens/shield-off.svg" alt="" class="itens-icon">
-                <span class="flex-title">Pagamento rápido e seguro <p class="flex-second-title">com PicPay e PayPal </p></span>
+                <span class="flex-title">Pagamento rápido e seguro <p class="flex-second-title">com PicPay</p></span>
             </li>
             <li class="flex-item">
                 <img src="~/Content/Imagens/truck.svg" alt="" class="itens-icon">
@@ -52,7 +54,7 @@
             </li>
             <li class="flex-item">
                 <img src="~/Content/Imagens/package.svg" alt="" class="itens-icon">
-                <span class="flex-title">Frete Grátis <p class="flex-second-title">em compras acima de R$100,00</p></span>
+                <span class="flex-title">Frete Grátis</span>
             </li>
         </ul>
     </div>
@@ -66,120 +68,27 @@
     </div>
 
     <div class="container">
-        <!--slider------------------->
         <ul id="autoWidth" class="cs-hidden">
-            <!--1------------------------------>
+        <!--slider------------------->
+            @foreach (GladiaSystem.Models.Product item in products)
+            {
             <li class="item-a">
-                <!--slider-box-->
-                <div class="box">
-                    <div class="thumb-wrapper">
-                        <div class="img-box">
-                            <img src="~/Content/Imagens/pet.png" class="img-responsive " alt="">
-                        </div>
-                        <div class="thumb-content">
-                            <p class="item-title">Ração Prescription Diet Z/D Alergias Alimentares e da Pele Hills </p>
-                            <p class="item-price"><b>$369.00</b></p>
-                            @Html.ActionLink("Ver produto", "ProductSelected", new { controller = "HomeEcommerce" }, new { @class = "btn btn-primary" })
+                    <!--slider-box-->
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="@item.img" class="img-responsive " alt="">
+                            <div class="card-body">
+                                <p class="card-text">@item.Name </p>
+                                <p class="card-price"><b>$ @item.Price</b></p>
+                                <div class="card-footer">
+                                    <a href="@Url.Action("ProductSelected", "HomeEcommerce", new {@class = " btn-primary", ProductID = item.ID })" class="btn-primary">Ver produto</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </li>
-            <!--2------------------------------>
-            <li class="item-a">
-                <!--slider-box-->
-                <div class="box">
-                    <div class="thumb-wrapper">
-                        <div class="img-box">
-                            <img src="~/Content/Imagens/pet.png" class="img-responsive " alt="">
-                        </div>
-                        <div class="thumb-content">
-                            <p class="item-title">Ração Prescription Diet Z/D Alergias Alimentares e da Pele Hills</p>
-                            <p class="item-price"><b>$369.00</b></p>
-                            @Html.ActionLink("Ver produto", "ProductSelected", new { controller = "HomeEcommerce" }, new { @class = "btn btn-primary" })
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <!--3------------------------------>
-            <li class="item-a">
-                <!--slider-box-->
-                <div class="box">
-                    <div class="thumb-wrapper">
-                        <div class="img-box">
-                            <img src="~/Content/Imagens/pet.png" class="img-responsive " alt="">
-                        </div>
-                        <div class="thumb-content">
-                            <p class="item-title">Ração Prescription Diet Z/D Alergias Alimentares e da Pele Hills</p>
-                            <p class="item-price"><b>$369.00</b></p>
-                            @Html.ActionLink("Ver produto", "ProductSelected", new { controller = "HomeEcommerce" }, new { @class = "btn btn-primary" })
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <!--4------------------------------>
-            <li class="item-a">
-                <!--slider-box-->
-                <div class="box">
-                    <div class="thumb-wrapper">
-                        <div class="img-box">
-                            <img src="~/Content/Imagens/pet.png" class="img-responsive " alt="">
-                        </div>
-                        <div class="thumb-content">
-                            <p class="item-title">Ração Prescription Diet Z/D Alergias Alimentares e da Pele Hills</p>
-                            <p class="item-price"><b>$369.00</b></p>
-                            @Html.ActionLink("Ver produto", "ProductSelected", new { controller = "HomeEcommerce" }, new { @class = "btn btn-primary" })
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="item-a">
-                <!--slider-box-->
-                <div class="box">
-                    <div class="thumb-wrapper">
-                        <div class="img-box">
-                            <img src="~/Content/Imagens/pet.png" class="img-responsive " alt="">
-                        </div>
-                        <div class="thumb-content">
-                            <p class="item-title">Ração Prescription Diet Z/D Alergias Alimentares e da Pele Hills</p>
-                            <p class="item-price"><b>$369.00</b></p>
-                            @Html.ActionLink("Ver produto", "ProductSelected", new { controller = "HomeEcommerce" }, new { @class = "btn btn-primary" })
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <!--5------------------------------>
-            <li class="item-a">
-                <!--slider-box-->
-                <div class="box">
-                    <div class="thumb-wrapper">
-                        <div class="img-box">
-                            <img src="~/Content/Imagens/pet.png" class="img-responsive " alt="">
-                        </div>
-                        <div class="thumb-content">
-                            <p class="item-title">Ração Prescription Diet Z/D Alergias Alimentares e da Pele Hills</p>
-                            <p class="item-price"><b>$369.00</b></p>
-                            @Html.ActionLink("Ver produto", "ProductSelected", new { controller = "HomeEcommerce" }, new { @class = "btn btn-primary" })
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <!--6------------------------------>
-            <li class="item-a">
-                <!--slider-box-->
-                <div class="box">
-                    <div class="thumb-wrapper">
-                        <div class="img-box">
-                            <img src="~/Content/Imagens/pet.png" class="img-responsive " alt="">
-                        </div>
-                        <div class="thumb-content">
-                            <p class="item-title">Ração Prescription Diet Z/D Alergias Alimentares e da Pele Hills</p>
-                            <p class="item-price"><b>$369.00</b></p>
-                            @Html.ActionLink("Ver produto", "ProductSelected", new { controller = "HomeEcommerce" }, new { @class = "btn btn-primary" })
-                        </div>
-                    </div>
-                </div>
-            </li>
-         </ul>
+             </li>
+              }
+        </ul>
     </div>
 
     <div class="header-title container">

@@ -16,6 +16,8 @@ namespace GladiaSystem.Controllers
         // GET: HomeEcommerce
         public ActionResult Home()
         {
+            var ShowProducts = new Queries();
+            ViewBag.AllProduct = ShowProducts.ListProduct();
             return View();
         }   
         public ActionResult ProductSelected(int productID)

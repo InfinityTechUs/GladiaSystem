@@ -41,7 +41,7 @@ body {
     font-feature-settings: 'ss02' on;
     font-weight: 400;
     min-height: 100%;
-    line-height: 1;
+    line-height: 1 !important;
 }
 
 * {

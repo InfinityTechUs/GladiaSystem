@@ -32,6 +32,12 @@
     padding-right: -5px;
 }
 
+.card-footer {
+    padding: 1px !important;
+    background-color: #ffff !important;
+    border-top: none !important;
+}
+
 .filter-title {
     font-size: 15px;
     font-weight: 700;
@@ -44,9 +50,16 @@
 
 .card-body {
     background-color: #ffff;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.05));
     border-radius: 8px;
     padding: 15px;
+    display: grid;
+    
+}
+
+.card {
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.05));
+    background-color: #ffff;
+    margin: 5px;
 }
 
 .information-card {
@@ -60,7 +73,6 @@
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
-    margin-bottom: 30px;
 }
 
 

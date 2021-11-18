@@ -57,12 +57,7 @@
                 <div class="col-lg-9 all-products">
                     <div class="container row order">
                         <label class="label-order" for="#">
-                            <p class="title-order">Ordenar</p>
-                            <select class="form-control">
-                                <option value="">Mais procurados</option>
-                                <option value="popularity">Preço crescente</option>
-                                <option value="average">Preço decrescente</option>
-                            </select>
+                            <p class="title-order">Categoria que está sendo procurada</p>
                         </label>
                         <div class="total-products">
                             <p class="text-total-products"><b>10 </b>Produtos</p>
@@ -72,27 +67,22 @@
                         <button type="button" class="btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Filtros</button>
                     </div>
                     <hr>
-
-
                     <div class="products-item">
-
                         @foreach (GladiaSystem.Models.Product item in products)
                         {
-                            <div class="product">
-                                <div class="card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <img src="@item.img" class="product-image img-fluid">
                                     <div class="card-body">
-                                        <img src="@item.img" class="product-image img-fluid">
-                                        <div class="information-card">
-                                            <p class="card-text">@item.Name</p>
-                                            <p class="card-price">R$ @item.Price</p>
-                                            @*@Html.ActionLink("Ver produto", "Productected", new { controller = "HomeEcommerce" }, new { @class = "btn-card" })*@
-                                            <a href="@Url.Action("ProductSelected", "HomeEcommerce", new {@class = "btn-card", ProductID = item.ID })" class="btn-card">Ver produto<a>
+                                        <p class="card-text">@item.Name</p>
+                                        <p class="card-price">R$ @item.Price</p>
+                                        <div class="card-footer">
+                                            <a href="@Url.Action("ProductSelected", "HomeEcommerce", new {@class = "btn-card", ProductID = item.ID })" class="btn-card">Ver produto</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         }
-
                     </div>
                 </div>
             </div>
