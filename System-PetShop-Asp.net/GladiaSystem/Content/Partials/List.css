@@ -97,12 +97,12 @@ p {
     font-weight: bold;
     font-size: 20px;
     color: #252733;
+    margin-top: 20px;
     overflow: hidden;
-    margin-top: 4px;
     text-overflow: ellipsis;
+    display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    justify-self: auto;
 }
 
 #card-text {
@@ -120,17 +120,9 @@ p {
     font-size: 16px;
     color: #252733;
     overflow: hidden;
-}
-
-#card-text-desc {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    color: #252733;
-    margin-top: 20px;
-    overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     justify-self: auto;
 }
@@ -152,7 +144,47 @@ p {
 .card-body {
     padding: 0px !important;
     filter: inherit !important;
+    flex: 1 1 auto;
+    padding: 1.25rem;
 }
+
+#card-title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    justify-self: auto;
+    margin-bottom: 2px;
+}
+
+.card-footer {
+    padding: 1px !important;
+    background-color: #ffff !important;
+    border-top: none !important; 
+}
+
+.card {
+    filter:unset !important;
+    background-color: #ffff;
+    margin: 5px;
+}
+
+
+/*.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}*/
 
 #search-bar {
     height: 35px;

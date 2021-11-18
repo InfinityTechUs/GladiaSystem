@@ -57,7 +57,7 @@
                                 <img class="col_product_img"
                                      src="@item.img"
                                      alt="Foto do produto" />
-                                <div class="col_product_title">
+                                <div class="col_product_title title-elipse">
                                     @item.Name
                                 </div>
                             </div>
@@ -124,9 +124,7 @@
 					</div>
 
                     <div id="payment-button">
-                        <button class="goto-payment">
-                            @Html.ActionLink("Ir para o pagamento", "Payment", new { controller = "PaymentEcommerce" }, new { @class = "no-link" })
-                        </button>
+                        @Html.ActionLink("Ir para o pagamento", "Payment", new { controller = "PaymentEcommerce" }, new { @class = "goto-payment" })
                     </div>
 				</section>
 			</div>

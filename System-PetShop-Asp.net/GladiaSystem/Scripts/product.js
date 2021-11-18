@@ -4,7 +4,7 @@ let subBtn = document.querySelector('#sub');
 let qty = document.querySelector('#qtyBox');
 
 addBtn.addEventListener('click', () => {
-    if (qty.value < 12) {
+    if (qty.value < 99) {
         qty.value = parseInt(qty.value) + 1;
     }
 });

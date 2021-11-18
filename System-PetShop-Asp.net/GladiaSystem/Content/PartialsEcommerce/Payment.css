@@ -52,7 +52,16 @@
     font-size: 1.2rem;
 }
 
-.left{
+.item-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    width: 28rem;
+}
+
+.left {
     text-align: left;
 }
 

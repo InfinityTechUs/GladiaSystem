@@ -74,7 +74,7 @@
             @foreach (GladiaSystem.Models.Product item in products)
             {
                 <tr>
-                    <td class="left">@item.Name</td>
+                    <td class=" left"><p class="item-text">@item.Name</p></td>
                     <th class="left" scope="row">x @item.Quant</th>
                     @{
                         int totalValue = item.Quant * item.Price;

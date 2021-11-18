@@ -72,9 +72,9 @@
     box-sizing: border-box;
 }
 
-    .prodtable_block.col_product {
-        text-align: left;
-    }
+.prodtable_block.col_product {
+    text-align: left;
+}
 
 .col_product {
     width: 30%;
@@ -280,6 +280,9 @@
     letter-spacing: -0.005em;
     color: var(--colored-font);
     margin-bottom: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
     .goto-payment:hover {
@@ -326,6 +329,15 @@
 
 .arrow-icon {
     margin-right: 4vw;
+}
+
+
+.title-elipse {
+    overflow-inline: hidden !important;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    width: 50rem;
 }
 
 @media only screen and (min-width: 992px) {

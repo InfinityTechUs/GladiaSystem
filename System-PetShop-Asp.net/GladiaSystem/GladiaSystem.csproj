@@ -211,6 +211,7 @@
     <Content Include="Content\Imagens\Cart.svg" />
     <Content Include="Content\Imagens\Cat-banner-desktop.svg" />
     <Content Include="Content\Imagens\Cat-banner-mobile.png" />
+    <Content Include="Content\Imagens\corner-down-left.svg" />
     <Content Include="Content\Imagens\Dog-banner-desktop.svg" />
     <Content Include="Content\Imagens\Dog-banner-mobile.png" />
     <Content Include="Content\Imagens\Email.svg" />
@@ -220,6 +221,7 @@
     <Content Include="Content\Imagens\fotoExemplo.png" />
     <Content Include="Content\Imagens\google.svg" />
     <Content Include="Content\Imagens\grid.svg" />
+    <Content Include="Content\Imagens\hamburguer.svg" />
     <Content Include="Content\Imagens\InfinityLogo.svg" />
     <Content Include="Content\Imagens\Instagram.svg" />
     <Content Include="Content\Imagens\lock.svg" />
@@ -245,6 +247,7 @@
     <Content Include="Content\Imagens\Slide1.svg" />
     <Content Include="Content\Imagens\teste.png" />
     <Content Include="Content\Imagens\teste2.png" />
+    <Content Include="Content\Imagens\todascat.png" />
     <Content Include="Content\Imagens\trash-icon.png" />
     <Content Include="Content\Imagens\Trash_font_awesome.svg" />
     <Content Include="Content\Imagens\Truck-banner-desktop.svg" />

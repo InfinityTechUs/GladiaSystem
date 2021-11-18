@@ -252,7 +252,6 @@ namespace GladiaSystem.Database
             cmd.Parameters.Add("@mail", MySqlDbType.VarChar).Value = user.email;
             cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = user.password;
 
-
             cmd.ExecuteNonQuery();
             con.DisconnectDB();
 

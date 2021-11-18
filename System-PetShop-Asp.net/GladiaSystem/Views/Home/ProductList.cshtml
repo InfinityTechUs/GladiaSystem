@@ -35,16 +35,18 @@
             {
                 for (int i = 0; i < IDs.Count; i++)
                 {
-                    <div class="icon-photo" id="small-card">
-                        <div class="card-body">
+                    <div class="icon-photo" id="card">
+                        <div class="card">
                             <img src=@Images[i] alt="" class="card-img-top" />
                             <div class="card-body">
-                                <p class="card-text-title">@NameList[i]</p>
-                                <p id="card-text">@Brands[i]</p>
-                                <p id="card-text-desc">@Desc[i]</p>
-                                <p id="card-text">@CategoryNames[i]</p>
-                                <p id="card-price">R$ @PriceList[i]</p>
-                                <p id="card-price">Quantidade: @QuantList[i]</p>
+                                <div class="card-text">
+                                    <p class="card-title">@NameList[i]</p>
+                                    <p >@Brands[i]</p>
+                                    <p id="card-text-desc">@Desc[i]</p>
+                                    <p >@CategoryNames[i]</p>
+                                    <p id="card-price">R$ @PriceList[i]</p>
+                                    <p id="card-price">Quantidade: @QuantList[i]</p>
+                                </div>
                                 @{if (QuantList[i] <= QuantMinList[i])
                                     {
                                         <p id="card-price-red">Qtd Min: @QuantMinList[i]</p>
@@ -54,16 +56,19 @@
                                         <p id="card-price">Qtd Min: @QuantMinList[i]</p>
                                     }
                                 }
-                                <a href='@Url.Action("ProdDelete", "Home", new { ProductID = IDs[i] })'>
-                                    <button class="btn-card" type="submit">
-                                        Deletar
-                                    </button>
-                                </a>
-                                <a href='@Url.Action("ProductEdit", "Home", new { productID = IDs[i] })'>
-                                    <button class="btn-card" type="submit">
-                                        Editar
-                                    </button>
-                                </a>
+
+                                <div class="card-footer">
+                                    <a href='@Url.Action("ProdDelete", "Home", new { ProductID = IDs[i] })'>
+                                        <button class="btn-card" type="submit">
+                                            Deletar
+                                        </button>
+                                    </a>
+                                    <a href='@Url.Action("ProductEdit", "Home", new { productID = IDs[i] })'>
+                                        <button class="btn-card" type="submit">
+                                            Editar
+                                        </button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -73,16 +78,19 @@
             {
                 foreach (GladiaSystem.Models.Product item in products)
                 {
-                    <div class="icon-photo" id="small-card">
-                        <div class="card-body">
+                    <div class="icon-photo" id="card">
+                        <div class="card">
                             <img src="@item.img" alt="" class="card-img-top" />
                             <div class="card-body">
-                                <p id="card-text-title">@item.Name</p>
-                                <p id="card-text">@item.Brand</p>
-                                <p id="card-text-desc">@item.Desc</p>
-                                <p id="card-text">@item.Category.name</p>
-                                <p id="card-price">R$ @item.Price</p>
-                                <p id="card-price">Quant: @item.Quant</p>
+                                <p id="card-title">@item.Name</p>
+                                <div class="card-text">
+                                    <p >@item.Brand</p>
+                                    <p id="card-text-desc">@item.Desc</p>
+                                    <p >@item.Category.name</p>
+                                    <p id="card-price">R$ @item.Price</p>
+                                    <p id="card-price">Quant: @item.Quant</p>
+                                </div>
+
                                 @{
                                     if (item.Quant <= item.QuantMin)
                                     {
@@ -93,14 +101,16 @@
                                         <p id="card-price">Min: @item.QuantMin</p>
                                     }
                                 }
-                                <a href="@Url.Action("ProdDelete", "Home", new {@class = "btn-card", productID = item.ID })" class="btn-card">Deletar<a>
-                                <a href="@Url.Action("ProductEdit", "Home", new {@class = "btn-card", productID = item.ID })" class="btn-card">Editar<a>
+                                <div class="card-footer">
+                                    <a href="@Url.Action("ProdDelete", "Home", new {@class = "btn-card", productID = item.ID })" class="btn-card">Deletar</a>
+                                    <a href="@Url.Action("ProductEdit", "Home", new {@class = "btn-card", productID = item.ID })" class="btn-card">Editar</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 }
             }
         }
+        </div>
     </div>
-</div>
 

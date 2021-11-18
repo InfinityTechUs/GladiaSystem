@@ -26,6 +26,8 @@ namespace GladiaSystem.Controllers
         {
             User user = new User();
             return View(user);
+
+         
         }
 
         [HttpPost]
@@ -55,7 +57,6 @@ namespace GladiaSystem.Controllers
         {
             User user = new User();
             return View(user);
-
         }
 
         [HttpPost]
@@ -63,8 +64,7 @@ namespace GladiaSystem.Controllers
         {
             queries.RegisterUserEcommerce(user);
             Session["normalUserID"] = queries.GetUserID(user);
-            return RedirectToAction("RegisterAddress");
-
+            return RedirectToAction("Register");
         }
 
         [HttpPost]
