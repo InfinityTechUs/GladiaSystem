@@ -135,3 +135,10 @@
     border-bottom: 1px solid #edeff2;
 }
 
+.red {
+    color: red;
+}
+
+.disable-button, .disable-button:hover {
+    background-color: #75818C;
+}

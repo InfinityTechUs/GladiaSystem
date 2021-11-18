@@ -1,4 +1,5 @@
-﻿@{ Layout = null; }
+﻿@model GladiaSystem.Models.Product
+@{ Layout = null; }
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,14 +37,14 @@
                 {
                     <ul class="nav-account-link">
                         <li class="nav-links-item">
-                              <a href="@Url.Action("MyAccount", "AccountEcommerce")">
-                                <p class="account-links">Minha conta<img src="~/Content/Imagens/arrow-left.svg" alt="arrow-left" /></p> 
+                            <a href="@Url.Action("MyAccount", "AccountEcommerce")">
+                                <p class="account-links">Minha conta<img src="~/Content/Imagens/arrow-left.svg" alt="arrow-left" /></p>
                             </a>
 
                         </li>
                         <li class="nav-links-item">
                             <a href="@Url.Action("TrackOrder", "AccountEcommerce")">
-                                <p class="account-links">Meus pedidos<img src="~/Content/Imagens/arrow-left.svg" alt="arrow-left" /></p> 
+                                <p class="account-links">Meus pedidos<img src="~/Content/Imagens/arrow-left.svg" alt="arrow-left" /></p>
                             </a>
                         </li>
                     </ul>
@@ -56,23 +57,37 @@
                 <li class="menu-category">
                     <button class="menu-category-label ">Todas as categorias<img class="img-menu" src="" alt=""></button>
                 </li>
+                @{ 
+                    string food = "Comida";
+                    string toys = "Brinquedos";
+                    string meds = "Medicamentos";
+                    string hygiene = "Higiene";
+                }
                 <li class="menu-category">
-                    <button class="menu-category-label ">Gatos<img class="img-menu" src="" alt=""></button>
+                    <a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  food})">
+                        <button class="menu-category-label ">Comida<img class="img-menu" src="" alt=""></button>
+                    </a>
                 <li class="menu-category">
-                    <button class="menu-category-label ">Cachorros<img class="img-menu" src="" alt=""></button>
+                    <a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  toys})">
+                        <button class="menu-category-label ">Brinquedos<img class="img-menu" src="" alt=""></button>
+                    </a>
                 </li>
                 <li class="menu-category">
-                    <button class="menu-category-label ">Medicamentos <img class="img-menu" src="" alt=""></button>
+                    <a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  meds})">
+                        <button class="menu-category-label ">Medicamentos <img class="img-menu" src="" alt=""></button>
+                    </a>
                 </li>
                 <li class="menu-category">
-                    <button class="menu-category-label ">Transporte<img class="img-menu" src="" alt=""></button>
+                    <a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  hygiene})">
+                        <button class="menu-category-label ">Higiene<img class="img-menu" src="" alt=""></button>
+                    </a>
                 </li>
             </ul>
         </div>
     </div>
-    
+
     <div class="header-shadow" id="header-shadow" onclick="closeNav()"></div>
-    
+
     <div id="main">
         <header class="desktop-header">
             <div class="container">
@@ -82,104 +97,105 @@
                     <a href="@Url.Action("Home", "HomeEcommerce")">
                         <img src="~/Content/Imagens/Logo-mobile.svg" class="desktop-main-logo" alt="Logo">
                     </a>
-                    <form class="desktop-search" action="/">
+                    @using (Html.BeginForm("SearchProduct", "HomeEcommerce", FormMethod.Post, new { @class = "desktop-search" }))
+                    {
                         <input value="product"
                                type="hidden">
-                        <input class="desktop-search-input"
-                               type="search"
-                               placeholder="O que você está procurando?">
-                        <button class="desktop-search-button">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { placeholder = "O que você está procurando?", @class="desktop-search-input"} })
+                        
+                        <button type="submit" class="desktop-search-button">
                             <img src="~/Content/Imagens/SearchLogo.svg" alt="" class="desktop-search-button-image">
                         </button>
-                    </form>
-                    <nav class="desktop-logged-in">
-                        <div class="desktop-trigger">
-                            <img src="~/Content/Imagens/Person.svg" alt="">
-                            <div class="header-text">
+                    }
+                     
+                        <nav class="desktop-logged-in">
+                            <div class="desktop-trigger">
+                                <img src="~/Content/Imagens/Person.svg" alt="">
+                                <div class="header-text">
+                                    @{
+                                        if (Session["name"] == null)
+                                        {
+                                            @Html.ActionLink("Entre", "Login", new { controller = "LoginEcommerce" }, new { @class = "desktop-primary-text" })
+                                            @Html.ActionLink("ou cadastre-se", "Register", new { controller = "LoginEcommerce" }, new { @class = "desktop-secondary-text" })
+                                        }
+                                        else
+                                        {
+                                            <span class="desktop-primary-text">Olá, @Session["name"]</span>
+                                        }
+                                    }
+
+
+                                </div>
                                 @{
+                                    string userinfo = (string)Session["access"];
+
                                     if (Session["name"] == null)
                                     {
-                                        @Html.ActionLink("Entre", "Login", new { controller = "LoginEcommerce" }, new { @class = "desktop-primary-text" })
-                                        @Html.ActionLink("ou cadastre-se", "Register", new { controller = "LoginEcommerce" }, new { @class = "desktop-secondary-text" })
+
+                                    }
+                                    else if (userinfo == "1")
+                                    {
+                                        <div class="desktop-trigger-arrow">
+                                            <div class="dropdown">
+                                                <button class="dropbtn"><img src="~/Content/Imagens/ArrowDown.svg" alt=""></button>
+                                                <div class="dropdown-content">
+                                                    @Html.ActionLink("Minha conta", "MyAccount", new { controller = "AccountEcommerce" }, new { @class = "" })
+                                                    @Html.ActionLink("Meus pedidos", "TrackOrder", new { controller = "AccountEcommerce" }, new { @class = "" })
+                                                    @Html.ActionLink("Dashbord", "Home", new { controller = "Home" }, new { @class = "" })
+                                                    <hr />
+                                                    <a href="@Url.Action("Logout", "Home")">
+                                                        <span class="dropdown-exit">Sair</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     }
                                     else
                                     {
-                                        <span class="desktop-primary-text">Olá, @Session["name"]</span>
+                                        <div class="desktop-trigger-arrow">
+                                            <div class="dropdown">
+                                                <button class="dropbtn"><img src="~/Content/Imagens/ArrowDown.svg" alt=""></button>
+                                                <div class="dropdown-content">
+                                                    @Html.ActionLink("Minha conta", "MyAccount", new { controller = "AccountEcommerce" }, new { @class = "" })
+                                                    @Html.ActionLink("Meus pedidos", "TrackOrder", new { controller = "AccountEcommerce" }, new { @class = "" })
+                                                    <hr />
+                                                    <a href="@Url.Action("Logout", "Home")">
+                                                        <span class="dropdown-exit">Sair </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     }
                                 }
-
-
                             </div>
-                            @{
-                                string userinfo = (string)Session["access"];
-
-                                if (Session["name"] == null)
-                                {
-                                    
-                                }
-                                else if (userinfo == "1")
-                                {
-                                    <div class="desktop-trigger-arrow">
-                                        <div class="dropdown">
-                                            <button class="dropbtn"><img src="~/Content/Imagens/ArrowDown.svg" alt=""></button>
-                                            <div class="dropdown-content">
-                                                @Html.ActionLink("Minha conta", "MyAccount", new { controller = "AccountEcommerce" }, new { @class = "" })
-                                                @Html.ActionLink("Meus pedidos", "TrackOrder", new { controller = "AccountEcommerce" }, new { @class = "" })
-                                                @Html.ActionLink("Dashbord", "Home", new { controller = "Home" }, new { @class = "" })
-                                                <hr />
-                                                <a href="@Url.Action("Logout", "Home")">
-                                                    <span class="dropdown-exit">Sair</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                }
-                                else
-                                {
-                                    <div class="desktop-trigger-arrow">
-                                        <div class="dropdown">
-                                            <button class="dropbtn"><img src="~/Content/Imagens/ArrowDown.svg" alt=""></button>
-                                            <div class="dropdown-content">
-                                                @Html.ActionLink("Minha conta", "MyAccount", new { controller = "AccountEcommerce" }, new { @class = "" })
-                                                @Html.ActionLink("Meus pedidos", "TrackOrder", new { controller = "AccountEcommerce" }, new { @class = "" })
-                                                <hr />
-                                                <a href="@Url.Action("Logout", "Home")">
-                                                    <span class="dropdown-exit">Sair </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                }
-                            }
-                        </div>
-                    </nav>
-                    <a href="@Url.Action("Cart", "PaymentEcommerce")">
-                        <img src="~/Content/Imagens/Cart.svg" alt="Carrinho" class="desktop-cart">
-                    </a>
+                        </nav>
+                        <a href="@Url.Action("Cart", "PaymentEcommerce")">
+                            <img src="~/Content/Imagens/Cart.svg" alt="Carrinho" class="desktop-cart">
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <nav class="desktop-nav">
-                <div class="desktop-nav-container container">
-                    <ul class="desktop-nav-menu">
-                        <li class="desktop-nav-parent">
-                            @Html.ActionLink("Todas as categorias", "Search", new { controller = "HomeEcommerce" }, new { @class = "blue-nav-category" })
-                        </li>
-                        <li class="desktop-nav-parent">
-                            <a class="nav-category" href="">Gatos</a>
-                        </li>
-                        <li class="desktop-nav-parent">
-                            <a class="nav-category" href="">Cachorros</a>
-                        </li>
-                        <li class="desktop-nav-parent">
-                            <a class="nav-category" href="">Medicamentos</a>
-                        </li>
-                        <li class="desktop-nav-parent last">
-                            <a class="nav-category" href="">Transporte</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
+                <nav class="desktop-nav">
+                    <div class="desktop-nav-container container">
+                        <ul class="desktop-nav-menu">
+                            <li class="desktop-nav-parent">
+                                @Html.ActionLink("Todas as categorias", "Search", new { controller = "HomeEcommerce" }, new { @class = "blue-nav-category" })
+                            </li>
+                            <li class="desktop-nav-parent">
+                                <a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  food})" class="nav-category">Comida</a>
+                            </li>
+                            <li class="desktop-nav-parent">
+                                <a class="nav-category" href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  toys})">Brinquedos</a>
+                            </li>
+                            <li class="desktop-nav-parent">
+                                <a class="nav-category" href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  meds})">Medicamentos</a>
+                            </li>
+                            <li class="desktop-nav-parent last">
+                                <a class="nav-category" href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  hygiene})">Higiene</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
 
         <header class="mobile-header">
             <div class="mobile-main">
@@ -191,41 +207,46 @@
                     <img src="~/Content/Imagens/Cart.svg" alt="Carrinho" class="mobile-menu-cart">
                 </a>
             </div>
-            <form action="" class="mobile-search-bar">
+            @using (Html.BeginForm("SearchProduct", "HomeEcommerce", FormMethod.Post, new { @class = "mobile-search-bar" }))
+            {
+                <input value="product"
+                       type="hidden">
+
+                <button type="submit" class="desktop-search-button">
+                    <img src="~/Content/Imagens/SearchLogo.svg" alt="" class="desktop-search-button-image">
+                </button>
                 <input name="post_type"
                        value="product"
                        type="hidden">
-                <input class="mobile-input-search"
-                       type="search"
-                       placeholder="O que está procurando?">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { placeholder = "O que você está procurando?", @class = "desktop-search-input" } })
                 <button class="mobile-search-icon" type="submit">
                     <img src="~/Content/Imagens/SearchLogo.svg" alt="Lupa" class="mobile-search-image">
                 </button>
-            </form>
+            }
         </header>
 
-        @RenderBody()
+            @RenderBody()
 
-        <footer class="footer">
-            <div class="footer-content">
-                <ul class="socials">
-                    <li><a href="#"><img src="~/Content/Imagens/Instagram.svg" alt="Instagram" class="social-images"></a></li>
-                    <li><a href="#"><img src="~/Content/Imagens/Twitter.svg" alt="Twitter" class="social-images"></a></li>
-                    <li><a href="#"><img src="~/Content/Imagens/Email.svg" alt="Email" class="social-images"></a></li>
-                </ul>
-                <h3 class="footer-text">Desenvolvido por Infinity Tech Us™</h3>
-                <div class="logo-footer">
-                    <img src="/images/InfinityLogo.svg" alt="">
+            <footer class="footer">
+                <div class="footer-content">
+                    <ul class="socials">
+                        <li><a href="#"><img src="~/Content/Imagens/Instagram.svg" alt="Instagram" class="social-images"></a></li>
+                        <li><a href="#"><img src="~/Content/Imagens/Twitter.svg" alt="Twitter" class="social-images"></a></li>
+                        <li><a href="#"><img src="~/Content/Imagens/Email.svg" alt="Email" class="social-images"></a></li>
+                    </ul>
+                    <h3 class="footer-text">Desenvolvido por Infinity Tech Us™</h3>
+                    <div class="logo-footer">
+                        <img src="/images/InfinityLogo.svg" alt="">
+                    </div>
+                    <span class="footer-copyright">Copyright © Dom Tchochoro. Todos os direitos reservados.</span>
                 </div>
-                <span class="footer-copyright">Copyright © Dom Tchochoro. Todos os direitos reservados.</span>
-            </div>
-        </footer>
+            </footer>
 
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
-        @Scripts.Render("~/Scripts/scripts.js")
-        @Scripts.Render("~/Scripts/lightslider.js")
+            @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/bootstrap")
+            @RenderSection("scripts", required: false)
+            @Scripts.Render("~/Scripts/scripts.js")
+            @Scripts.Render("~/Scripts/lightslider.js")
 
-</body>
+    </body>
 </html>

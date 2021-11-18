@@ -612,6 +612,37 @@ namespace GladiaSystem.Database
             return AllProduct;
         }
 
+        public List<Product> ListProductByCategory(string category)
+        {
+            MySqlCommand cmd = new MySqlCommand("select * from allproduct where category_name = @Category;", con.ConnectionDB());
+            cmd.Parameters.Add("@Category", MySqlDbType.VarChar).Value = category;
+
+            var ProductDatas = cmd.ExecuteReader();
+            return ListAllProductByCategory(ProductDatas);
+        }
+
+        public List<Product> ListAllProductByCategory(MySqlDataReader dt)
+        {
+            var AllProduct = new List<Product>();
+            while (dt.Read())
+            {
+                var ProdTemp = new Product()
+                {
+                    ID = int.Parse(dt["prod_id"].ToString()),
+                    Name = (dt["prod_name"].ToString()),
+                    Desc = (dt["prod_desc"].ToString()),
+                    Price = int.Parse(dt["prod_price"].ToString()),
+                    Quant = int.Parse(dt["prod_quant"].ToString()),
+                    QuantMin = int.Parse(dt["prod_min_quant"].ToString()),
+                    Brand = (dt["prod_brand"].ToString()),
+                    img = (dt["img"].ToString()),
+                };
+                AllProduct.Add(ProdTemp);
+            }
+            dt.Close();
+            return AllProduct;
+        }
+
         public void UpdateProduct(Product product)
         {
             MySqlCommand cmd = new MySqlCommand("UPDATE `db_asp`.`tbl_product` SET `prod_name` = @Name, `prod_desc` = @Desc, `prod_brand` = @Brand, `prod_price` = @Price, `prod_quant` = @Quant, `prod_min_quant` = @QuantMin WHERE (`prod_id` = @ID);", con.ConnectionDB());
@@ -669,7 +700,7 @@ namespace GladiaSystem.Database
 
             foreach (var item in productList)
             {
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_items_order` (`fk_id_order`, `fk_id_prod`, `items_quant`, `item_subtotal`) VALUES(@OrderOpenID, @ItemID, @ItemQuant, '60');", con.ConnectionDB());
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_items_order` (`fk_id_order`, `fk_id_prod`, `items_quant`, `item_subtotal`) VALUES(@OrderOpenID, @ItemID, @ItemQuant, @SubTotal);", con.ConnectionDB());
                 int subTotalValue = item.Price * item.Quant;
 
                 cmd.Parameters.Add("@OrderOpenID", MySqlDbType.VarChar).Value = orderOpenID;
@@ -751,6 +782,16 @@ namespace GladiaSystem.Database
 
             TrackOrder trackReturn = new TrackOrder();
             return trackReturn;
+        }
+
+        public void RemoveFromStorage(int prodID, int prodQuantToRemove)
+        {
+            MySqlCommand cmd = new MySqlCommand("UPDATE tbl_product SET prod_quant = prod_quant - @ProdQuant WHERE prod_id = @ProdID;", con.ConnectionDB());
+            cmd.Parameters.Add("@ProdID", MySqlDbType.VarChar).Value = prodID;
+            cmd.Parameters.Add("@ProdQuant", MySqlDbType.VarChar).Value = prodQuantToRemove;
+
+            cmd.ExecuteNonQuery();
+            con.DisconnectDB();
         }
     }
 }
