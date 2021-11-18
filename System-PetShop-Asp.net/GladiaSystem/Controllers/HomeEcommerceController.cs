@@ -27,10 +27,19 @@ namespace GladiaSystem.Controllers
             return View(product);
         }
 
-        public ActionResult Search()
+        public ActionResult Search(string categoryFilter)
         {
             var ShowProducts = new Queries();
-            ViewBag.AllProduct = ShowProducts.ListProduct();
+
+            if (categoryFilter == null)
+            {
+                ViewBag.AllProduct = ShowProducts.ListProduct();
+            }
+            else
+            {
+                ViewBag.AllProduct = ShowProducts.ListProductByCategory(categoryFilter);
+            }
+
             return View();
         }
 
@@ -44,12 +53,57 @@ namespace GladiaSystem.Controllers
 
             product = queries.GetProductByID(product.ID);
 
+            if (quantInput > product.Quant)
+            {
+                return RedirectToAction("Search", "HomeEcommerce");
+            }
+
             product.Quant = quantInput;
 
-            storage.Store("DT"+product.ID, product);
+            string userinfo = (string)Session["userID"];
+            storage.Store("DT" + userinfo + product.ID, product);
             storage.Persist();
 
             return RedirectToAction("Cart", "PaymentEcommerce");
+        }
+
+        [HttpPost]
+        public ActionResult SearchProduct(Product product)
+        {
+            product = queries.GetProduct(product.Name);
+
+            List<int> IDs = new List<int>();
+            List<string> Names = new List<string>();
+            List<string> Descs = new List<string>();
+            List<string> Brands = new List<string>();
+            List<int> Prices = new List<int>();
+            List<int> Quants = new List<int>();
+            List<int> QuantMin = new List<int>();
+            List<string> CategoryName = new List<string>();
+            List<string> Images = new List<string>();
+
+            IDs.Add(product.ID);
+            Names.Add(product.Name);
+            Descs.Add(product.Desc);
+            Brands.Add(product.Brand);
+            Prices.Add(product.Price);
+            Quants.Add(product.Quant);
+            QuantMin.Add(product.QuantMin);
+            CategoryName.Add(product.Category.name);
+            Images.Add(product.img);
+
+
+            ViewBag.IDs = IDs;
+            ViewBag.Name = Names;
+            ViewBag.Brand = Brands;
+            ViewBag.Desc = Descs;
+            ViewBag.Price = Prices;
+            ViewBag.Quant = Quants;
+            ViewBag.QuantMin = QuantMin;
+            ViewBag.CategoryName = CategoryName;
+            ViewBag.Images = Images;
+
+            return View("Search");
         }
 
         public ActionResult Logout()

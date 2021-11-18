@@ -220,6 +220,10 @@ label {
     font-weight: 700;
 }
 
+.filter-sidebar {
+    color: #7F858D;
+}
+
 @media (max-width: 1200px) {
     .all-products {
         width: 70%;

@@ -19,19 +19,22 @@ namespace GladiaSystem.Controllers
 
             var keys = storage.Keys();
 
-            if (keys.Count == 0)
+            string userinfo = (string)Session["userID"];
+            List<string> isThereUser = (from name in keys where name.StartsWith("DT" + userinfo) select name).ToList();
+
+            if (isThereUser.Count == 0)
             {
-                return RedirectToAction("EmptyCart","HomeEcommerce");
+                return RedirectToAction("EmptyCart", "HomeEcommerce");
             }
 
-            List<String> keysStringList = new List<string>();
+            List<string> keysStringList = new List<string>();
 
             foreach (string value in keys)
             {
                 keysStringList.Add(value);
             }
 
-            List<string> keyStringListFiltered = (from name in keysStringList where name.StartsWith("DT") select name).ToList();
+            List<string> keyStringListFiltered = (from name in keysStringList where name.StartsWith("DT" + userinfo) select name).ToList();
             List<Product> productList = new List<Product>();
 
             for (int j = 0; j < keyStringListFiltered.Count; j++)
@@ -50,7 +53,8 @@ namespace GladiaSystem.Controllers
         {
             var config = new LocalStorageConfiguration() { };
             var storage = new LocalStorage(config);
-            string keyToRemove = "DT" + productID;
+            string userinfo = (string)Session["userID"];
+            string keyToRemove = "DT" + userinfo + productID;
             storage.Remove(keyToRemove);
             storage.Persist();
 
@@ -70,7 +74,8 @@ namespace GladiaSystem.Controllers
                 keysStringList.Add(value);
             }
 
-            List<string> keyStringListFiltered = (from name in keysStringList where name.StartsWith("DT") select name).ToList();
+            string userinfo = (string)Session["userID"];
+            List<string> keyStringListFiltered = (from name in keysStringList where name.StartsWith("DT" + userinfo) select name).ToList();
             List<Product> productList = new List<Product>();
 
             for (int j = 0; j < keyStringListFiltered.Count; j++)
@@ -115,6 +120,12 @@ namespace GladiaSystem.Controllers
             ViewBag.AllProducts = productList;
 
             queries.InserItemsOrder(orderOpenID, productList);
+
+            foreach (var item in productList)
+            {
+                queries.RemoveFromStorage(item.ID, item.Quant);
+            }
+
             queries.CloseOrder(orderOpenID);
 
             return RedirectToAction("Receipt");
@@ -133,7 +144,8 @@ namespace GladiaSystem.Controllers
                 keysStringList.Add(value);
             }
 
-            List<string> keyStringListFiltered = (from name in keysStringList where name.StartsWith("DT") select name).ToList();
+            string userinfo = (string)Session["userID"];
+            List<string> keyStringListFiltered = (from name in keysStringList where name.StartsWith("DT" + userinfo) select name).ToList();
             List<Product> productList = new List<Product>();
 
             for (int j = 0; j < keyStringListFiltered.Count; j++)
@@ -145,7 +157,7 @@ namespace GladiaSystem.Controllers
 
             foreach (var item in productList)
             {
-                string keyToRemove = "DT" + item.ID;
+                string keyToRemove = "DT" + userinfo + item.ID;
                 storage.Remove(keyToRemove);
                 storage.Persist();
             }
