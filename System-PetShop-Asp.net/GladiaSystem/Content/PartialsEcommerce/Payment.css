@@ -40,6 +40,10 @@
     color: var(--secondary-font-color);
 }
 
+.text-black{
+    color: var(--font-black)
+}
+
 .payment-method {
     margin-top: 10vh;
 }
@@ -79,10 +83,16 @@
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     width: 28rem;
+    color: var(--font-black);
 }
 
 .left {
     text-align: left;
+    color: var(--font-black);
+}
+
+.table-price {
+    color: var(--font-black);
 }
 
 .table th, .table td {
@@ -139,12 +149,72 @@
     line-height: 30px;
     letter-spacing: -0.005em;
     color: var(--colored-font);
+    background: none;
 }
 
+.button-continue:disabled {
+    border: 2px solid red;
+    background: none;
+    color: red;
+    cursor: not-allowed;
+}
+
+#myColor {
+    background-color: red;
+}
 
 .hr-continue {
     height: 1px;
     width: 26vw;
     border-radius: 50px;
     background: var(--hr-grey);
+}
+.modal-qrcode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.qr-code{
+    max-width: 40%;
+}
+.card-body {
+    background-color: var(--filter-box);
+    border-radius: 8px;
+    padding: 37px 15px 50px 15px;
+    display: grid;
+}
+
+.center-img {
+    transform: translate(30%, -2%);
+}
+
+.qrcode-container{
+    margin: 0 0 30px 40px;
+}
+
+.qrcode-title{
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--primary-font-color);
+}
+
+.qrcode-information {
+    font-size: 14px;
+    font-weight: normal;
+    color: var(--tertiary-font-color);
+}
+
+@media (min-width: 800px) {
+    .modal-lg, .modal-xl {
+        max-width: none !important;
+    }
 }

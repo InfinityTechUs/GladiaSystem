@@ -564,7 +564,7 @@ namespace GladiaSystem.Database
                         dto.Name = Convert.ToString(reader[1]);
                         dto.Desc = Convert.ToString(reader[2]);
                         dto.Brand = Convert.ToString(reader[3]);
-                        dto.Price = (int)Convert.ToDouble(reader[4]);
+                        dto.Price = (double)Convert.ToDouble(reader[4]);
                         dto.Quant = Convert.ToInt32(reader[5]);
                         dto.img = Convert.ToString(reader[10]);
                         dto.QuantMin = Convert.ToInt32(reader[6]);
@@ -599,8 +599,8 @@ namespace GladiaSystem.Database
                     ID = int.Parse(dt["prod_id"].ToString()),
                     Name = (dt["prod_name"].ToString()),
                     Desc = (dt["prod_desc"].ToString()),
-                    Price = int.Parse(dt["prod_price"].ToString()),
-                    Quant = int.Parse(dt["prod_quant"].ToString()),
+                    Price = double.Parse(dt["prod_price"].ToString()),
+                    Quant = double.Parse(dt["prod_quant"].ToString()),
                     QuantMin = int.Parse(dt["prod_min_quant"].ToString()),
                     Brand = (dt["prod_brand"].ToString()),
                     img = (dt["img"].ToString()),
@@ -626,7 +626,7 @@ namespace GladiaSystem.Database
             con.DisconnectDB();
         }
 
-        public void OpenOrder(string owner, int totalValue)
+        public void OpenOrder(string owner, double totalValue)
         {
             MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_order` (`order_date`, `order_payment`, `order_total`, `order_status`, `fk_id_user`) VALUES (@DateNow, 'PicPay', @TotalValue, '0', @Owner);", con.ConnectionDB());
             DateTime aDate = DateTime.Now;
@@ -669,7 +669,7 @@ namespace GladiaSystem.Database
             foreach (var item in productList)
             {
                 MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_items_order` (`fk_id_order`, `fk_id_prod`, `items_quant`, `item_subtotal`) VALUES(@OrderOpenID, @ItemID, @ItemQuant, @SubTotal);", con.ConnectionDB());
-                int subTotalValue = item.Price * item.Quant;
+                double subTotalValue = item.Price * item.Quant;
 
                 cmd.Parameters.Add("@OrderOpenID", MySqlDbType.VarChar).Value = orderOpenID;
                 cmd.Parameters.Add("@ItemID", MySqlDbType.VarChar).Value = item.ID;
@@ -711,8 +711,8 @@ namespace GladiaSystem.Database
                     Payment = (dt["order_payment"].ToString()),
                     Date = (dt["order_date"].ToString()),
                     Desc = (dt["prod_desc"].ToString()),
-                    Price = int.Parse(dt["prod_price"].ToString()),
-                    Quant = int.Parse(dt["items_quant"].ToString()),
+                    Price = double.Parse(dt["prod_price"].ToString()),
+                    Quant = double.Parse(dt["items_quant"].ToString()),
                     Image = (dt["prod_img"].ToString())
                 };
                 AllTrack.Add(TrackTemp);
@@ -737,7 +737,10 @@ namespace GladiaSystem.Database
                     {
                         dto.OrderID = Convert.ToInt32(reader[0]);
                         dto.Date = Convert.ToString(reader[1]);
+                        dto.Name = Convert.ToString(reader[4]);
+                        dto.Price = Convert.ToDouble(reader[5]);
                         dto.Payment = Convert.ToString(reader[2]);
+                        dto.Image = Convert.ToString(reader[7]);
                         return dto;
                     }
                 }
@@ -771,8 +774,8 @@ namespace GladiaSystem.Database
                     ID = int.Parse(dt["prod_id"].ToString()),
                     Name = (dt["prod_name"].ToString()),
                     Desc = (dt["prod_desc"].ToString()),
-                    Price = int.Parse(dt["prod_price"].ToString()),
-                    Quant = int.Parse(dt["prod_quant"].ToString()),
+                    Price = double.Parse(dt["prod_price"].ToString()),
+                    Quant = double.Parse(dt["prod_quant"].ToString()),
                     QuantMin = int.Parse(dt["prod_min_quant"].ToString()),
                     Brand = (dt["prod_brand"].ToString()),
                     img = (dt["img"].ToString()),
@@ -783,7 +786,7 @@ namespace GladiaSystem.Database
             return AllProduct;
         }
 
-        public void RemoveFromStorage(int prodID, int prodQuantToRemove)
+        public void RemoveFromStorage(int prodID, double prodQuantToRemove)
         {
             MySqlCommand cmd = new MySqlCommand("UPDATE tbl_product SET prod_quant = prod_quant - @ProdQuant WHERE prod_id = @ProdID;", con.ConnectionDB());
             cmd.Parameters.Add("@ProdID", MySqlDbType.VarChar).Value = prodID;

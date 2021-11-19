@@ -89,7 +89,7 @@ namespace GladiaSystem.Controllers
             return View();
         }
 
-        public ActionResult FinishOrder(int totalValue)
+        public ActionResult FinishOrder(double totalValue)
         {
             Queries queries = new Queries();
             string userOwner = (string)Session["userID"];
@@ -164,5 +164,6 @@ namespace GladiaSystem.Controllers
 
             return View();
         }
+
     }
 }

@@ -314,8 +314,8 @@ namespace GladiaSystem.Controllers
             List<string> Names = new List<string>();
             List<string> Descs = new List<string>();
             List<string> Brands = new List<string>();
-            List<int> Prices = new List<int>();
-            List<int> Quants = new List<int>();
+            List<double> Prices = new List<double>();
+            List<double> Quants = new List<double>();
             List<int> QuantMin = new List<int>();
             List<string> CategoryName = new List<string>();
             List<string> Images = new List<string>();

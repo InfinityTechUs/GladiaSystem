@@ -84,20 +84,23 @@
             <li class="banner-item">
                 <div class="banner-image"><img class="banner-picture" src="~/Content/Imagens/racoes.png" alt=""></div>
                 <div class="banner-info">
-                    <h3 class="banner-title">Rações</h3>
+                    <h3 class="banner-title">Comida</h3>
                     <p class="banner-content">
                         Quem tem pet em casa sabe a necessidade de oferecer
                         uma execelente alimentação para manter a saúde de seu
                         pet em dia
                     </p>
+                    @{
+                        string food = "Comida";
+                        string toys = "Brinquedos";
+                        string meds = "Medicamentos";
+                        string hygiene = "Higiene";
+                    }
                     <a href="@Url.Action("Search", "HomeEcommerce")">
                         <p class="banner-link">Comprar aqui<img class="miniArrow" src="~/Content/Imagens/minibannericon.png" alt=""></p>
                     </a>
                 </div>
-                <a href="" class="full-link"></a>
-                <a href="@Url.Action("Search", "HomeEcommerce")">
-                    <p class="full-link"></p>
-                </a>
+                <a href="@Url.Action("Search", "HomeEcommerce" , new { categoryFilter =  food})" class="full-link"></a>
             </li>
             <li class="banner-item">
                 <div class="banner-image"><img class="banner-picture" src="~/Content/Imagens/petiscos.png" alt=""></div>
@@ -112,9 +115,7 @@
                         <p class="banner-link">Comprar aqui<img class="miniArrow" src="~/Content/Imagens/minibannericon.png" alt=""></p>
                     </a>
                 </div>
-                <a href="@Url.Action("Search", "HomeEcommerce")">
-                    <p class="full-link"></p>
-                </a>
+                 <a class="full-link" href="@Url.Action("Search", "HomeEcommerce" , new { categoryFilter = hygiene})"></a>
             </li>
         </ul>
     </section>

@@ -53,7 +53,7 @@
                     <div class="prodtable_block col_del"></div>
                 </div>
                 @{
-                    int totalValueGlobal = 0;
+                    double totalValueGlobal = 0;
                 }
                 @foreach (GladiaSystem.Models.Product item in products)
                 {
@@ -70,7 +70,7 @@
                         </div>
 
                         @{
-                            int totalValue = item.Price * item.Quant;
+                            double totalValue = item.Price * item.Quant;
                             totalValueGlobal += totalValue;
                         }
 
