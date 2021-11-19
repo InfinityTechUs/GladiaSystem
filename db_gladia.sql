@@ -98,40 +98,6 @@ ON o.order_id = i.fk_id_order
 JOIN tbl_product as p
 ON p.prod_id = i.fk_id_prod;
 
-
-/*CREATE USER 'gladia'@'localhost' IDENTIFIED BY '123456';
-GRANT ALL PRIVILEGES ON db_asp.* TO 'gladia'@'localhost' WITH GRANT OPTION;
-
-set @@autocommit = off;
-delimiter $$
-create procedure inserirDados()
-begin
-	declare erro tinyint default false;
-	declare continue handler for sqlexception set erro = true;
-    start transaction;
-		insert into tbl_order(order_total, fk_id_user)
-		select order_total, fk_id_user
-		from tbl_cart;
-
-		insert into tbl_items_order(items_quant, fk_id_prod)
-		select items_quant, fk_id_prod
-		from tbl_cart;
-		
-		insert into tbl_product(prod_name, prod_price, prod_img)
-		select prod_name, prod_price, prod_img 
-		from tbl_cart;
-		
-		if erro = false then
-			commit;
-			select 'ta safe' as resultado;
-		else 
-			rollback;
-			select 'não ta safe' as resultado;
-		end if;
-end$$
-DELIMITER ;
-call inserirDados();*/ 
-
 INSERT INTO `db_asp`.`tbl_user` (`user_cpf`, `user_phone`, `user_name`, `user_email`, `user_password`, `user_lvl`) VALUES ('22286781801', '994635598', 'Rafael Ioshi', 'rafa.ioshi@gmail.com', 'rafael00', '1');
 INSERT INTO `db_asp`.`tbl_category` (`category_name`) VALUES ('Comida');
 INSERT INTO `db_asp`.`tbl_category` (`category_name`) VALUES ('Brinquedos');
@@ -144,5 +110,4 @@ INSERT INTO `db_asp`.`tbl_category` (`category_name`) VALUES ( 'Higiene');
 INSERT INTO `db_asp`.`tbl_product` (`prod_id`, `prod_name`, `prod_desc`, `prod_brand`, `prod_price`, `prod_quant`, `prod_img`, `prod_min_quant`, `fk_category`) VALUES ('1', 'Tapete Higiênico Petix Supersecão Max Citrus 30 Unidades', '- Indicado para cães;', 'Supersecão ', '68', '30', '~/Images/48412d34-a350-43af-be07-080621f64931_1.png', '5', '3');
 INSERT INTO `db_asp`.`tbl_product` (`prod_id`, `prod_name`, `prod_desc`, `prod_brand`, `prod_price`, `prod_quant`, `prod_img`, `prod_min_quant`, `fk_category`) VALUES ('2', 'Snack Dom Tchochoro para Cães sabor Filé de Carne Bovino 100g', '- Indicado para cães;', 'Dom Tchochoro', '22', '30', '~/Images/d7610363-5e48-4fb5-92ee-47de63b495bc_12.png', '5', '1');
 INSERT INTO `db_asp`.`tbl_product` (`prod_id`, `prod_name`, `prod_desc`, `prod_brand`, `prod_price`, `prod_quant`, `prod_img`, `prod_min_quant`, `fk_category`) VALUES ('3', 'Poste Arranhador Dom Tchochoro para Gatos - Cores Sortidas', '- Indicado para gatos;', 'Dom Tchochoro', '90', '2', '~/Images/d740d6e9-72bc-4c90-9a0a-fc4240b7703b_7.png', '0', '2');
-INSERT INTO `db_asp`.`tbl_product` (`prod_id`, `prod_name`, `prod_desc`, `prod_brand`, `prod_price`, `prod_quant`, `prod_img`, `prod_min_quant`, `fk_category`) VALUES ('4', 'Antipulgas e Carrapatos Bravecto MSD para Cães de 4,5 a 10 kg', '- Indicado para cães;', 'Bravecto', '193', '5', '~/Images/66e9e8ba-d2be-4856-a5ef-72fd70026c0f_16.png', '2', '4');
-
+INSERT INTO `db_asp`.`tbl_product` (`prod_id`, `prod_name`, `prod_desc`, `prod_brand`, `prod_price`, `prod_quant`, `prod_img`, `prod_min_quant`, `fk_category`) VALUES ('4', 'Antipulgas e Carrapatos Bravecto MSD para Cães de 4,5 a 10 kg', '- Indicado para cães;', 'Bravecto', '193', '5', '~/Images/f3b53a29-4adc-4003-b686-749dc665026d_16.png', '2', '4');

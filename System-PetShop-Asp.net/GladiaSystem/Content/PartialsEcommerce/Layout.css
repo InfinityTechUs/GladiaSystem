@@ -248,9 +248,9 @@
 }
 
 .desktop-nav {
-    background-color: #fff;
+    background-color: var(--footer-font-color);
     height: 40px;
-    border-bottom: 1px solid #DADDDF;
+    border-bottom: 1px solid var(--footer-font-color);
 }
 
 .desktop-nav-container {
@@ -275,7 +275,7 @@
 }
 
 .nav-category {
-    color: #252733;
+    color: var(--font-black);
     text-decoration: none;
     font-style: normal;
     font-weight: 500;

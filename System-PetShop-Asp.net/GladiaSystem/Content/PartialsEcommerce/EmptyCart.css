@@ -1,7 +1,10 @@
-﻿.layout-flex {
-    margin-bottom: 5vh;
+﻿#main {
+    background-color: var(--base-color);
 }
 
+.layout-flex {
+    margin-bottom: 5vh;
+}
 
 .empty-cart-content {
     display: flex;
