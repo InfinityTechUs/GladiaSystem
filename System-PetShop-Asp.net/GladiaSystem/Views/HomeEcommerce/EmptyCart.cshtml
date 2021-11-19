@@ -14,18 +14,22 @@
     <title>Carrinho vazio - Dom Tchochoro</title>
 </head>
 <body>
-
-        <main class="layout-flex container">
-            <section>
-                <div class="empty-cart-content container">
-                    <h1 class="empty-cart-title">Seu carrinho está vazio</h1>
-                    <div class="empty-cart-image">
-                        <img src="~/Content/Imagens/EmptyCart.svg" alt="" class="cart-image">
-                    </div>
-                    @Html.ActionLink("Continuar comprando", "Home", new { controller = "HomeEcommerce" }, new { @class = "cart-button" })
+    @if (Session["access"] == null)
+    {
+        <script>alert('É preciso estar fazer o login para usar o carrinho! 😉')</script>
+        <script>window.location.href = "https://localhost:44355/HomeEcommerce/Home"</script>
+    }
+    <main class="layout-flex container">
+        <section>
+            <div class="empty-cart-content container">
+                <h1 class="empty-cart-title">Seu carrinho está vazio</h1>
+                <div class="empty-cart-image">
+                    <img src="~/Content/Imagens/EmptyCart.svg" alt="" class="cart-image">
                 </div>
-            </section>
-        </main>
+                @Html.ActionLink("Continuar comprando", "Home", new { controller = "HomeEcommerce" }, new { @class = "cart-button" })
+            </div>
+        </section>
+    </main>
 
-    </body>
+</body>
 </html>
