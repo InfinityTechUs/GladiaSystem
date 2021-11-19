@@ -6,65 +6,64 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>TrackOrderDetail</title>
+    <title>Detalhes do pedido - Dom Tchochoro</title>
     <link href="~/Content/Partials/Product.css" rel="stylesheet" />
     @Styles.Render("~/Content/css")
     <link href="~/Content/rootE.css" rel="stylesheet" />
     <link href="~/Content/PartialsEcommerce/Cart.css" rel="stylesheet" />
     <link href="~/Content/PartialsEcommerce/Payment.css" rel="stylesheet" />
+    <link href="~/Content/PartialsEcommerce/Layout.css" rel="stylesheet" />
+    <link href="~/Content/PartialsEcommerce/MyAccount.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;700;800&display=swap"
           rel="stylesheet" />
 
 </head>
 <body>
-    <div>
-        <h4>TrackOrder</h4>
+    <div class="container details-container">
+        <h2>Detalher do pedidos</h2>
         <hr />
         <dl class="dl-horizontal">
             <dt>
-                @Html.DisplayNameFor(model => model.OrderID)
+                <label class="details-text" for="name">Número do pedido</label>
             </dt>
-    
-            <dd>
+
+            <dd class="details-text-information">
                 @Html.DisplayFor(model => model.OrderID)
             </dd>
-    
+
             <dt>
-                @Html.DisplayNameFor(model => model.Date)
+                <label class="details-text" for="name">Data da compra</label>
             </dt>
-    
-            <dd>
+
+            <dd class="details-text-information">
                 @Html.DisplayFor(model => model.Date)
             </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Payment)
+
+            <dt class="details-text">
+                <label class="details-text" for="name">Forma de pagamento</label>
             </dt>
-    
-            <dd>
+
+            <dd class="details-text-information">
                 @Html.DisplayFor(model => model.Payment)
             </dd>
-    
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th class="left" scope="col"></th>
-                        <th class="left" scope="col">Item</th>
-                        <th scope="col"></th>
-                        <th scope="col">Preço</th>
-                    </tr>
-                </thead>
-                <tbody>
+            <div class="container-table">
+                <div class="prodtable_container">
+                    <div class="prodtable_row header">
+                        <div class="prodtable_block col_product">Produto</div>
+                        <div class="prodtable_block col_price font-size-table">Preço</div>
+                        <div class="prodtable_block col_quantity font-size-table">Quantidade</div>
+                        <div class="prodtable_block col_total font-size-table">Total</div>
+                        <div class="prodtable_block col_del"></div>
+                    </div>
                     @{int totalValueGlobal = 0; }
 
                     @foreach (var item in trackOrders)
                     {
-                        <tr>
-                            <td class="left"><img src="@item.Image"/></td>
+                        @*  <tr>
+                            <td class="left"><img src="@item.Image" class="img-fluid" /></td>
                             <td class="left">@item.Name</td>
                             <th class="left" scope="row">x @item.Quant</th>
                             @{
@@ -72,15 +71,70 @@
                                 totalValueGlobal += totalValue;
                             }
                             <td>R$ @totalValue</td>
-                        </tr>
+                        </tr>*@
+
+                        <div class="prodtable_row">
+                            <div class="prodtable_block col_product">
+                                <img class="col_product_img"
+                                     src="@item.Image"
+                                     alt="Foto do produto" />
+                                <div class="col_product_title title-elipse">
+                                    @item.Name
+                                </div>
+                            </div>
+                            <div class="prodtable_block col_price">R$ @item.Price</div>
+                            <div class="prodtable_block col_quantity">
+                                <span class="product-quant">@item.Quant</span>
+                                @{
+                                    int totalValue = item.Quant * item.Price;
+                                    totalValueGlobal += totalValue;
+                                }
+                            </div>
+                            <div class="prodtable_block col_total">R$ @totalValue</div>
+                        </div>
                     }
-                </tbody>
-            </table>
+
+                </div>
+            </div>
+            <div class="center-button">
+                <div class="hr-continue"></div>
+                @Html.ActionLink("Voltar a navegar", "TrackOrder", new { controller = "AccountEcommerce" }, new { @class = "button-continue" })
+                <div class="hr-continue"></div>
+            </div>
         </dl>
+
+
+        <div class="container">
+            <div class="shortcut-title">
+                <img class="grid-icon" src="~/Content/Imagens/grid.svg" alt="Alternate Text" />
+                <h1 class="shortcut-text">Atalhos</h1>
+            </div>
+            <div class="shortcut-container">
+                <a class="single-item" href="@Url.Action("Home", "HomeEcommerce")">
+                    <p class="shortcut-item"><img src="~/Content/Imagens/back-home.svg" alt="Alternate Text" /> Home</p>
+                    </aclass="single-item">
+                    <a class="single-item" href="@Url.Action("TrackOrder", "AccountEcommerce")">
+                        <p class="shortcut-item"><img src="~/Content/Imagens/shopping-bag.svg" alt="Alternate Text" /> Pedidos</p>
+                    </a>
+                    <a class="single-item" href="@Url.Action("Cart", "PaymentEcommerce")">
+                        <p class="shortcut-item"><img src="~/Content/Imagens/shopping-cart.svg" alt="Alternate Text" /> Carrinho</p>
+                    </a>
+            </div>
+        </div>
     </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+    <footer class="footer">
+        <div class="footer-content">
+            <ul class="socials">
+                <li><a href="#"><img src="~/Content/Imagens/Instagram.svg" alt="Instagram" class="social-images"></a></li>
+                <li><a href="#"><img src="~/Content/Imagens/Twitter.svg" alt="Twitter" class="social-images"></a></li>
+                <li><a href="#"><img src="~/Content/Imagens/Email.svg" alt="Email" class="social-images"></a></li>
+            </ul>
+            <h3 class="footer-text">Desenvolvido por Infinity Tech Us™</h3>
+            <div class="logo-footer">
+                <img src="/images/InfinityLogo.svg" alt="">
+            </div>
+            <span class="footer-copyright">Copyright © Dom Tchochoro. Todos os direitos reservados.</span>
+        </div>
+    </footer>
 </body>
 </html>

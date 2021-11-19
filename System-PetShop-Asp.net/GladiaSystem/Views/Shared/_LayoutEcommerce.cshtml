@@ -40,7 +40,6 @@
                             <a href="@Url.Action("MyAccount", "AccountEcommerce")">
                                 <p class="account-links">Minha conta<img src="~/Content/Imagens/arrow-left.svg" alt="arrow-left" /></p>
                             </a>
-
                         </li>
                         <li class="nav-links-item">
                             <a href="@Url.Action("TrackOrder", "AccountEcommerce")">
@@ -139,9 +138,9 @@
                                         <div class="dropdown">
                                             <button class="dropbtn"><img src="~/Content/Imagens/ArrowDown.svg" alt=""></button>
                                             <div class="dropdown-content">
-                                                @Html.ActionLink("Minha conta", "MyAccount", new { controller = "AccountEcommerce" }, new { @class = "" })
-                                                @Html.ActionLink("Meus pedidos", "TrackOrder", new { controller = "AccountEcommerce" }, new { @class = "" })
-                                                @Html.ActionLink("Dashbord", "Home", new { controller = "Home" }, new { @class = "" })
+                                                @Html.ActionLink("Minha conta", "MyAccount", new { controller = "AccountEcommerce" })
+                                                @Html.ActionLink("Meus pedidos", "TrackOrder", new { controller = "AccountEcommerce" })
+                                                @Html.ActionLink("Dashbord", "Home", new { controller = "Home" })
                                                 <hr />
                                                 <a href="@Url.Action("Logout", "Home")">
                                                     <span class="dropdown-exit">Sair</span>
@@ -156,8 +155,8 @@
                                         <div class="dropdown">
                                             <button class="dropbtn"><img src="~/Content/Imagens/ArrowDown.svg" alt=""></button>
                                             <div class="dropdown-content">
-                                                @Html.ActionLink("Minha conta", "MyAccount", new { controller = "AccountEcommerce" }, new { @class = "" })
-                                                @Html.ActionLink("Meus pedidos", "TrackOrder", new { controller = "AccountEcommerce" }, new { @class = "" })
+                                                @Html.ActionLink("Minha conta", "MyAccount", new { controller = "AccountEcommerce" })
+                                                @Html.ActionLink("Meus pedidos", "TrackOrder", new { controller = "AccountEcommerce" })
                                                 <hr />
                                                 <a href="@Url.Action("Logout", "Home")">
                                                     <span class="dropdown-exit">Sair </span>

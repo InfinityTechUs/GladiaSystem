@@ -1,4 +1,16 @@
-﻿.main-payment {
+﻿.details-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--primary-font-color);
+}
+
+.details-text-information {
+    font-size: 15px;
+    font-weight: normal;
+    color: var(--tertiary-font-color);
+}
+
+.main-payment {
     margin-right: 25vw;
     margin-left: 25vw;
     margin-top: 10vh;
