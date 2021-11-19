@@ -14,17 +14,18 @@
     <title>Carrinho vazio - Dom Tchochoro</title>
 </head>
 <body>
-    <main class="layout-flex container">
-        <section>
-            <div class="empty-cart-content container">
-                <h1 class="empty-cart-title">Seu carrinho está vazio</h1>
-                <div class="empty-cart-image">
-                    <img src="~/Content/Imagens/EmptyCart.svg" alt="" class="cart-image">
-                </div>
-                @Html.ActionLink("Continuar comprando", "Home", new { controller = "HomeEcommerce" }, new { @class = "cart-button" })
-            </div>
-        </section>
-    </main>
 
-</body>
+        <main class="layout-flex container">
+            <section>
+                <div class="empty-cart-content container">
+                    <h1 class="empty-cart-title">Seu carrinho está vazio</h1>
+                    <div class="empty-cart-image">
+                        <img src="~/Content/Imagens/EmptyCart.svg" alt="" class="cart-image">
+                    </div>
+                    @Html.ActionLink("Continuar comprando", "Home", new { controller = "HomeEcommerce" }, new { @class = "cart-button" })
+                </div>
+            </section>
+        </main>
+
+    </body>
 </html>

@@ -1,106 +1,146 @@
 ﻿:root {
-    --base-color: #fafafa;
-    --navbar-color: #288be9;
-    --buttom-color: #288be9;
-    --buttom-secondary-color: #717b84;
-    --footer-font-color: #fffff;
-    --colored-font: #2b94f9;
-    --primary-font-color: #191a20;
-    --secondary-font-color: #2d2f3d;
-    --tertiary-font-color: #9da3a9;
-    --card-font: #252733;
-    --filter-font: #252733;
-    --normal-font-size: 1rem;
-    --small-font-size: 0.75rem;
-    --first-color: #2b94f9;
-    --input-color: #80868b;
-    --border-color: #dadce0;
-    --hr-color: #8eb9e1;
-    --hr-grey: #DADDDF;
-    --normal-font-size: 1rem;
-    --small-font-size: 1rem;
-    --hover-link: #2986df;
-    --red-color: F20C0C;
+	--base-color: #fafafa;
+	--navbar-color: #288be9;
+	--buttom-color: #288be9;
+	--buttom-secondary-color: #717b84;
+	--footer-font-color: #fffff;
+	--colored-font: #2b94f9;
+	--primary-font-color: #191a20;
+	--secondary-font-color: #2d2f3d;
+	--tertiary-font-color: #9da3a9;
+	--card-font: #252733;
+	--track-order: #252733;
+	--filter-font: #252733;
+	--normal-font-size: 1rem;
+	--small-font-size: 0.75rem;
+	--first-color: #2b94f9;
+	--input-color: #80868b;
+	--border-color: #dadce0;
+	--hr-color: #8eb9e1;
+	--hr-grey: #dadddf;
+	--normal-font-size: 1rem;
+	--small-font-size: 1rem;
+	--hover-link: #2986df;
+	--red-color: #F20C0C;
+	--card-theme: #fff;
+	--font-black: #252733;
+	--sidebar-title-color: #42464D;
+	--filter-box: #ffff;
+	--selected-product-color: #42464d;
 }
 
 *,
 ::before,
 ::after {
-    padding: 0;
-    box-sizing: border-box;
-    margin: 0;
-    font-family: "Mulish";
+	padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	font-family: "Mulish";
 }
 
 html {
-    font-size: 60%;
+	font-size: 60%;
 }
 
 body {
-    background-color: var(--base-color);
-    font-family: 'Mulish', sans-serif;
-    font-feature-settings: 'ss02' on;
-    font-weight: 400;
-    min-height: 100%;
-    line-height: 1 !important;
+	background-color: var(--base-color);
+	font-family: "Mulish", sans-serif;
+	font-feature-settings: "ss02" on;
+	font-weight: 400;
+	min-height: 100%;
+	line-height: 1 !important;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    outline: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	outline: 0;
 }
 
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
+	width: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-/*    box-shadow: inset 0 0 5px #F1F1F1;*/
-    border-radius: 10px;
+	/*    box-shadow: inset 0 0 5px #F1F1F1;*/
+	border-radius: 10px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #2B94F9;
-    border-radius: 10px;
+	background: #2b94f9;
+	border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #288BE9;
+	background: #288be9;
 }
 
-ol, ul {
-    margin-top: 0;
-    margin-bottom: 0px;
-    list-style: none;
+ol,
+ul {
+	margin-top: 0;
+	margin-bottom: 0px;
+	list-style: none;
 }
 
 a {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 @media (min-width: 1297px) {
-    html {
-        font-size: 80%;
-    }
+	html {
+		font-size: 80%;
+	}
 }
 
 @media (man-width: 1080px) {
-    html {
-        font-size: 93.85%;
-    }
+	html {
+		font-size: 93.85%;
+	}
 }
 
 .container {
-    width: 100%;
-    max-width: 1130px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-left: auto;
-    margin-right: auto;
+	width: 100%;
+	max-width: 1130px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--base-color: #2c2f39;
+		--navbar-color: #363740;
+		--buttom-color: #288be9;
+		--buttom-secondary-color: #717b84;
+		--footer-font-color: #06508f;
+		--colored-font: #2b94f9;
+		--primary-font-color: #000;
+		--secondary-font-color: #000;
+		--tertiary-font-color: #9da3a9;
+		--card-font: #000;
+		--filter-font: #000;
+		--normal-font-size: 1rem;
+		--small-font-size: 0.75rem;
+		--first-color: #2b94f9;
+		--input-color: #80868b;
+		--border-color: #5f7092;
+		--hr-color: #337cc0;
+		--hr-grey: #646464;
+		--normal-font-size: 1rem;
+		--small-font-size: 1rem;
+		--hover-link: #2986df;
+		--red-color: #F20C0C;
+		--card-theme: #165c97;
+		--font-black: #000;
+		--track-order: #fff;
+		--sidebar-title-color: #698fd3;
+		--filter-box: #232632;
+		--selected-product-color: #000;
+	}
 }
