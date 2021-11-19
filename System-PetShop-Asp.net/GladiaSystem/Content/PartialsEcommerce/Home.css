@@ -46,7 +46,7 @@
 
 /* barrinha com carrinho */
 .flex-features {
-    background-color: #fff;
+    background-color: var(--card-theme);
     display: flex;
     align-items: center;
     border-radius: 8px;
@@ -76,7 +76,7 @@
 .flex-title {
     font-size: 16px;
     line-height: 13px;
-    color: #252733;
+    color: var(--font-black);
     font-style: normal;
     position: relative;
 }
@@ -224,10 +224,11 @@
     color: #FFFFFF;
 }
 
-.btn-primary{
+.btn-primary {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--buttom-color) !important;
 }
 
 .item-title {
@@ -268,7 +269,7 @@
 }
 
 .banner-item {
-    background: #FFFFFF;
+    background: var(--card-theme);
     box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
     border-radius: 8px;
     overflow: hidden;
@@ -289,7 +290,7 @@
 .banner-title {
     font-size: 25px;
     line-height: 24px;
-    color: #191A20;
+    color: var(--primary-font-color);
     margin-bottom: 10px;
     font-style: normal;
     font-weight: bold;
@@ -299,7 +300,7 @@
     font-size: 14px;
     line-height: 17px;
     margin-bottom: 25px;
-    color: #2D2F3D;
+    color: var(--secondary-font-color);
     font-style: normal;
     font-weight: 300;
 }

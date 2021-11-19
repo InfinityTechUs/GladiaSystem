@@ -1,13 +1,16 @@
-﻿.hidden {
+﻿#main {
+    background-color: var(--base-color)
+}
+.hidden {
     visibility: hidden !important;
     display: none !important;
 }
+
 .input-decoration {
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
     padding: 8px 12px;
-    border-radius: 48px;
     width: 58px;
     height: 40px;
     border: 1px solid transparent;
@@ -34,13 +37,15 @@
 .product-title {
     font-style: normal;
     font-weight: 600;
-    color: #42464d;
+    color: var(--selected-product-color);
+    color: #000;
     font-size: 32px;
 }
 
 .block-information {
     display: flex;
     justify-content: space-between;
+    color: var(--font-black)
 }
 
 .product-price {
@@ -57,6 +62,10 @@
     font-size: 16px;
 }
 
+.produc-selected-desc{
+    color: var(--font-black);
+}
+
 .more-information-title {
     font-style: normal;
     font-weight: bold;
@@ -68,7 +77,7 @@
     font-style: normal;
     font-size: 20px;
     font-weight: bold;
-    color: #42464d;
+    color: var(--sidebar-title-color);
 }
 
 .input-container {
@@ -98,9 +107,9 @@
     width: 100%;
 }
 
-.buy-button:hover {
-    background-color: #1c8ffa;
-}
+    .buy-button:hover {
+        background-color: #1c8ffa;
+    }
 
 #sub {
     color: #1c8ffa;
@@ -128,6 +137,7 @@
     border-right: none;
     height: 40px;
 }
+
 .input-style {
     font-size: 14px;
     color: #42464d;
@@ -165,4 +175,4 @@
 .disable-button, .disable-button:hover {
     background-color: #75818C;
     cursor: not-allowed;
-} 
+}

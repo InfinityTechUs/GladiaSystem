@@ -662,7 +662,7 @@ namespace GladiaSystem.Database
             reader.Close();
             return 0;
         }
-
+        
         public void InserItemsOrder(int orderOpenID, List<Product> productList)
         {
 

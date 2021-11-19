@@ -1,3 +1,4 @@
+
 ﻿.details-text {
     font-size: 18px;
     font-weight: bold;
@@ -8,6 +9,13 @@
     font-size: 15px;
     font-weight: normal;
     color: var(--tertiary-font-color);
+}
+﻿
+@media (prefers-color-scheme: dark) {
+
+    .table {
+        color: #000000 !important;
+    }
 }
 
 .main-payment {
@@ -140,4 +148,3 @@
     border-radius: 50px;
     background: var(--hr-grey);
 }
-

@@ -14,6 +14,11 @@
     <title>Carrinho vazio - Dom Tchochoro</title>
 </head>
 <body>
+    @if (Session["access"] == null)
+    {
+        <script>alert('É preciso estar fazer o login para usar o carrinho! 😉')</script>
+        <script>window.location.href = "https://localhost:44355/HomeEcommerce/Home"</script>
+    }
     <main class="layout-flex container">
         <section>
             <div class="empty-cart-content container">
