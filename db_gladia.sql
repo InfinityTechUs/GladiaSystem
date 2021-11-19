@@ -135,9 +135,14 @@ call inserirDados();*/
 INSERT INTO `db_asp`.`tbl_user` (`user_cpf`, `user_phone`, `user_name`, `user_email`, `user_password`, `user_lvl`) VALUES ('22286781801', '994635598', 'Rafael Ioshi', 'rafa.ioshi@gmail.com', 'rafael00', '1');
 INSERT INTO `db_asp`.`tbl_category` (`category_name`) VALUES ('Comida');
 INSERT INTO `db_asp`.`tbl_category` (`category_name`) VALUES ('Brinquedos');
+INSERT INTO `db_asp`.`tbl_category` (`category_name`) VALUES ('Higiene');
+INSERT INTO `db_asp`.`tbl_category` (`category_name`) VALUES ('Medicamentos');
 INSERT INTO `db_asp`.`tbl_address` (`address_cep`, `address_uf`, `address_city`, `address_district`, `address_public_place`, `address_complement`, `fk_user_id`) VALUES ('06020194', 'SP', 'Osasco', 'Parque Continental', 'Av Manoel Pedro Pimentel 200', 'Bl 15 Ap 81', '1');
 INSERT INTO `db_asp`.`tbl_user` (`user_cpf`, `user_phone`, `user_name`, `user_email`, `user_password`, `user_lvl`) VALUES ('23151315121', '994564511', 'Vitor Vieira', 'vitor@gmail.com', 'vitor00', '0');
 INSERT INTO `db_asp`.`tbl_user` (`user_id`, `user_cpf`, `user_phone`, `user_name`, `user_email`, `user_password`, `user_img`, `user_lvl`) VALUES ('3', '23151315121', '994564511', 'Ioshi ', 'ioshi@gmail.com', 'ioshi00', '~/Images/58371762-5fbd-4163-bcef-6e21e24bb1fd_01.png', '1');
-INSERT INTO `db_asp`.`tbl_category` (`category_id`, `category_name`) VALUES ('3', 'Higiene');
+INSERT INTO `db_asp`.`tbl_category` (`category_name`) VALUES ( 'Higiene');
 INSERT INTO `db_asp`.`tbl_product` (`prod_id`, `prod_name`, `prod_desc`, `prod_brand`, `prod_price`, `prod_quant`, `prod_img`, `prod_min_quant`, `fk_category`) VALUES ('1', 'Tapete Higiênico Petix Supersecão Max Citrus 30 Unidades', '- Indicado para cães;', 'Supersecão ', '68', '30', '~/Images/48412d34-a350-43af-be07-080621f64931_1.png', '5', '3');
+INSERT INTO `db_asp`.`tbl_product` (`prod_id`, `prod_name`, `prod_desc`, `prod_brand`, `prod_price`, `prod_quant`, `prod_img`, `prod_min_quant`, `fk_category`) VALUES ('2', 'Snack Dom Tchochoro para Cães sabor Filé de Carne Bovino 100g', '- Indicado para cães;', 'Dom Tchochoro', '22', '30', '~/Images/d7610363-5e48-4fb5-92ee-47de63b495bc_12.png', '5', '1');
+INSERT INTO `db_asp`.`tbl_product` (`prod_id`, `prod_name`, `prod_desc`, `prod_brand`, `prod_price`, `prod_quant`, `prod_img`, `prod_min_quant`, `fk_category`) VALUES ('3', 'Poste Arranhador Dom Tchochoro para Gatos - Cores Sortidas', '- Indicado para gatos;', 'Dom Tchochoro', '90', '2', '~/Images/d740d6e9-72bc-4c90-9a0a-fc4240b7703b_7.png', '0', '2');
+INSERT INTO `db_asp`.`tbl_product` (`prod_id`, `prod_name`, `prod_desc`, `prod_brand`, `prod_price`, `prod_quant`, `prod_img`, `prod_min_quant`, `fk_category`) VALUES ('4', 'Antipulgas e Carrapatos Bravecto MSD para Cães de 4,5 a 10 kg', '- Indicado para cães;', 'Bravecto', '193', '5', '~/Images/66e9e8ba-d2be-4856-a5ef-72fd70026c0f_16.png', '2', '4');
 

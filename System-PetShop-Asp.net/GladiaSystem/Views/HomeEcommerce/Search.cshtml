@@ -38,16 +38,9 @@
                     }
                     <h2 class="sidebar-title"><b>Categorias</b></h2>
                     <p class="sidebar-list"><a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  toys})" class="filter-sidebar">Brinquedos</a></p>
-                    <p class="sidebar-list"><a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  food})">Comida</a></p>
-                    <p class="sidebar-list"><a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  meds})">Medicamentos</a></p>
-                    <p class="sidebar-list"><a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter = hygiene })">Higiene</a></p>
-
-                    <h2 class="sidebar-title"><b>Mais buscados</b></h2>
-
-                    <p class="sidebar-list">Brinquedos</p>
-                    <p class="sidebar-list">Ração</p>
-                    <p class="sidebar-list">Remédio</p>
-                    <p class="sidebar-list">Petiscos</p>
+                    <p class="sidebar-list"><a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  food})" class="filter-sidebar">Comida</a></p>
+                    <p class="sidebar-list"><a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  meds})" class="filter-sidebar">Medicamentos</a></p>
+                    <p class="sidebar-list"><a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter = hygiene })" class="filter-sidebar">Higiene</a></p>
 
                     <h2 class="sidebar-title"><b>Filtrar por:</b></h2>
                     <div class="filter-box">
@@ -66,9 +59,7 @@
                 </div>
                 <div class="col-lg-9 all-products">
                     <div class="container row order">
-                        <label class="label-order" for="#">
-                            <p class="title-order">Categoria que está sendo procurada</p>
-                        </label>
+
                         <div class="total-products">
                             <p class="text-total-products"><b>@products.Count </b>Produtos</p>
                         </div>
