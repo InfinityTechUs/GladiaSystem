@@ -31,7 +31,20 @@ namespace GladiaSystem.Controllers
         {
             var ShowProducts = new Queries();
 
-            if (categoryFilter == null)
+            if(categoryFilter == "SearchPriceOne")
+            {
+                ViewBag.AllProduct = queries.ListProductByPrice(5,20);
+            }
+            else if(categoryFilter == "SearchPriceTwo")
+            {
+                ViewBag.AllProduct = queries.ListProductByPrice(20, 40);
+
+            }
+            else if(categoryFilter == "SearchPriceThree")
+            {
+                ViewBag.AllProduct = queries.ListProductByPrice(40, 80);
+            }
+            else if (categoryFilter == null)
             {
                 ViewBag.AllProduct = ShowProducts.ListProduct();
             }
