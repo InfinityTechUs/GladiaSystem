@@ -29,7 +29,7 @@
     <section class="page-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 form">
+                    <div class="col-lg-3 form">
                     @{
                         string food = "Comida";
                         string toys = "Brinquedos";
@@ -46,14 +46,14 @@
                     <div class="filter-box">
                         <div class="item-filter">
                             <p class="filter-title">Preço</p>
-                            <p class="sidebar-list">De R$5,00 até R$20,00</p>
-                            <p class="sidebar-list">De R$20,00 até R$40,00</p>
-                            <p class="sidebar-list">De R$40,00 até R$80,00</p>
-                            <p class="sidebar-list">Acima de R$90,00</p>
-                        </div>
-                        <div class="item-filter">
-                            <p class="filter-title">Preço decrescente</p>
-                            <p class="filter-title">Preço crescente</p>
+                            @{
+                                string SearchPriceOne = "SearchPriceOne";
+                                string SearchPriceTwo = "SearchPriceTwo";
+                                string SearchPriceThree = "SearchPriceThree";
+                            }
+                            <p class="sidebar-list"><a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  SearchPriceOne})">De R$5,00 até R$20,00</a></p>
+                            <p class="sidebar-list"><a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  SearchPriceTwo})">De R$20,00 até R$40,00</a></p>
+                            <p class="sidebar-list"><a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  SearchPriceThree})">De R$40,00 até R$80,00</a></p>
                         </div>
                     </div>
                 </div>
