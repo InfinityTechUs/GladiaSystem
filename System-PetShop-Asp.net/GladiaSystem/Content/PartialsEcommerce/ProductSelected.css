@@ -164,4 +164,5 @@
 
 .disable-button, .disable-button:hover {
     background-color: #75818C;
+    cursor: not-allowed;
 } 

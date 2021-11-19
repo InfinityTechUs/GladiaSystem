@@ -224,6 +224,10 @@ label {
     color: #7F858D;
 }
 
+.row {
+    margin-bottom: 5vh;
+}
+
 @media (max-width: 1200px) {
     .all-products {
         width: 70%;
