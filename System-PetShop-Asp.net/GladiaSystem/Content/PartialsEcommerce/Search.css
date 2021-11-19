@@ -1,5 +1,5 @@
 ﻿.page-section {
-    margin-bottom: 70px;
+    margin-bottom: 32vh;
 }
 .row {
     display: flex;
@@ -225,8 +225,8 @@ label {
     color: #7F858D;
 }
 
-.row {
-    margin-bottom: 5vh;
+.col-lg-3 {
+    margin-top: 27px;
 }
 
 #main{

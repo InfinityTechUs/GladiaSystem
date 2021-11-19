@@ -1,19 +1,24 @@
 ﻿@model GladiaSystem.Models.User
 @{ 
-  Layout = "~/Views/Shared/_LayoutEcommerce.cshtml";
+  Layout = null;
   ViewBag.Title = "Minha Conta";
 }
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <title>Minha conta - Dom Tchochoro</title>
-    <link href="~/Content/PartialsEcommerce/MyAccount.css" rel="stylesheet" />
-    <link href="~/Content/rootE.css/" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/PartialsEcommerce/Layout.css" rel="stylesheet" />
+    <link href="~/Content/rootE.css" rel="stylesheet" />
     <link href="~/Content/PartialsEcommerce/LogginEcommerce.css" rel="stylesheet" />
+    <link href="~/Content/PartialsEcommerce/MyAccount.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
+   
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <title>@ViewBag.Title - Dom Tchochoro</title>
+    <link rel="icon" href="/dom.ico" type="image/x-icon">
 </head>
 <body>
     <div class="container page-content">
@@ -73,33 +78,27 @@
                 <h1 class="shortcut-text">Atalhos</h1>
             </div>
             <div class="shortcut-container">
-                <div class="single-item">
-                    <a href="@Url.Action("Home", "HomeEcommerce")">
-                        <p class="shortcut-item"><img src="~/Content/Imagens/back-home.svg" alt="Alternate Text" /> Home</p>
-                    </a>
-                </div>
-                <div class="single-item">
-                    <a href="@Url.Action("TrackOrder", "AccountEcommerce")">
+                <a class="single-item" href="@Url.Action("Home", "HomeEcommerce")">
+                    <p class="shortcut-item"><img src="~/Content/Imagens/back-home.svg" alt="Alternate Text" /> Home</p>
+                    </aclass="single-item">
+                    <a class="single-item" href="@Url.Action("TrackOrder", "AccountEcommerce")">
                         <p class="shortcut-item"><img src="~/Content/Imagens/shopping-bag.svg" alt="Alternate Text" /> Pedidos</p>
                     </a>
-                </div>
-                <div class="single-item">
-                    <a href="@Url.Action("Cart", "PaymentEcommerce")">
+                    <a class="single-item" href="@Url.Action("Cart", "PaymentEcommerce")">
                         <p class="shortcut-item"><img src="~/Content/Imagens/shopping-cart.svg" alt="Alternate Text" /> Carrinho</p>
                     </a>
-                </div>
             </div>
         </div>
     </div>
 
 
- <div class="modal bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-title">
-                <h2>Alterar senha</h2>
-                <p>Informe uma nova senha para sua conta</p>
-            </div>
+    <div class="modal bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-title">
+                    <h2>Alterar senha</h2>
+                    <p>Informe uma nova senha para sua conta</p>
+                </div>
                 @using (Html.BeginForm("ChangePass", "AccountEcommerce", FormMethod.Post, new { enctype = "multipart/form-data", @class = "data-form" }))
                 {
                     <div class="form__div">
@@ -112,17 +111,27 @@
                         @Html.EditorFor(model => model.confPassword, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
                         <label for="" class="form__label">Confirmar nova senha</label>
                     </div>
-                <button class="form__button" type="submit">Salvar</button>
+                    <button class="form__button" type="submit">Salvar</button>
                 }
+            </div>
         </div>
     </div>
-</div>
-
-
-
-
+    <footer class="footer">
+        <div class="footer-content">
+            <ul class="socials">
+                <li><a href="#"><img src="~/Content/Imagens/Instagram.svg" alt="Instagram" class="social-images"></a></li>
+                <li><a href="#"><img src="~/Content/Imagens/Twitter.svg" alt="Twitter" class="social-images"></a></li>
+                <li><a href="#"><img src="~/Content/Imagens/Email.svg" alt="Email" class="social-images"></a></li>
+            </ul>
+            <h3 class="footer-text">Desenvolvido por Infinity Tech Us™</h3>
+            <div class="logo-footer">
+                <img src="/images/InfinityLogo.svg" alt="">
+            </div>
+            <span class="footer-copyright">Copyright © Dom Tchochoro. Todos os direitos reservados.</span>
+        </div>
+    </footer>
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap.js")
+    @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/Scripts/scripts.js")
 </body>
 </html>

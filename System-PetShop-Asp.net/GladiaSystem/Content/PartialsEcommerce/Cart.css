@@ -6,6 +6,17 @@
     margin-top: 5vh;
 }
 
+.details-container {
+    margin-top: 4%;
+}
+
+.center-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
 .step-container {
     display: flex;
     justify-content: space-around;
@@ -331,13 +342,13 @@
     margin-right: 4vw;
 }
 
-
-.title-elipse {
-    overflow-inline: hidden !important;
+.item-text {
+    overflow: hidden;
     text-overflow: ellipsis;
-    -webkit-line-clamp: 2;
+    display: block;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
-    width: 50rem;
+    width: 28rem;
 }
 
 @media only screen and (min-width: 992px) {
