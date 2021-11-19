@@ -54,7 +54,9 @@
         e complete com as informações apropriadas
     </h2>
     <div class="payment-method">
-        <img class="picpay" src="~/Content/Imagens/a.png" alt="Pic Pay" />
+        <button type="button" class="btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="enableButton()">
+            <img class="picpay" src="~/Content/Imagens/a.png" alt="Pic Pay" />
+        </button>
     </div>
     <h1 class="order-text">
         Revise seu pedido
@@ -65,11 +67,11 @@
             <tr>
                 <th class="left" scope="col">Item</th>
                 <th scope="col"></th>
-                <th scope="col">Preço</th>
+                <th class="table-price" scope="col">Preço</th>
             </tr>
         </thead>
         <tbody>
-            @{int totalValueGlobal = 0; }
+            @{double totalValueGlobal = 0; }
 
             @foreach (GladiaSystem.Models.Product item in products)
             {
@@ -77,10 +79,10 @@
                     <td class=" left"><p class="item-text">@item.Name</p></td>
                     <th class="left" scope="row">x @item.Quant</th>
                     @{
-                        int totalValue = item.Quant * item.Price;
+                        double totalValue = item.Quant * item.Price;
                         totalValueGlobal += totalValue;
                     }
-                    <td>R$ @totalValue</td>
+                    <td class="text-black">R$ @totalValue</td>
                 </tr>
             }
 
@@ -95,12 +97,28 @@
 
     <div class="continue">
         <div class="hr-continue"></div>
-        @Html.ActionLink("Continue", "FinishOrder", new { controller = "PaymentEcommerce", totalValue = totalValueGlobal }, new { @class = "button-continue"})
+       @Html.ActionLink("Continue", "FinishOrder", new { controller = "PaymentEcommerce", totalValue = totalValueGlobal }, new { @class = "button-continue" })
         <div class="hr-continue"></div>
     </div>
 
     <div class="back">
         <span class="back-span">Talvez você queira voltar?</span>
         @Html.ActionLink("Voltar", "Home", new { controller = "HomeEcommerce" }, new { @class = "back-button" })
+    </div>
+
+
+    <div class="modal bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="card-body">
+                <div class="qrcode-container">
+                    <h1 class=""></h1>
+                    <p class="qrcode-title">Escanei o qr o code</p>
+                    <p class="qrcode-information">Para fazer a transferencia basta ler o qr code pelo celular</p>
+                </div>
+                <div class="center-img">
+                    <img src="~/Content/Imagens/qrcodepicpay.png" alt="Alternate Text" class="qr-code" />
+                </div>
+            </div>
+        </div>
     </div>
 </main>

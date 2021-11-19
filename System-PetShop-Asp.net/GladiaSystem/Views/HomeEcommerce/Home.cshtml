@@ -68,10 +68,10 @@
 
     <div class="container">
         <ul id="autoWidth" class="cs-hidden">
-        <!--slider------------------->
+            <!--slider------------------->
             @foreach (GladiaSystem.Models.Product item in products)
             {
-            <li class="item-a">
+                <li class="item-a">
                     <!--slider-box-->
                     <div class="card">
                         <div class="card-body">
@@ -85,8 +85,8 @@
                             </div>
                         </div>
                     </div>
-             </li>
-              }
+                </li>
+            }
         </ul>
     </div>
 
@@ -102,37 +102,38 @@
             <li class="banner-item">
                 <div class="banner-image"><img class="banner-picture" src="../Content/Imagens/racoes.png" alt=""></div>
                 <div class="banner-info">
-                    <h3 class="banner-title">Rações</h3>
+                    <h3 class="banner-title">Comida</h3>
                     <p class="banner-content">
                         Quem tem pet em casa sabe a necessidade de oferecer
                         uma execelente alimentação para manter a saúde de seu
                         pet em dia
                     </p>
+                    @{
+                        string food = "Comida";
+                        string toys = "Brinquedos";
+                        string meds = "Medicamentos";
+                        string hygiene = "Higiene";
+                    }
                     <a href="@Url.Action("Search", "HomeEcommerce")">
                         <p class="banner-link">Comprar aqui<img class="miniArrow" src="../Content/Imagens/minibannericon.png" alt=""></p>
                     </a>
                 </div>
-                <a href="" class="full-link"></a>
-                <a href="@Url.Action("Search", "HomeEcommerce")">
-                    <p class="full-link"></p>
-                </a>
+                <a href="@Url.Action("Search", "HomeEcommerce" , new { categoryFilter =  food})" class="full-link"></a>
             </li>
             <li class="banner-item">
                 <div class="banner-image"><img class="banner-picture" src="../Content/Imagens/petiscos.png" alt=""></div>
                 <div class="banner-info">
-                    <h3 class="banner-title">Petiscos</h3>
+                    <h3 class="banner-title">Medicamentos</h3>
                     <p class="banner-content">
-                        Nós sabemos o quão prazero é garantira saúde, e a felicidade
-                        de seu pet. Por esse motivo nada é mais saboroso e divertido
-                        do que petiscos para o seu animalzinho
+                        Nós sabemos o quão prazero é garantir saúde, e a felicidade
+                        de seu pet. Por esse motivo nada é mais saúdavel 
+                        do que medicamentos de boa qualidade
                     </p>
                     <a href="@Url.Action("Search", "HomeEcommerce")">
                         <p class="banner-link">Comprar aqui<img class="miniArrow" src="../Content/Imagens/minibannericon.png" alt=""></p>
                     </a>
                 </div>
-                <a href="@Url.Action("Search", "HomeEcommerce")">
-                    <p class="full-link"></p>
-                </a>
+                <a href="@Url.Action("Search", "HomeEcommerce" , new { categoryFilter = hygiene})" class="full-link"></a>
             </li>
         </ul>
     </section>

@@ -75,7 +75,7 @@
             </thead>
             <tbody>
                 @{
-                    int totalValueGlobal = 0;
+                    double totalValueGlobal = 0;
                 }
                 @foreach (var item in products)
                 {
@@ -86,7 +86,7 @@
                     </tr>
 
                    
-                    int totalValue = item.Price * item.Quant;
+                    double totalValue = item.Price * item.Quant;
                     totalValueGlobal += totalValue;
                     
                 }

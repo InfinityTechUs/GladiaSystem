@@ -1,4 +1,8 @@
-﻿$(document).ready(function () {
+﻿function enableButton() {
+    document.getElementById('disabledButton').disabled = false;
+}
+
+$(document).ready(function () {
     $('#autoWidth').lightSlider({
         autoWidth: true,
         loop: true,
@@ -171,3 +175,4 @@ window.onclick = function (event) {
         }
     }
 }
+

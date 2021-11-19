@@ -11,9 +11,9 @@ namespace GladiaSystem.Models
         public string Date { get; set; }
         public string Payment { get; set; }
         public string Name { get; set; }
-        public int Price { get; set; }
+        public double Price { get; set; }
         public string Desc { get; set; }
         public string Image { get; set; }
-        public int Quant { get; set; }
+        public double Quant { get; set; }
     }
 }

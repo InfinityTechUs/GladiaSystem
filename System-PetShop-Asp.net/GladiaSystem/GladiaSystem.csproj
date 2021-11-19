@@ -72,6 +72,9 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PicPay, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PicPay.1.0.1\lib\netstandard2.0\PicPay.dll</HintPath>
+    </Reference>
     <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
       <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
     </Reference>
@@ -239,6 +242,7 @@
     <Content Include="Content\Imagens\product-arrow-left.svg" />
     <Content Include="Content\Imagens\product-arrow-right.svg" />
     <Content Include="Content\Imagens\product.png" />
+    <Content Include="Content\Imagens\qrcodepicpay.png" />
     <Content Include="Content\Imagens\racoes.png" />
     <Content Include="Content\Imagens\SearchLogo.svg" />
     <Content Include="Content\Imagens\shield-off.svg" />
@@ -292,6 +296,8 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\cleave-phone.br.js" />
+    <Content Include="Scripts\cleave.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />

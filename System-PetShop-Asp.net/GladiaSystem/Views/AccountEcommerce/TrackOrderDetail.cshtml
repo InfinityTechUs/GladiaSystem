@@ -14,9 +14,9 @@
     @Styles.Render("~/Content/css")
     <link href="~/Content/rootE.css" rel="stylesheet" />
     <link href="~/Content/PartialsEcommerce/Cart.css" rel="stylesheet" />
+    <link href="~/Content/PartialsEcommerce/MyAccount.css" rel="stylesheet" />
     <link href="~/Content/PartialsEcommerce/Payment.css" rel="stylesheet" />
     <link href="~/Content/PartialsEcommerce/Layout.css" rel="stylesheet" />
-    <link href="~/Content/PartialsEcommerce/MyAccount.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;700;800&display=swap"
           rel="stylesheet" />
 
@@ -58,7 +58,7 @@
                         <div class="prodtable_block col_total font-size-table">Total</div>
                         <div class="prodtable_block col_del"></div>
                     </div>
-                    @{int totalValueGlobal = 0; }
+                    @{double totalValueGlobal = 0; }
 
                     @foreach (var item in trackOrders)
                     {
@@ -78,15 +78,13 @@
                                 <img class="col_product_img"
                                      src="@item.Image"
                                      alt="Foto do produto" />
-                                <div class="col_product_title title-elipse">
-                                    @item.Name
-                                </div>
+                                <div class="col_product_title title-elipse"><p class="item-texts"> @item.Name</p> </div>
                             </div>
                             <div class="prodtable_block col_price">R$ @item.Price</div>
                             <div class="prodtable_block col_quantity">
                                 <span class="product-quant">@item.Quant</span>
                                 @{
-                                    int totalValue = item.Quant * item.Price;
+                                    double totalValue = item.Quant * item.Price;
                                     totalValueGlobal += totalValue;
                                 }
                             </div>
