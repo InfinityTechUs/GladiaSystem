@@ -755,6 +755,69 @@ namespace GladiaSystem.Database
             return trackReturn;
         }
 
+        public List<Product> ListProductByDesc()
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM db_asp.allproduct group by prod_price DESC;", con.ConnectionDB());
+
+            var ProductDatas = cmd.ExecuteReader();
+            return ListAllProductByDesc(ProductDatas);
+        }
+
+        public List<Product> ListAllProductByDesc(MySqlDataReader dt)
+        {
+            var AllProduct = new List<Product>();
+            while (dt.Read())
+            {
+                var ProdTemp = new Product()
+                {
+                    ID = int.Parse(dt["prod_id"].ToString()),
+                    Name = (dt["prod_name"].ToString()),
+                    Desc = (dt["prod_desc"].ToString()),
+                    Price = int.Parse(dt["prod_price"].ToString()),
+                    Quant = int.Parse(dt["prod_quant"].ToString()),
+                    QuantMin = int.Parse(dt["prod_min_quant"].ToString()),
+                    Brand = (dt["prod_brand"].ToString()),
+                    img = (dt["img"].ToString()),
+                };
+                AllProduct.Add(ProdTemp);
+            }
+            dt.Close();
+            return AllProduct;
+        }
+
+        public List<Product> ListProductByPrice(int min, int max)
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM db_asp.allproduct where prod_price > @Min and prod_price < @Max;", con.ConnectionDB());
+            cmd.Parameters.Add("@Min", MySqlDbType.VarChar).Value = min;
+            cmd.Parameters.Add("@Max", MySqlDbType.VarChar).Value = max;
+
+            var ProductDatas = cmd.ExecuteReader();
+            return ListAllProductByPrice(ProductDatas);
+        }
+
+        public List<Product> ListAllProductByPrice(MySqlDataReader dt)
+        {
+            var AllProduct = new List<Product>();
+            while (dt.Read())
+            {
+                var ProdTemp = new Product()
+                {
+                    ID = int.Parse(dt["prod_id"].ToString()),
+                    Name = (dt["prod_name"].ToString()),
+                    Desc = (dt["prod_desc"].ToString()),
+                    Price = int.Parse(dt["prod_price"].ToString()),
+                    Quant = int.Parse(dt["prod_quant"].ToString()),
+                    QuantMin = int.Parse(dt["prod_min_quant"].ToString()),
+                    Brand = (dt["prod_brand"].ToString()),
+                    img = (dt["img"].ToString()),
+                };
+                AllProduct.Add(ProdTemp);
+            }
+            dt.Close();
+            return AllProduct;
+        }
+
+
         public List<Product> ListProductByCategory(string category)
         {
             MySqlCommand cmd = new MySqlCommand("select * from allproduct where category_name = @Category;", con.ConnectionDB());
