@@ -10,6 +10,7 @@ use db_asp;
     user_email varchar(80) not null,
     user_password varchar(80) not null,
     user_img varchar(255),
+    fk_address int,
     user_lvl varchar(2) not null
  );
  
@@ -20,8 +21,7 @@ use db_asp;
     address_city varchar(80),
     address_district varchar(80),
     address_public_place varchar(120), /*logradouro*/
-    address_complement varchar(80),
-    fk_user_id int not null
+    address_complement varchar(80)
  );
  
  Create table if not exists tbl_category(
@@ -58,11 +58,11 @@ create table if not exists tbl_items_order(
     primary key(fk_id_order,fk_id_prod)
 );
 
+ALTER TABLE tbl_user
+ADD FOREIGN KEY (fk_address) REFERENCES tbl_address(address_id);
+
 ALTER TABLE tbl_product
 ADD FOREIGN KEY (fk_category) REFERENCES tbl_category (category_id);
-
-ALTER TABLE tbl_address
-ADD FOREIGN KEY (fk_user_id) REFERENCES tbl_user(user_id);
 
 ALTER TABLE tbl_order
 ADD FOREIGN KEY (fk_id_user) REFERENCES tbl_user(user_id);
@@ -72,14 +72,6 @@ ADD FOREIGN KEY (fk_id_order) REFERENCES tbl_order(order_id);
 
 ALTER TABLE tbl_items_order
 ADD FOREIGN KEY (fk_id_prod) REFERENCES tbl_product(prod_id);
-
-/*Create temporary table if not exists tbl_cart 
-select o.fk_id_user, i.fk_id_prod, p.prod_name, p.prod_price, p.prod_img, i.items_quant, o.order_subtotal, o.order_total
-from tbl_order as o 
-join tbl_items_order as i 
-on o.order_id = i.fk_id_order
-join tbl_product as p 
-on p.prod_id = i.fk_id_prod;*/
 
 create view img 
 as SELECT REPLACE(user_img, "~/", "../"),user_id from tbl_user;
