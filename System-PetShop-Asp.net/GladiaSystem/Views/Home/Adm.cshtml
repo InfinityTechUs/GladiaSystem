@@ -26,18 +26,18 @@
                     <p class="success-green"><strong>Sucesso:</strong> @TempData["Success"].ToString()</p>
                 </div>
             }
-            
+
             <div class="input-block">
                 <label for="name">Nome completo</label>
                 @Html.EditorFor(model => model.name)
                 @Html.ValidationMessageFor(m => m.name, "", new { @class = "text-danger" })
             </div>
-              <div class="input-block">
+            <div class="input-block">
                 <label for="name">CPF</label>
                 @Html.EditorFor(model => model.Cpf)
                 @Html.ValidationMessageFor(m => m.Cpf, "", new { @class = "text-danger" })
             </div>
-               <div class="input-block">
+            <div class="input-block">
                 <label for="name">Telefone</label>
                 @Html.EditorFor(model => model.Celular)
                 @Html.ValidationMessageFor(m => m.Celular, "", new { @class = "text-danger" })
@@ -64,7 +64,7 @@
                     <img src="~/Content/Imagens/up-img.svg" id="up-photo" alt="Upload img" />
 
                     <label for="files" class="btn">Envie sua foto</label>
-                    <input id ="files" type="file" name="imgFile" alt="Enviar" style="visibility: hidden;" required>
+                    <input id="files" type="file" name="imgFile" alt="Enviar" style="visibility: hidden;" required>
                 </div>
             </div>
 
@@ -75,3 +75,19 @@
         }
     }
 </main>
+<script src="~/Scripts/cleave.js"></script>
+<script src="~/Scripts/cleave-phone.br.js"></script>
+<script>
+    var cleaveCpf = new Cleave('#Cpf',{
+        delimiters: ['.', '.', '-'],
+        blocks: [3, 3, 3, 2],
+        numericOnly: true,
+        delimiterLazyShow: true
+    });
+    var cleavePhone = new Cleave('#Celular', {
+        phone: true,
+        phoneRegionCode: 'BR'
+    });
+
+
+</script>

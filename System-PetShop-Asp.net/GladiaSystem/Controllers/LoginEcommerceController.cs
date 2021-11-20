@@ -72,6 +72,7 @@ namespace GladiaSystem.Controllers
             int userIDInt = Convert.ToInt32(userID);
             queries.RegisterNewAddress(user, userIDInt);
             return RedirectToAction("Login");
+
         }
     }
 }
