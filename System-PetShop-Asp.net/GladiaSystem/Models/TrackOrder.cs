@@ -15,5 +15,7 @@ namespace GladiaSystem.Models
         public string Desc { get; set; }
         public string Image { get; set; }
         public double Quant { get; set; }
+
+
     }
 }

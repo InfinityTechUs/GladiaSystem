@@ -2,18 +2,6 @@ drop database if exists db_asp;
 create database if not exists db_asp;
 use db_asp;
 
- Create Table if not exists tbl_user (
-    user_id int primary key auto_increment ,
-    user_cpf varchar(11) not null,
-    user_phone varchar(11) not null,
-    user_name varchar(80) not null,
-    user_email varchar(80) not null,
-    user_password varchar(80) not null,
-    user_img varchar(255),
-    fk_address int,
-    user_lvl varchar(2) not null
- );
- 
  Create table if not exists tbl_address(
 	address_id int primary key auto_increment,
 	address_cep varchar(8),
@@ -22,6 +10,20 @@ use db_asp;
     address_district varchar(80),
     address_public_place varchar(120), /*logradouro*/
     address_complement varchar(80)
+ );
+
+INSERT INTO `db_asp`.`tbl_address` (`address_id`, `address_cep`, `address_uf`, `address_city`, `address_district`, `address_public_place`, `address_complement`) VALUES ('1', '06020194', 'SP', 'Osasco', 'São Paulo', 'Av Manoel Pedro Pimentel', 'Bl 15 Ap 81');
+
+ Create Table if not exists tbl_user (
+    user_id int primary key auto_increment ,
+    user_cpf varchar(11) not null,
+    user_phone varchar(11) not null,
+    user_name varchar(80) not null,
+    user_email varchar(80) not null,
+    user_password varchar(80) not null,
+    user_img varchar(255),
+    fk_address int DEFAULT '1',
+    user_lvl varchar(2) not null
  );
  
  Create table if not exists tbl_category(
@@ -95,7 +97,6 @@ INSERT INTO `db_asp`.`tbl_category` (`category_name`) VALUES ('Comida');
 INSERT INTO `db_asp`.`tbl_category` (`category_name`) VALUES ('Brinquedos');
 INSERT INTO `db_asp`.`tbl_category` (`category_name`) VALUES ('Higiene');
 INSERT INTO `db_asp`.`tbl_category` (`category_name`) VALUES ('Medicamentos');
-INSERT INTO `db_asp`.`tbl_address` (`address_cep`, `address_uf`, `address_city`, `address_district`, `address_public_place`, `address_complement`, `fk_user_id`) VALUES ('06020194', 'SP', 'Osasco', 'Parque Continental', 'Av Manoel Pedro Pimentel 200', 'Bl 15 Ap 81', '1');
 INSERT INTO `db_asp`.`tbl_user` (`user_cpf`, `user_phone`, `user_name`, `user_email`, `user_password`, `user_lvl`) VALUES ('23151315121', '994564511', 'Vitor Vieira', 'vitor@gmail.com', 'vitor00', '0');
 INSERT INTO `db_asp`.`tbl_user` (`user_id`, `user_cpf`, `user_phone`, `user_name`, `user_email`, `user_password`, `user_img`, `user_lvl`) VALUES ('3', '23151315121', '994564511', 'Ioshi ', 'ioshi@gmail.com', 'ioshi00', '~/Images/58371762-5fbd-4163-bcef-6e21e24bb1fd_01.png', '1');
 INSERT INTO `db_asp`.`tbl_category` (`category_name`) VALUES ( 'Higiene');

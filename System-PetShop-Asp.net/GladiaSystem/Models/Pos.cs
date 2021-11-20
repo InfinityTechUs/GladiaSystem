@@ -29,5 +29,6 @@ namespace GladiaSystem.Models
         {
             Product = new Product();
         }
+
     }
 }

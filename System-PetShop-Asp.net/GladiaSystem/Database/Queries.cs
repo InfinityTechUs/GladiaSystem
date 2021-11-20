@@ -355,14 +355,13 @@ namespace GladiaSystem.Database
 
 
     public void RegisterNewAddress(User user, int userIDInt) {
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_address` (`address_cep`, `address_uf`, `address_city`, `address_district`, `address_public_place`, `address_complement`, `fk_user_id`) VALUES (@cep, @uf, @city, @district, @place, @complement, @user_id); ", con.ConnectionDB());
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_address` (`address_cep`, `address_uf`, `address_city`, `address_district`, `address_public_place`, `address_complement`) VALUES (@cep, @uf, @city, @district, @place, @complement); ", con.ConnectionDB());
             cmd.Parameters.Add("@cep", MySqlDbType.VarChar).Value = user.Cep;
             cmd.Parameters.Add("@uf", MySqlDbType.VarChar).Value = user.UF;
             cmd.Parameters.Add("@city", MySqlDbType.VarChar).Value = user.City;
             cmd.Parameters.Add("@district", MySqlDbType.VarChar).Value = user.District;
             cmd.Parameters.Add("@place", MySqlDbType.VarChar).Value = user.PublicPlace;
             cmd.Parameters.Add("@complement", MySqlDbType.VarChar).Value = user.Complement;
-            cmd.Parameters.Add("@user_id", MySqlDbType.VarChar).Value = userIDInt;
 
             cmd.ExecuteNonQuery();
             con.DisconnectDB();
