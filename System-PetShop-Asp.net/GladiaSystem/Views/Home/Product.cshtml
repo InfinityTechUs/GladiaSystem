@@ -6,6 +6,10 @@
     List<GladiaSystem.Models.Category> categories = ViewBag.ListCategory;
 }
 
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Partials/Product.css" rel="stylesheet" />
+</head>
 <main>
     @using (Html.BeginForm("RegisterProd", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
@@ -54,7 +58,9 @@
                 </select>
             </div>
             <div class="input-block">
-                <label for="currency-field">Preço</label>
+                <label for="price">
+                    Preço
+                </label>
                 @Html.EditorFor(model => model.Price)
                 @Html.ValidationMessageFor(m => m.Price, "", new { @class = "text-danger" })
             </div>
@@ -97,15 +103,10 @@
         </fieldset>
         @section Scripts{
             @Scripts.Render("~/bundles/jqueryval");
+            @Scripts.Render("~/Scripts/jquery.unobtrusive*");
+            @Scripts.Render("~/Scripts/jquery.validate*");
+            @Scripts.Render("~/Scripts/methods_pt.js");
         }
     }
 </main>
 
-<script src="~/Scripts/cleave.js"></script>
-<script src="~/Scripts/cleave-phone.br.js"></script>
-<script>
-    var cleaveNumeral = new Cleave('#Price', {
-        numeral: true,
-        numeralThousandsGroupStyle: 'thousand'
-    });
-</script>

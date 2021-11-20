@@ -25,6 +25,8 @@ namespace GladiaSystem.Models
 
         [Display(Name = "Preço")]
         [Required(ErrorMessage = "O campo preço é obrigatório")]
+        [RegularExpression(@"^(\$?(:?\d+,?)+(?:.?\d+)?)$", ErrorMessage = "Digite um CPF válido")]
+      
         public double Price { get; set; }
 
         [Display(Name = "Quantidade")]
@@ -48,4 +50,5 @@ namespace GladiaSystem.Models
             Category = new Category();
         }
     }
+
 }
