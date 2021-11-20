@@ -19,7 +19,11 @@ namespace GladiaSystem.Controllers
         // GET: Home
         public ActionResult Home()
         {
-            ViewBag.CategoryQuant = queries.ListCategoryQuant();
+            ViewBag.OrderedNumber = queries.OrderedNumber();
+            ViewBag.AdministratorNumber = queries.AdministratorNumber();
+            ViewBag.ClientNumber = queries.ClientNumber();
+            ViewBag.ProductNumber = queries.ProductNumber();
+
             return View();
         }
 

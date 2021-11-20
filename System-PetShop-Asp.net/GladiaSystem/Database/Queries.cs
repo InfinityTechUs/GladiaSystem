@@ -28,6 +28,90 @@ namespace GladiaSystem.Database
             }
         }
 
+        public int AdministratorNumber()
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT Count(*) FROM db_asp.tbl_user where user_lvl = 1;", con.ConnectionDB());
+
+            MySqlDataReader reader;
+
+            reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    int outPut = Convert.ToInt32(reader[0]);
+                    reader.Close();
+                    return outPut;
+                }
+            }
+            reader.Close();
+            return 0;
+        }
+
+        public int ProductNumber()
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT Count(*) FROM db_asp.tbl_product", con.ConnectionDB());
+
+            MySqlDataReader reader;
+
+            reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    int outPut = Convert.ToInt32(reader[0]);
+                    reader.Close();
+                    return outPut;
+                }
+            }
+            reader.Close();
+            return 0;
+        }
+
+        public int ClientNumber()
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT Count(*) FROM db_asp.tbl_user where user_lvl = 0;", con.ConnectionDB());
+
+            MySqlDataReader reader;
+
+            reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    int outPut = Convert.ToInt32(reader[0]);
+                    reader.Close();
+                    return outPut;
+                }
+            }
+            reader.Close();
+            return 0;
+        }
+
+        public int OrderedNumber()
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) FROM db_asp.tbl_order;", con.ConnectionDB());
+
+            MySqlDataReader reader;
+
+            reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    int outPut = Convert.ToInt32(reader[0]);
+                    reader.Close();
+                    return outPut;
+                }
+            }
+            reader.Close();
+            return 0;
+        }
+
         public string Login(User user)
         {
             MySqlCommand cmd = new MySqlCommand("SELECT user_lvl FROM tbl_user where user_email = @email and user_password=@password;", con.ConnectionDB());
