@@ -1,4 +1,18 @@
-﻿.graphs {
+﻿#all-about {
+    margin-top: 5vh
+}
+
+#number-ordered {
+    font-size: 4.6rem;
+    font-weight: 800;
+    padding-bottom: 3vh;
+}
+
+#prod-ordered {
+    padding-top: 3vh;
+}
+
+.graphs {
     width: 90vw;
     margin-right: auto;
     margin-left: auto;
@@ -12,9 +26,14 @@
 .firt-graph {
     margin-top: 3vh;
     border: 1px solid var(--border-color);
-    background: transparent;
+    background-color: white;
     height: 35vh;
     grid-area: a;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    text-align: center;
 }
 
 .second-graph {
@@ -28,25 +47,32 @@
 .third-graph {
     margin-top: 3vh;
     border: 1px solid var(--border-color);
-    background: transparent;
+    background-color: white;
     height: 35vh;
     grid-area: c;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    text-align: center;
 }
+
 
 .fourth-graph {
     display: grid;
     justify-content: center;
     margin-top: 3vh;
     border: 1px solid var(--border-color);
-    background: transparent;
     height: 35vh;
     grid-area: d;
+    color: black;
+    background-color: white;
 }
 
 .prod-title {
     padding-top: 4%;
     font: 600 2.1rem Mulish;
-    color: var(--primary-text-color);
+    color: black;
 }
 
 .product-submit {
@@ -54,7 +80,7 @@
     height: 90px;
     border-radius: 30px;
     border-style: none;
-    border: 3px solid var(--border-color);
+    border: 3px solid #2d2e34;
     background-color: transparent;
     color: var(--primary-text-color);
     font: 700 2.4rem Mulish;

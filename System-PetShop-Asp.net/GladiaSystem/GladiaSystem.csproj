@@ -208,6 +208,7 @@
     <Content Include="Content\fontawesome.css" />
     <Content Include="Content\Imagens\a.png" />
     <Content Include="Content\Imagens\arrow-left.svg" />
+    <Content Include="Content\Imagens\arrow.svg" />
     <Content Include="Content\Imagens\ArrowDown.svg" />
     <Content Include="Content\Imagens\back-home.svg" />
     <Content Include="Content\Imagens\blueArrow.svg" />
