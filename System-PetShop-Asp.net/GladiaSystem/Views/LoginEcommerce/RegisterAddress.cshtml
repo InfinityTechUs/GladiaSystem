@@ -69,5 +69,21 @@
             </span>
         }
     </div>
+    <script src="~/Scripts/cleave.js"></script>
+    <script src="~/Scripts/cleave-phone.br.js"></script>
+    <script>
+        var cleaveCpf = new Cleave('#Cpf', {
+            delimiters: ['.', '.', '-'],
+            blocks: [3, 3, 3, 2],
+            numericOnly: true,
+            delimiterLazyShow: true
+        });
+        var cleaveCep = new Cleave('#Cep', {
+            delimiters: ['.', '-'],
+            blocks: [2, 3, 3],
+            numericOnly: true,
+            delimiterLazyShow: true
+        });
+    </script>
 </body>
 </html>

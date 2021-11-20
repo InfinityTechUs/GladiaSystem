@@ -3,6 +3,9 @@ using System;
 using GladiaSystem.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
+using Ubiety.Dns.Core;
+using System.Runtime.Serialization;
 
 namespace GladiaSystem.Database
 {
@@ -241,23 +244,33 @@ namespace GladiaSystem.Database
             con.DisconnectDB();
 
         }
+       
 
         public void RegisterUserEcommerce(User user)
         {
 
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_user` (`user_cpf`, `user_phone`, `user_name`, `user_email`, `user_password`,`user_lvl`) VALUES(@cpf, @phone, @name, @mail, @password, '0'); ", con.ConnectionDB());
-            cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = user.Cpf;
-            cmd.Parameters.Add("@phone", MySqlDbType.VarChar).Value = user.Celular;
-            cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = user.name;
-            cmd.Parameters.Add("@mail", MySqlDbType.VarChar).Value = user.email;
-            cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = user.password;
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_user` (`user_cpf`, `user_phone`, `user_name`, `user_email`, `user_password`,`user_lvl`) VALUES(@cpf, @phone, @name, @mail, @password, '0'); ", con.ConnectionDB());
+                cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = user.Cpf;
+                cmd.Parameters.Add("@phone", MySqlDbType.VarChar).Value = user.Celular;
+                cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = user.name;
+                cmd.Parameters.Add("@mail", MySqlDbType.VarChar).Value = user.email;
+                cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = user.password;
 
-            cmd.ExecuteNonQuery();
-            con.DisconnectDB();
+                cmd.ExecuteNonQuery();
+                con.DisconnectDB();
+            }
+            catch (Exception ex)
+            {
+            
+            }
 
         }
+        
 
-        public void RegisterNewAddress(User user, int userIDInt) {
+
+    public void RegisterNewAddress(User user, int userIDInt) {
             MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_address` (`address_cep`, `address_uf`, `address_city`, `address_district`, `address_public_place`, `address_complement`, `fk_user_id`) VALUES (@cep, @uf, @city, @district, @place, @complement, @user_id); ", con.ConnectionDB());
             cmd.Parameters.Add("@cep", MySqlDbType.VarChar).Value = user.Cep;
             cmd.Parameters.Add("@uf", MySqlDbType.VarChar).Value = user.UF;

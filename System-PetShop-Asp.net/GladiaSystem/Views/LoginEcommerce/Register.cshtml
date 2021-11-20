@@ -13,6 +13,7 @@
     <link href="~/Content/PartialsEcommerce/LogginEcommerce.css" rel="stylesheet" />
     <link href="~/Content/PartialsEcommerce/Register.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
     <div class="l-form">
@@ -45,28 +46,48 @@
 
             <div class="form__div">
                 @Html.EditorFor(model => model.Cpf, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
-                @Html.ValidationMessageFor(m => m.Cpf, "", new { @class = "text-danger" })
                 <label for="" class="form__label">Digite seu cpf</label>
+                @Html.ValidationMessageFor(m => m.Cpf, "", new { @class = "text-danger" })
             </div>
 
             <div class="form__div">
                 @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
-                @Html.ValidationMessageFor(m => m.password, "", new { @class = "text-danger" })
                 <label for="" class="form__label">Digite sua senha</label>
+                @Html.ValidationMessageFor(m => m.password, "", new { @class = "text-danger" })
             </div>
 
             //@Html.ActionLink("Próxima", "RegisterAddress", new { controller = "LoginEcommerce" }, new { @class = "form__button" })
 
 
             <button class="form__button" type="submit">Próxima</button>
-            @section Scripts{
-                @Scripts.Render("~/bundles/jqueryval");
-            }
+
             <span class="create-account-text">
                 Já tem uma conta?
                 @Html.ActionLink("Faça login", "Login", new { controller = "LoginEcommerce" }, new { @class = "create-link" })
             </span>
+            @section Scripts{
+                @Scripts.Render("~/bundles/jqueryval");
+            }
         }
     </div>
+    <script src="~/Scripts/cleave.js"></script>
+    <script src="~/Scripts/cleave-phone.br.js"></script>
+    <script>
+        var cleaveCpf = new Cleave('#Cpf', {
+            delimiters: ['.', '.', '-'],
+            blocks: [3, 3, 3, 2],
+            numericOnly: true
+        });
+        var cleavePhone = new Cleave('#Celular', {
+            phone: true,
+            phoneRegionCode: 'BR'
+        });
+
+
+    </script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/scripts.js")
+    @Scripts.Render("~/Scripts/lightslider.js")
 </body>
 </html>
