@@ -191,78 +191,78 @@ namespace GladiaSystem.Controllers
                     user.UF = "AC";
                     break;
                 case 3:
-                    user.UF = "RR";
+                    user.UF = "AM";
                     break;
                 case 4:
-                    user.UF = "PA";
+                    user.UF = "RR";
                     break;
                 case 5:
-                    user.UF = "AC";
-                    break;
-                case 6:
-                    user.UF = "AP";
+                    user.UF = "PA";
                     break;
                 case 7:
-                    user.UF = "TO";
+                    user.UF = "AP";
                     break;
                 case 8:
-                    user.UF = "MA";
+                    user.UF = "TO";
                     break;
                 case 9:
-                    user.UF = "PI";
+                    user.UF = "MA";
                     break;
                 case 10:
-                    user.UF = "CE";
+                    user.UF = "PI";
                     break;
                 case 11:
-                    user.UF = "RN";
+                    user.UF = "CE";
                     break;
                 case 12:
-                    user.UF = "PB";
+                    user.UF = "RN";
                     break;
                 case 13:
-                    user.UF = "PE";
+                    user.UF = "PB";
                     break;
                 case 14:
-                    user.UF = "AL";
+                    user.UF = "PE";
                     break;
                 case 15:
-                    user.UF = "SE";
+                    user.UF = "AL";
                     break;
                 case 16:
-                    user.UF = "BA";
+                    user.UF = "SE";
                     break;
                 case 17:
-                    user.UF = "MG";
+                    user.UF = "BA";
                     break;
                 case 18:
-                    user.UF = "ES";
+                    user.UF = "MG";
                     break;
                 case 19:
-                    user.UF = "RJ";
+                    user.UF = "ES";
                     break;
                 case 20:
-                    user.UF = "SP";
+                    user.UF = "RJ";
                     break;
                 case 21:
-                    user.UF = "PR";
+                    user.UF = "SP";
                     break;
                 case 22:
-                    user.UF = "SC";
+                    user.UF = "PR";
                     break;
                 case 23:
-                    user.UF = "RS";
+                    user.UF = "SC";
                     break;
                 case 24:
-                    user.UF = "MS";
+                    user.UF = "RS";
                     break;
                 case 25:
-                    user.UF = "MT";
+                    user.UF = "MS";
                     break;
                 case 26:
-                    user.UF = "GO";
+                    user.UF = "MT";
                     break;
                 case 27:
+                    user.UF = "GO";
+                    break;
+                case 28:
                     user.UF = "DF";
                     break;
             }

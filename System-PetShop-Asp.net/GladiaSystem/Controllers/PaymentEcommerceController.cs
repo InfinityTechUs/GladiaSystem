@@ -93,8 +93,9 @@ namespace GladiaSystem.Controllers
         {
             Queries queries = new Queries();
             string userOwner = (string)Session["userID"];
-
-            queries.OpenOrder(userOwner, totalValue);
+            string userUF = queries.GetUFByUserID(userOwner);
+            double shippingValue = queries.GetShippingValueByUF(userUF);
+            queries.OpenOrder(userOwner, totalValue, shippingValue);
             int orderOpenID = queries.GetOrderOpen(userOwner);
 
             var config = new LocalStorageConfiguration() { };
