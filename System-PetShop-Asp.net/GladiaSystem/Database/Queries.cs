@@ -37,6 +37,7 @@ namespace GladiaSystem.Database
             cmd.Parameters.AddWithValue("@email", user.email);
             MySqlDataReader reader;
             reader = cmd.ExecuteReader();
+
             if (reader.HasRows)
             {
                 reader.Close();
@@ -1010,8 +1011,8 @@ namespace GladiaSystem.Database
                     ID = int.Parse(dt["prod_id"].ToString()),
                     Name = (dt["prod_name"].ToString()),
                     Desc = (dt["prod_desc"].ToString()),
-                    Price = int.Parse(dt["prod_price"].ToString()),
-                    Quant = int.Parse(dt["prod_quant"].ToString()),
+                    Price = double.Parse(dt["prod_price"].ToString()),
+                    Quant = double.Parse(dt["prod_quant"].ToString()),
                     QuantMin = int.Parse(dt["prod_min_quant"].ToString()),
                     Brand = (dt["prod_brand"].ToString()),
                     img = (dt["img"].ToString()),

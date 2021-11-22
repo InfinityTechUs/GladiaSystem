@@ -172,18 +172,16 @@ namespace GladiaSystem.Controllers
         [HttpPost]
         public ActionResult RegisterUserEcommerce(User user)
         {
-            queries.RegisterUserEcommerce(user);
-            Session["normalUserID"] = queries.GetUserID(user);
-   
             if (queries.EmailExists(user))
             {
-                TempData["Success"] = "Feito! 😄";
                 return RedirectToAction("Error406", "Error");
             }
             else
             {
                 queries.RegisterUserEcommerce(user);
-                return RedirectToAction("RegisterAdress");
+                Session["normalUserID"] = queries.GetUserID(user);
+
+                return RedirectToAction("RegisterAddress");
             }
         }
 

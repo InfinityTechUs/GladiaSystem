@@ -13,3 +13,17 @@
 .link-product{
 
 }
+
+.btn-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--colored-font);
+    color: #fff;
+    height: 30px;
+    border-radius: 8px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 8px;
+}
