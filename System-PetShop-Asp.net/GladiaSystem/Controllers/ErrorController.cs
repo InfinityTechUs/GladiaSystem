@@ -18,5 +18,9 @@ namespace GladiaSystem.Controllers
         {
             return View();
         }
+        public ActionResult Error406()
+        {
+            return View();
+        }
     }
 }

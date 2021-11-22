@@ -50,8 +50,8 @@
     <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
-    <Reference Include="Google.Protobuf, Version=3.11.4.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
-      <HintPath>..\packages\Google.Protobuf.3.11.4\lib\net45\Google.Protobuf.dll</HintPath>
+    <Reference Include="Google.Protobuf, Version=3.19.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.19.1\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
     <Reference Include="K4os.Compression.LZ4, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Compression.LZ4.1.1.11\lib\net46\K4os.Compression.LZ4.dll</HintPath>
@@ -224,6 +224,7 @@
     <Content Include="Content\Imagens\Dog-banner-mobile.png" />
     <Content Include="Content\Imagens\Email.svg" />
     <Content Include="Content\Imagens\EmptyCart.svg" />
+    <Content Include="Content\Imagens\error-2.svg" />
     <Content Include="Content\Imagens\external-link.svg" />
     <Content Include="Content\Imagens\file-text.svg" />
     <Content Include="Content\Imagens\fotoExemplo.png" />
@@ -457,6 +458,7 @@
     <Content Include="Views\LoginEcommerce\RegisterAddress.cshtml" />
     <Content Include="Views\Home\ProductEdit.cshtml" />
     <Content Include="Views\AccountEcommerce\TrackOrderDetail.cshtml" />
+    <Content Include="Views\Error\Error406.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />

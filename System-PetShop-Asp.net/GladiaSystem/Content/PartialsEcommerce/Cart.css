@@ -14,7 +14,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .step-container {
@@ -83,9 +82,9 @@
     box-sizing: border-box;
 }
 
-.prodtable_block.col_product {
-    text-align: left;
-}
+    .prodtable_block.col_product {
+        text-align: left;
+    }
 
 .col_product {
     width: 30%;
@@ -184,13 +183,13 @@
     border: 2px solid var(--border-color);
 }
 
-.trash-icon{
+.trash-icon {
     height: 35px;
 }
 
-.trash-icon:hover {
-    cursor: pointer;
-}
+    .trash-icon:hover {
+        cursor: pointer;
+    }
 
 .shipping,
 .order-summary {
@@ -296,9 +295,12 @@
     align-items: center;
 }
 
-    .goto-payment:hover {
-        cursor: pointer;
-    }
+.goto-payment:hover {
+    cursor: pointer;
+    color: var(--secondary-colored-font-color);
+    border: var(--secondary-colored-font-color);
+    transition: 1s;
+}
 
 .back {
     display: flex;
@@ -337,6 +339,12 @@
     font-size: 1.2rem;
     margin-bottom: 3vh;
 }
+
+.back-button:hover {
+    background-color: #626A72 !important;
+    transition: 1s;
+}
+
 
 .arrow-icon {
     margin-right: 4vw;

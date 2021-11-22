@@ -194,11 +194,19 @@
     margin-bottom: 5px;
 }
 .btn-primary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--buttom-color) !important;
     color: #fffff !important;
-    background-color: #007bff !important;
     height: 22px;
     border-radius: 8px;
     height: 30px;
+}
+
+.btn-primary:hover {
+    background-color: #007bff !important;
+    transition: 1s;
 }
 
 .card-footer {
@@ -224,12 +232,6 @@
     color: #FFFFFF;
 }
 
-.btn-primary {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--buttom-color) !important;
-}
 
 .item-title {
     text-align: left;
