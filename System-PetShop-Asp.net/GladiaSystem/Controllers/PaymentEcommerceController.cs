@@ -14,12 +14,19 @@ namespace GladiaSystem.Controllers
     { 
         public ActionResult Cart()
         {
+            Queries queries = new Queries();
+
             var config = new LocalStorageConfiguration() { };
             var storage = new LocalStorage(config);
 
             var keys = storage.Keys();
 
             string userinfo = (string)Session["userID"];
+
+            string userUF = queries.GetUFByUserID(userinfo);
+            double shippingValue = queries.GetShippingValueByUF(userUF);
+            ViewBag.ShippingValue = shippingValue;
+            ViewBag.UserUF = userUF;
             List<string> isThereUser = (from name in keys where name.StartsWith("DT" + userinfo) select name).ToList();
 
             if (isThereUser.Count == 0)
@@ -134,6 +141,7 @@ namespace GladiaSystem.Controllers
 
         public ActionResult Receipt()
         {
+            Queries queries = new Queries();
             var config = new LocalStorageConfiguration() { };
             var storage = new LocalStorage(config);
 
@@ -162,6 +170,12 @@ namespace GladiaSystem.Controllers
                 storage.Remove(keyToRemove);
                 storage.Persist();
             }
+
+            string userOwner = (string)Session["userID"];
+            string userUF = queries.GetUFByUserID(userinfo);
+            double shippingValue = queries.GetShippingValueByUF(userUF);
+            ViewBag.ShippingValue = shippingValue;
+            ViewBag.UserUF = userUF;
 
             return View();
         }

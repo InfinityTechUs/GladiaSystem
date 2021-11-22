@@ -37,9 +37,9 @@
                         string hygiene = "Higiene";
                     }
                     <h2 class="sidebar-title"><b>Categorias</b></h2>
-                    <p class="sidebar-list"><a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  toys})" class="filter-sidebar">Brinquedos</a></p>
-                    <p class="sidebar-list"><a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  food})" class="filter-sidebar">Comida</a></p>
-                    <p class="sidebar-list"><a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  meds})" class="filter-sidebar">Medicamentos</a></p>
+                    <p class="sidebar-list"><a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter = toys })" class="filter-sidebar">Brinquedos</a></p>
+                    <p class="sidebar-list"><a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter = food })" class="filter-sidebar">Comida</a></p>
+                    <p class="sidebar-list"><a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter = meds })" class="filter-sidebar">Medicamentos</a></p>
                     <p class="sidebar-list"><a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter = hygiene })" class="filter-sidebar">Higiene</a></p>
 
                     <h2 class="sidebar-title"><b>Filtrar por:</b></h2>
@@ -60,7 +60,10 @@
                 <div class="col-lg-9 all-products">
                     <div class="container row order">  
                         <div class="total-products">
-                            <p class="text-total-products"><b></b>Produtos</p>
+                            @{
+                                int count = products.Count;
+                            }
+                            <p class="text-total-products"><b>@count </b>Produtos</p>
                         </div>
                     </div>
                     <div class="container row">
