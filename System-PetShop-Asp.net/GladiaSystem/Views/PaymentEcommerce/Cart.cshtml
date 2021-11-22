@@ -88,8 +88,8 @@
 
         <div class="container-section">
             <section class="shipping">
-                <h1 class="shipping-title">O Frete para @*UF*@SP é de:</h1>
-                <p class="shipping-value">R$ 25,00@*Valor frete*@</p>
+                <h1 class="shipping-title">O Frete para @ViewBag.UserUF é de:</h1>
+                <p class="shipping-value">R$ @ViewBag.ShippingValue </p>
             </section>
 
             <section class="order-summary">
@@ -104,14 +104,18 @@
 
                 <div class="order-summary-row">
                     <div class="left-summary">Frete</div>
-                    <div class="prices">R$ 119,8@*Valor frete*@</div>
+                    <div class="prices">R$ @ViewBag.ShippingValue</div>
                 </div>
 
                 <div class="hr-summary"></div>
 
                 <div class="order-summary-row">
                     <div id="total-text" class="left-summary">Total</div>
-                    <div id="total-price" class="prices">R$ @totalValueGlobal</div>
+                    @{  
+                        double shipping = ViewBag.ShippingValue;
+                        double totalPrice = totalValueGlobal + shipping;
+                    }
+                    <div id="total-price" class="prices">R$ @totalPrice</div>
                 </div>
 
                 <div id="payment-button">

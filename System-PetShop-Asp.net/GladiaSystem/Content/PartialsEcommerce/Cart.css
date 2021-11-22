@@ -206,6 +206,13 @@
 
 .shipping-title {
     margin-bottom: 1vh;
+    font-size: 2.4rem;
+    font-weight: 800;
+    padding-bottom: 5vh;
+}
+
+.shipping-value {
+    font-size: 1.8rem;
 }
 
 .input-group {
@@ -349,6 +356,13 @@
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     width: 28rem;
+}
+
+.shipping {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 @media only screen and (min-width: 992px) {

@@ -55,7 +55,7 @@
     <div class="receipt">
         <div class="header">
             <img class="picpay-img" src="~/Content/Imagens/picpay.png" />
-            @{ 
+            @{
                 DateTime aDate = DateTime.Now;
                 string dateNow = aDate.ToString("dd/MM/yyyy");
             }
@@ -85,17 +85,22 @@
                         <td>R$ @item.Price</td>
                     </tr>
 
-                   
+
                     double totalValue = item.Price * item.Quant;
                     totalValueGlobal += totalValue;
-                    
+
                 }
             </tbody>
         </table>
 
+        @{
+            double shipping = ViewBag.ShippingValue;
+            double totalPrice = totalValueGlobal + shipping;
+        }
+
         <div class="order-total">
             <span class="order-total-text">Total</span>
-            <span class="order-total-value">R$ @totalValueGlobal</span>
+            <span class="order-total-value">R$ @totalPrice</span>
         </div>
 
     </div>
