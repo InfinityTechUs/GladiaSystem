@@ -212,6 +212,9 @@
     <Content Include="Content\Imagens\arrow.svg" />
     <Content Include="Content\Imagens\ArrowDown.svg" />
     <Content Include="Content\Imagens\back-home.svg" />
+    <Content Include="Content\Imagens\banner-alimentos.png" />
+    <Content Include="Content\Imagens\banner-brinquedos.png" />
+    <Content Include="Content\Imagens\banner-higiene.png" />
     <Content Include="Content\Imagens\blueArrow.svg" />
     <Content Include="Content\Imagens\Cart.svg" />
     <Content Include="Content\Imagens\Cat-banner-desktop.svg" />

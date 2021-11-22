@@ -5,9 +5,11 @@
 	--buttom-secondary-color: #717b84;
 	--footer-font-color: #fffff;
 	--colored-font: #2b94f9;
+	--secondary-colored-font-color: #2179CD;
 	--primary-font-color: #191a20;
 	--secondary-font-color: #2d2f3d;
 	--tertiary-font-color: #9da3a9;
+	--quaternary-font-color: #575A5C;
 	--card-font: #252733;
 	--track-order: #252733;
 	--filter-font: #252733;
@@ -26,6 +28,7 @@
 	--font-black: #252733;
 	--sidebar-title-color: #42464D;
 	--filter-box: #ffff;
+	--desktop-nav: #ffff;
 	--selected-product-color: #42464d;
 }
 
@@ -123,6 +126,7 @@ a {
 		--primary-font-color: #000;
 		--secondary-font-color: #000;
 		--tertiary-font-color: #9da3a9;
+		--quaternary-font-color: #000;
 		--card-font: #000;
 		--filter-font: #000;
 		--normal-font-size: 1rem;
@@ -141,6 +145,7 @@ a {
 		--track-order: #fff;
 		--sidebar-title-color: #698fd3;
 		--filter-box: #232632;
+		--desktop-nav: #0A5BA8;
 		--selected-product-color: #000;
 	}
 }
