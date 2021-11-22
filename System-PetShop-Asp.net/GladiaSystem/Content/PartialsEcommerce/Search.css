@@ -14,6 +14,7 @@
     font-weight: 600;
     font-size: 18px;
     margin-bottom: revert;
+    margin-top: 10px;
 }
 
 .sidebar-list {
@@ -23,6 +24,15 @@
     font-weight: 600;
     font-style: normal;
 }
+
+.text-archive {
+    color: var(--colored-font);
+}
+
+.text-archive:hover {
+    color: var(--secondary-colored-font-color);
+}
+
 
 .filter-box {
     background-color: var(--filter-box);
@@ -97,7 +107,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #2B94F9;
+    background-color: var(--colored-font);
     color: #fff;
     height: 30px;
     border-radius: 8px;
@@ -108,7 +118,8 @@
 }
 
 .btn-card:hover {
-    background-color: none;
+    background-color: var(--secondary-colored-font-color);
+     transition: 1s;
 }
 
 .card-text {
@@ -205,6 +216,7 @@
 }
 
 .modal-content {
+    background-color: var(--filter-box) !important;
     text-align: left;
     padding: 30px;
     border-radius: 17px !important;
@@ -222,7 +234,12 @@ label {
 }
 
 .filter-sidebar {
-    color: #7F858D;
+    color: var(--filter-color);
+}
+
+
+.filter-sidebar:hover {
+    color: #6A6D71;
 }
 
 .col-lg-3 {

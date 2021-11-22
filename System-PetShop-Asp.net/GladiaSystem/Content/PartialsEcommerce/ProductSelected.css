@@ -89,7 +89,7 @@
 .buy-button {
     border-radius: 41px;
     margin-bottom: 20px;
-    background-color: #2B94F9;
+    background-color: var(--colored-font);
     color: #fff;
     font-style: normal;
     font-weight: bold;
@@ -107,9 +107,10 @@
     width: 100%;
 }
 
-    .buy-button:hover {
-        background-color: #1c8ffa;
-    }
+.buy-button:hover {
+    background-color: var(--secondary-colored-font-color) !important;
+    transition: 1s;
+}
 
 #sub {
     color: #1c8ffa;

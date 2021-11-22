@@ -51,9 +51,9 @@
                                 string SearchPriceTwo = "SearchPriceTwo";
                                 string SearchPriceThree = "SearchPriceThree";
                             }
-                            <p class="sidebar-list"><a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter = SearchPriceOne })">De R$5,00 até R$20,00</a></p>
-                            <p class="sidebar-list"><a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter = SearchPriceTwo })">De R$20,00 até R$40,00</a></p>
-                            <p class="sidebar-list"><a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter = SearchPriceThree })">De R$40,00 até R$80,00</a></p>
+                            <p class="sidebar-list"><a  class="text-archive" href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  SearchPriceOne})">De R$5,00 até R$20,00</a></p>
+                            <p class="sidebar-list"><a  class="text-archive"href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  SearchPriceTwo})">De R$20,00 até R$40,00</a></p>
+                            <p class="sidebar-list"><a  class="text-archive" href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  SearchPriceThree})">De R$40,00 até R$80,00</a></p>
                         </div>
                     </div>
                 </div>
@@ -122,39 +122,19 @@
                         <li class="archive-block">
                             <p class="sidebar-title">Categorias</p>
                             <ul>
-                                <li class="sidebar-list text-archive"><a href="">Brinquedos</a></li>
-                                <li class="sidebar-list text-archive"><a href="">Ração</a></li>
-                                <li class="sidebar-list text-archive"><a href="">Remédio</a></li>
-                                <li class="sidebar-list text-archive"><a href="">Petiscos</a></li>
+                                <li class="sidebar-list"><a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  toys}) ">Brinquedos</a></li>
+                                <li class="sidebar-list"><a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  food})">Comida</a></li>
+                                <li class="sidebar-list"><a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  meds})">Medicamento</a></li>
+                                <li class="sidebar-list "><a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  hygiene})">Higiene</a></li>
                             </ul>
-                        </li>
-                        <li class="archive-block">
-                            <p class="sidebar-title">Mais buscados</p>
-                            <ul>
-                                <li class="sidebar-list text-archive"><a href="">Brinquedos</a></li>
-                                <li class="sidebar-list text-archive"><a href="">Ração</a></li>
-                                <li class="sidebar-list text-archive"><a href="">Remédio</a></li>
-                                <li class="sidebar-list text-archive"><a href="">Petiscos</a></li>
-                            </ul>
-                        </li>
+                        </li>  
                         <li>
                             <p class="sidebar-title">Filtrar por:</p>
                             <ul class="archive-block">
                                 <li class="filter-title archive-block">Preço</li>
-                                <li class="sidebar-list text-archive"> <a href="">De R$5,00 até R$20,00</a></li>
-                                <li class="sidebar-list text-archive"><a href="">De R$20,00 até R$40,00</a></li>
-                                <li class="sidebar-list text-archive"><a href="">De R$40,00 até R$80,00</a></li>
-                                <li class="sidebar-list text-archive"><a href="">Acima de R$90,00</a></li>
-                            </ul>
-                            <ul class="archive-block">
-                                <li class="filter-title archive-block">Marcas</li>
-                                <li class="sidebar-list text-archive"><a href="">Adidas</a></li>
-                                <li class="sidebar-list text-archive"><a href="">Pet-life</a></li>
-                            </ul>
-                            <ul class="archive-block">
-                                <li class="filter-title archive-block">Categorias</li>
-                                <li class="sidebar-list text-archive"><a href="">Comida</a></li>
-                                <li class="sidebar-list text-archive"><a href="">Brinquedos</a></li>
+                                <li class="sidebar-list text-archive"><a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  SearchPriceOne})">De R$5,00 até R$20,00</a></li>
+                                <li class="sidebar-list text-archive"><a  href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  SearchPriceTwo})">De R$20,00 até R$40,00</a></li>
+                                <li class="sidebar-list text-archive"><a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  SearchPriceThree})">De R$40,00 até R$80,00</a></li>
                             </ul>
                         </li>
                     </ul>

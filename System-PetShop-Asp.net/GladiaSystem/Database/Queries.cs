@@ -31,6 +31,24 @@ namespace GladiaSystem.Database
             }
         }
 
+        public bool EmailExists(User user)
+        {
+            MySqlCommand cmd = new MySqlCommand("select * from tbl_user where user_email = @email", con.ConnectionDB());
+            cmd.Parameters.AddWithValue("@email", user.email);
+            MySqlDataReader reader;
+            reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                reader.Close();
+                return true;
+            }
+            else
+            {
+                reader.Close();
+                return false;
+            }
+        }
+
         public int AdministratorNumber()
         {
             MySqlCommand cmd = new MySqlCommand("SELECT Count(*) FROM db_asp.tbl_user where user_lvl = 1;", con.ConnectionDB());
@@ -143,6 +161,8 @@ namespace GladiaSystem.Database
             }
             reader.Close();
             return "error";
+            
+
         }
 
         public User GetUser(string userID)

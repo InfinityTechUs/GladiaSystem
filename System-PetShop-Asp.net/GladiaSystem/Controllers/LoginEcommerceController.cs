@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 
 namespace GladiaSystem.Controllers
 {
@@ -173,7 +174,17 @@ namespace GladiaSystem.Controllers
         {
             queries.RegisterUserEcommerce(user);
             Session["normalUserID"] = queries.GetUserID(user);
-            return RedirectToAction("RegisterAddress");
+   
+            if (queries.EmailExists(user))
+            {
+                TempData["Success"] = "Feito! 😄";
+                return RedirectToAction("Error406", "Error");
+            }
+            else
+            {
+                queries.RegisterUserEcommerce(user);
+                return RedirectToAction("RegisterAdress");
+            }
         }
 
         [HttpPost]

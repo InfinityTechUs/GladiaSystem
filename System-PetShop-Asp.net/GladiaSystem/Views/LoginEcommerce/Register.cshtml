@@ -2,6 +2,7 @@
 @{
     Layout = null;
     ViewBag.Title = "Registro";
+  
 }
 
 <!DOCTYPE html>
@@ -58,7 +59,6 @@
 
             //@Html.ActionLink("Próxima", "RegisterAddress", new { controller = "LoginEcommerce" }, new { @class = "form__button" })
 
-
             <button class="form__button" type="submit">Próxima</button>
 
             <span class="create-account-text">
@@ -71,23 +71,23 @@
         }
     </div>
     <script src="~/Scripts/cleave.js"></script>
-    <script src="~/Scripts/cleave-phone.br.js"></script>
-    <script>
-        var cleaveCpf = new Cleave('#Cpf', {
-            delimiters: ['.', '.', '-'],
-            blocks: [3, 3, 3, 2],
-            numericOnly: true
-        });
-        var cleavePhone = new Cleave('#Celular', {
-            phone: true,
-            phoneRegionCode: 'BR'
-        });
+                <script src="~/Scripts/cleave-phone.br.js"></script>
+                <script>
+                var cleaveCpf = new Cleave('#Cpf', {
+                        delimiters: ['.', '.', '-'],
+                    blocks: [3, 3, 3, 2],
+                    numericOnly: true
+                });
+                var cleavePhone = new Cleave('#Celular', {
+                        phone: true,
+                    phoneRegionCode: 'BR'
+                });
 
 
-    </script>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/Scripts/scripts.js")
-    @Scripts.Render("~/Scripts/lightslider.js")
+                </script>
+                @Scripts.Render("~/bundles/jquery")
+                @Scripts.Render("~/bundles/bootstrap")
+                @Scripts.Render("~/Scripts/scripts.js")
+                @Scripts.Render("~/Scripts/lightslider.js")
 </body>
 </html>

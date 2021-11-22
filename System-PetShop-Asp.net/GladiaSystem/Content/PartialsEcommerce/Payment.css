@@ -152,6 +152,11 @@
     background: none;
 }
 
+.button-continue:hover {
+    color: var(--secondary-colored-font-color);
+    transition: 1s;
+}
+
 .button-continue:disabled {
     border: 2px solid red;
     background: none;
