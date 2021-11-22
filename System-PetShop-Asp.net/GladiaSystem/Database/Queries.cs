@@ -723,13 +723,101 @@ namespace GladiaSystem.Database
             con.DisconnectDB();
         }
 
-        public void OpenOrder(string owner, double totalValue)
+        public double GetShippingValueByUF(string UF)
         {
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_order` (`order_date`, `order_payment`, `order_total`, `order_status`, `fk_id_user`) VALUES (@DateNow, 'PicPay', @TotalValue, '0', @Owner);", con.ConnectionDB());
+            switch (UF)
+            {
+                case "RO":
+                    return 20;
+                case "AC":
+                    return 25;
+                case "AM":
+                    return 100;
+                case "RR":
+                    return 30;
+                case "PA":
+                    return 28;
+                case "AP":
+                    return 60;
+                case "TO":
+                    return 45;
+                case "MA":
+                    return 35;
+                case "PI":
+                    return 40;
+                case "CE":
+                    return 101;
+                case "RN":
+                    return 90;
+                case "PB":
+                    return 68;
+                case "PE":
+                    return 24;
+                case "AL":
+                    return 67;
+                case "SE":
+                    return 45;
+                case "BA":
+                    return 65;
+                case "MG":
+                    return 25;
+                case "ES":
+                    return 30;
+                case "RJ":
+                    return 20;
+                case "SP":
+                    return 10;
+                case "PR":
+                    return 193;
+                case "SC":
+                    return 40;
+                case "RS":
+                    return 50;
+                case "MS":
+                    return 45;
+                case "MT":
+                    return 55;
+                case "GO":
+                    return 60;
+                case "DF":
+                    return 70;
+            }
+            return 0;
+        }
+
+        public string GetUFByUserID(string userID)
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT address_uf FROM tbl_address JOIN tbl_user ON tbl_address.fk_user_id  = tbl_user.user_id where user_id = @UserID", con.ConnectionDB());
+            cmd.Parameters.Add("@UserID", MySqlDbType.VarChar).Value = userID;
+
+            MySqlDataReader reader;
+
+            reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    User dto = new User();
+                    {
+                        dto.UF = Convert.ToString(reader[0]);
+                        reader.Close();
+                        return dto.UF;
+                    }
+                }
+            }
+            reader.Close();
+            return "";
+        }
+
+        public void OpenOrder(string owner, double totalValue, double shippingValue)
+        {
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO `db_asp`.`tbl_order` (`order_date`, `order_payment`, `order_total`, `order_status`, `fk_id_user`, `order_shipping`) VALUES (@DateNow, 'PicPay', @TotalValue, '0', @Owner, @Shipping);", con.ConnectionDB());
             DateTime aDate = DateTime.Now;
             cmd.Parameters.Add("@DateNow", MySqlDbType.VarChar).Value = aDate.ToString("dd/MM/yyyy");
             cmd.Parameters.Add("@Owner", MySqlDbType.VarChar).Value = owner;
             cmd.Parameters.Add("@TotalValue", MySqlDbType.VarChar).Value = totalValue;
+            cmd.Parameters.Add("@Shipping", MySqlDbType.VarChar).Value = shippingValue;
 
             cmd.ExecuteNonQuery();
             con.DisconnectDB();

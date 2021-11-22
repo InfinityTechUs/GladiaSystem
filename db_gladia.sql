@@ -42,14 +42,16 @@ use db_asp;
     fk_category int
  );
  
- create table if not exists tbl_order(
-	order_id int primary key auto_increment,
+create table if not exists tbl_order(
+    order_id int primary key auto_increment,
     order_date varchar(255),
     order_payment enum("PicPay"),
     order_total varchar(25),
     order_status varchar(2) not null,/*0 = open and 1 = closed*/
-    fk_id_user int not null
+    fk_id_user int not null,
+    order_shipping varchar(255)
 );
+
 
 create table if not exists tbl_items_order(
 	fk_id_order int,
@@ -76,14 +78,6 @@ ADD FOREIGN KEY (fk_id_order) REFERENCES tbl_order(order_id);
 
 ALTER TABLE tbl_items_order
 ADD FOREIGN KEY (fk_id_prod) REFERENCES tbl_product(prod_id);
-
-/*Create temporary table if not exists tbl_cart 
-select o.fk_id_user, i.fk_id_prod, p.prod_name, p.prod_price, p.prod_img, i.items_quant, o.order_subtotal, o.order_total
-from tbl_order as o 
-join tbl_items_order as i 
-on o.order_id = i.fk_id_order
-join tbl_product as p 
-on p.prod_id = i.fk_id_prod;*/
 
 create view img 
 as SELECT REPLACE(user_img, "~/", "../"),user_id from tbl_user;
@@ -123,5 +117,6 @@ INSERT INTO `db_asp`.`tbl_product` (`prod_id`, `prod_name`, `prod_desc`, `prod_b
 INSERT INTO `db_asp`.`tbl_product` (`prod_id`, `prod_name`, `prod_desc`, `prod_brand`, `prod_price`, `prod_quant`, `prod_img`, `prod_min_quant`, `fk_category`) VALUES ('12', 'Snack Dom Tchochoro Cuidado Oral para Cães de Pequeno Porte', '- Indicado para cães;- Ajuda na redução da placa bacteriana;- Auxilia na redução do acúmulo do tártaro;- Ajuda na limpeza dos dentes;- Hálito fresco;- Disponível em embalagens de 3 e 7 unidades.', 'Dom Tchochoro', '4,99', '50', '~/Images/cf396fc9-2117-4b04-9e4e-0d8db69ce15b_12.png', '10', '1');
 INSERT INTO `db_asp`.`tbl_product` (`prod_id`, `prod_name`, `prod_desc`, `prod_brand`, `prod_price`, `prod_quant`, `prod_img`, `prod_min_quant`, `fk_category`) VALUES ('13', 'Ração Royal Canin Maxi - Cães Adultos - 15kg', '- Indicada para cães;- Ideal para pets de grande porte;- Oferece todos nutrientes necessários para uma vida saudável;- Proporciona maior aporte para os ossos e articulações;- Contém fórmula enriquecida com ômega 3,- Disponível em embalagem de 15 kg.', 'Royal Canin', '302,59', '50', '~/Images/7b684a1a-d3cf-45a0-b350-37ae69c10ca8_13.png', '10', '1');
 INSERT INTO `db_asp`.`tbl_product` (`prod_id`, `prod_name`, `prod_desc`, `prod_brand`, `prod_price`, `prod_quant`, `prod_img`, `prod_min_quant`, `fk_category`) VALUES ('14', 'Ração Golden Duii para Cães Adultos Sabor Salmão com Ervas e Cordeiro com Arroz - 10,1kg', '- Indicada para cãs adultos;- Conta com dois sabores exclusivos;- Proporciona ômega 3 e 6;- Oferece saúde intestinal,- Disponível em embalagem com 10,1 kg.', 'Premier Pet ', '146,99', '50', '~/Images/78a784b5-88d2-482c-b374-48805ebf567b_14.png', '10', '1');
+
 
 

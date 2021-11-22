@@ -32,18 +32,17 @@
                 <label for="" class="form__label">Digite seu Cep</label>
             </div>
 
-            <div class="form__div"
+            <div class="form__div">
                 <label for="" class="form__label">Digite seu UF</label>
                 <select id="BrUf.ID" name="BrUf.ID" class="form-control combo-box">
-
-                @foreach (GladiaSystem.Models.BrUf item in brUfs)
-                {
-                    <option value="@item.ID"
-                            @if (item.ID == Model.BrUf.ID) { @: selected
-                            }>
-                        @item.Name
-                    </option>
-                }
+                    @foreach (GladiaSystem.Models.BrUf item in brUfs)
+                    {
+                        <option value="@item.ID"
+                                @if (item.ID == Model.BrUf.ID) { @: selected
+                                }>
+                            @item.Name
+                        </option>
+                    }
 
                 </select>
             </div>
