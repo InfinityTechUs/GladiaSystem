@@ -2,6 +2,7 @@
 @{
     Layout = null;
     ViewBag.Title = "Registrar Endereço";
+    List<GladiaSystem.Models.BrUf> brUfs = ViewBag.ListUfs;
 }
 
 <!DOCTYPE html>
@@ -31,10 +32,20 @@
                 <label for="" class="form__label">Digite seu Cep</label>
             </div>
 
-            <div class="form__div">
-                @Html.ValidationMessageFor(m => m.UF, "", new { @class = "text-danger" })
-                @Html.EditorFor(model => model.UF, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
+            <div class="form__div"
                 <label for="" class="form__label">Digite seu UF</label>
+                <select id="BrUf.ID" name="BrUf.ID" class="form-control combo-box">
+
+                @foreach (GladiaSystem.Models.BrUf item in brUfs)
+                {
+                    <option value="@item.ID"
+                            @if (item.ID == Model.BrUf.ID) { @: selected
+                            }>
+                        @item.Name
+                    </option>
+                }
+
+                </select>
             </div>
 
             <div class="form__div">

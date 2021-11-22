@@ -67,5 +67,14 @@ namespace GladiaSystem.Models
         public string userLvl { get; set; }
 
         public string userID { get; set; }
+
+        [Display(Name = "UF")]
+        public BrUf BrUf { get; set; }
+
+        public User()
+        {
+            BrUf = new BrUf();
+        }
+
     }
 }
