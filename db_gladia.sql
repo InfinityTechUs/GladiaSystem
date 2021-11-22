@@ -56,7 +56,7 @@ create table if not exists tbl_items_order(
 	fk_id_order int,
     fk_id_prod int,
     items_quant int not null,
-    item_subtotal int,
+    item_subtotal varchar(255),
     primary key(fk_id_order,fk_id_prod)
 );
 
