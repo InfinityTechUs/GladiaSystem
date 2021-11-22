@@ -7,8 +7,8 @@
     List<int> IDs = ViewBag.IDs;
     List<string> NameList = ViewBag.Name;
     List<string> Desc = ViewBag.Desc;
-    List<int> PriceList = ViewBag.Price;
-    List<int> QuantList = ViewBag.Quant;
+    List<double> PriceList = ViewBag.Price;
+    List<double> QuantList = ViewBag.Quant;
     List<int> QuantMinList = ViewBag.QuantMin;
     List<string> Brands = ViewBag.Brand;
     List<string> Images = ViewBag.Images;
@@ -41,9 +41,9 @@
                             <div class="card-body">
                                 <div class="card-text">
                                     <p class="card-title">@NameList[i]</p>
-                                    <p >@Brands[i]</p>
+                                    <p>@Brands[i]</p>
                                     <p id="card-text-desc">@Desc[i]</p>
-                                    <p >@CategoryNames[i]</p>
+                                    <p>@CategoryNames[i]</p>
                                     <p id="card-price">R$ @PriceList[i]</p>
                                     <p id="card-price">Quantidade: @QuantList[i]</p>
                                 </div>
@@ -56,18 +56,9 @@
                                         <p id="card-price">Qtd Min: @QuantMinList[i]</p>
                                     }
                                 }
-
                                 <div class="card-footer">
-                                    <a href='@Url.Action("ProdDelete", "Home", new { ProductID = IDs[i] })'>
-                                        <button class="btn-card" type="submit">
-                                            Deletar
-                                        </button>
-                                    </a>
-                                    <a href='@Url.Action("ProductEdit", "Home", new { productID = IDs[i] })'>
-                                        <button class="btn-card" type="submit">
-                                            Editar
-                                        </button>
-                                    </a>
+                                    <a href="@Url.Action("ProdDelete", "Home", new {@class = "btn-card", productID = IDs[i] })" class="btn-card">Deletar</a>
+                                    <a href="@Url.Action("ProductEdit", "Home", new {@class = "btn-card", productID = IDs[i] })" class="btn-card">Editar</a>
                                 </div>
                             </div>
                         </div>
@@ -84,13 +75,12 @@
                             <div class="card-body">
                                 <p id="card-title">@item.Name</p>
                                 <div class="card-text">
-                                    <p >@item.Brand</p>
+                                    <p class="card-title">@item.Brand</p>
                                     <p id="card-text-desc">@item.Desc</p>
-                                    <p >@item.Category.name</p>
+                                    <p>@item.Category.name</p>
                                     <p id="card-price">R$ @item.Price</p>
                                     <p id="card-price">Quant: @item.Quant</p>
                                 </div>
-
                                 @{
                                     if (item.Quant <= item.QuantMin)
                                     {

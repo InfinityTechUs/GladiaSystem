@@ -116,7 +116,7 @@
 }
 
 .first-title {
-    color: #000000;
+    color: var(--primary-font-color);
     font-size: 30px;
     font-weight: 600;
 }
@@ -350,6 +350,13 @@
     max-width: 100%;
     height: auto;
     border-radius: 8px;
+}
+
+.image-grid:hover {
+    -webkit-transform: scale(1.01);
+    -ms-transform: scale(1.01);
+    transform: scale(1.01);
+    transition: 1s linear;
 }
 
 .c {

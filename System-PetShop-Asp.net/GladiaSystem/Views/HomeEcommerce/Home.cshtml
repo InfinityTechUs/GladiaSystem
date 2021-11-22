@@ -126,7 +126,7 @@
                     <h3 class="banner-title">Medicamentos</h3>
                     <p class="banner-content">
                         Nós sabemos o quão prazero é garantir saúde, e a felicidade
-                        de seu pet. Por esse motivo nada é mais saúdavel 
+                        de seu pet. Por esse motivo nada é mais saúdavel
                         do que medicamentos de boa qualidade
                     </p>
                     <a href="@Url.Action("Search", "HomeEcommerce")">
@@ -149,18 +149,18 @@
     <div class="container">
         <ul class="container-grid">
             <li class="item a">
-                <a href="@Url.Action("Search", "HomeEcommerce")">
-                    <img class="image-grid" src="../Content/Imagens/teste2.png" alt="Antipulgas">
+                <a href="@Url.Action("Search", "HomeEcommerce" , new { categoryFilter =  food})">
+                    <img class="image-grid" src="../Content/Imagens/banner-alimentos.png" alt="banner-alimentos">
                 </a>
             </li>
             <li class="item b">
-                <a href="@Url.Action("Search", "HomeEcommerce")">
-                    <img class="image-grid" src="../Content/Imagens/teste2.png" alt="Antipulgas">
+                <a href="@Url.Action("Search", "HomeEcommerce" , new { categoryFilter =  hygiene})">
+                    <img class="image-grid" src="../Content/Imagens/banner-higiene.png" alt="banner-higiene">
                 </a>
             </li>
             <li class="item c">
-                <a href="@Url.Action("Search", "HomeEcommerce")">
-                    <img class="image-grid" src="../Content/Imagens/teste.png" alt="Imagem">
+                <a href="@Url.Action("Search", "HomeEcommerce", new { categoryFilter =  toys})">
+                    <img class="image-grid" src="../Content/Imagens/banner-brinquedos.png" alt="banner-brinquedos">
                 </a>
             </li>
         </ul>

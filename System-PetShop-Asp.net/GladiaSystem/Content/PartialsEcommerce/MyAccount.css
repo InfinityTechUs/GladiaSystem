@@ -1,4 +1,8 @@
-﻿.item-texts {
+﻿#main {
+    background: var(--base-color);
+}
+
+.item-texts {
     overflow: hidden !important;
     text-overflow: ellipsis;
     -webkit-line-clamp: 1;
