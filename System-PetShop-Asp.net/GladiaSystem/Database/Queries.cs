@@ -516,8 +516,8 @@ namespace GladiaSystem.Database
                         dto.Name = Convert.ToString(reader[1]);
                         dto.Desc = Convert.ToString(reader[2]);
                         dto.Brand = Convert.ToString(reader[3]);
-                        dto.Price = Convert.ToInt32(reader[4]);
-                        dto.Quant = Convert.ToInt32(reader[5]);
+                        dto.Price = Convert.ToDouble(reader[4]);
+                        dto.Quant = Convert.ToDouble(reader[5]);
                         dto.QuantMin = Convert.ToInt32(reader[6]);
                         dto.Category.name = Convert.ToString(reader[9]);
                         dto.img = Convert.ToString(reader[10]);

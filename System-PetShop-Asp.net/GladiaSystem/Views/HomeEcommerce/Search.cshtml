@@ -6,8 +6,8 @@
     List<int> IDs = ViewBag.IDs;
     List<string> NameList = ViewBag.Name;
     List<string> Desc = ViewBag.Desc;
-    List<int> PriceList = ViewBag.Price;
-    List<int> QuantList = ViewBag.Quant;
+    List<double> PriceList = ViewBag.Price;
+    List<double> QuantList = ViewBag.Quant;
     List<int> QuantMinList = ViewBag.QuantMin;
     List<string> Brands = ViewBag.Brand;
     List<string> Images = ViewBag.Images;
@@ -58,10 +58,9 @@
                     </div>
                 </div>
                 <div class="col-lg-9 all-products">
-                    <div class="container row order">
-
+                    <div class="container row order">  
                         <div class="total-products">
-                            <p class="text-total-products"><b>@products.Count </b>Produtos</p>
+                            <p class="text-total-products"><b></b>Produtos</p>
                         </div>
                     </div>
                     <div class="container row">
@@ -73,35 +72,16 @@
                             {
                                 for (int i = 0; i < IDs.Count; i++)
                                 {
-                                    <div class="icon-photo" id="small-card">
-                                        <div class="card-body">
-                                            <img src=@Images[i] alt="" class="card-img-top" />
+
+                                    <div class="product">
+                                        <div class="card">
                                             <div class="card-body">
-                                                <p class="card-text-title">@NameList[i]</p>
-                                                <p id="card-text">@Brands[i]</p>
-                                                <p id="card-text-desc">@Desc[i]</p>
-                                                <p id="card-text">@CategoryNames[i]</p>
-                                                <p id="card-price">R$ @PriceList[i]</p>
-                                                <p id="card-price">Quantidade: @QuantList[i]</p>
-                                                @{if (QuantList[i] <= QuantMinList[i])
-                                                    {
-                                                        <p id="card-price-red">Qtd Min: @QuantMinList[i]</p>
-                                                    }
-                                                    else
-                                                    {
-                                                        <p id="card-price">Qtd Min: @QuantMinList[i]</p>
-                                                    }
-                                                }
-                                                <a href='@Url.Action("ProdDelete", "Home", new { ProductID = IDs[i] })'>
-                                                    <button class="btn-card" type="submit">
-                                                        Deletar
-                                                    </button>
-                                                </a>
-                                                <a href='@Url.Action("ProductEdit", "Home", new { productID = IDs[i] })'>
-                                                    <button class="btn-card" type="submit">
-                                                        Editar
-                                                    </button>
-                                                </a>
+                                                <img src="@Images[i]" class="product-image img-fluid">
+                                                <div class="information-card">
+                                                    <p class="card-text">@NameList[i]</p>
+                                                    <p class="card-price">R$ @PriceList[i]</p>
+                                                    <a href="@Url.Action("ProductSelected", "HomeEcommerce", new {@class = "btn-card", ProductID = IDs[i] })" class="btn-card">Ver produto</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -109,8 +89,10 @@
                             }
                             else
                             {
+
                                 foreach (GladiaSystem.Models.Product item in products)
                                 {
+
                                     <div class="product">
                                         <div class="card">
                                             <div class="card-body">
@@ -122,7 +104,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                 }
                             }

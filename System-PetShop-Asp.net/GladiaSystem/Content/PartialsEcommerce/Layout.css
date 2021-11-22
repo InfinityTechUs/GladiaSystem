@@ -1,6 +1,6 @@
 ﻿#main {
     transition: margin-left 0.5s;
-    background: var(--filter-box);
+    background: var(--base-color);
     padding: none;
 }
 
@@ -93,11 +93,13 @@
     overflow: auto;
     display: flex;
     flex-direction: column;
-    margin-top: -20px;
+    margin-top: -17px;
+    background-color: var(--base-color);
 }
 
 .menu-category {
     border-left: 4px solid #2B94F9;
+    background: var(--base-color);
 }
 
 .menu-category-label {
@@ -105,16 +107,20 @@
     padding-right: 60px;
     display: block;
     border: none;
-    border-bottom: 1px solid #e9eae9;
-    background-color: #ffff;
+    background-color: var(--base-color);
     width: 100%;
     text-align: left;
     position: relative;
     cursor: pointer;
     font-family: 'Mulish', sans-serif;
     font-style: normal;
-    font-size: 18px;
-    font-weight: 400;
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--quaternary-font-color);
+}
+
+.menu-category-label:hover {
+    color: var(--primary-font-color);
 }
 
 .img-menu {
@@ -236,6 +242,12 @@
     font-weight: 300;
     color: #f4f4f4;
 }
+.mobile-secondary-text {
+    font-size: 14px;
+    font-weight: 300;
+    color: #f4f4f4;
+    padding-right: 14px;
+}
 
 .desktop-trigger-arrow {
     padding-top: 8px;
@@ -249,9 +261,8 @@
 }
 
 .desktop-nav {
-    background-color: var(--footer-font-color);
+    background-color: var(--desktop-nav);
     height: 40px;
-    border-bottom: 1px solid var(--footer-font-color);
 }
 
 .desktop-nav-container {
@@ -276,22 +287,32 @@
 }
 
 .nav-category {
-    color: var(--font-black);
+    color: var(--quaternary-font-color);
     text-decoration: none;
     font-style: normal;
-    font-weight: 500;
+    font-weight: bold;
     font-size: 16px;
     line-height: 15px;
 }
+.nav-category:hover{
+    color: var(--primary-font-color);
+    transition: 1s;
+}
+
 
 .blue-nav-category {
-    color: #2B94F9;
+    color: var(--colored-font);
     text-decoration: none;
     font-style: normal;
-    font-weight: 500;
+    font-weight: bold;
     font-size: 16px;
     line-height: 15px;
     letter-spacing: -0.007em;
+}
+
+.blue-nav-category:hover {
+    color: var(--secondary-colored-font-color);
+    transition: 1s;
 }
 
 
