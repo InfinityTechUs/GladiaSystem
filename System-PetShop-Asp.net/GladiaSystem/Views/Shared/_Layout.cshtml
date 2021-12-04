@@ -16,17 +16,16 @@
     @Styles.Render("~/Content/Partials/config.css")
     @Styles.Render("~/Content/Partials/agenda.css")
     @Styles.Render("~/Content/Partials/home.css")
-
     <link rel="icon" href="/dom.ico" type="image/x-icon">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    @if (Session["access"] == null || Session["access"] == "0")
+    @*@if (Session["access"] == null || Session["access"] == "0")
     {
         <script>alert('Você não tem acesso ou não está logado')</script>
         <script>window.location.href = "localhost/error/"</script>
-    }
+    }*@
     <div class="page-wrapper chiller-theme toggled">
         <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
             <img src="~/Content/Imagens/menu.svg" alt="Menu" class="btn-dark" />

@@ -88,7 +88,7 @@ h1 {
 .form__div {
 	position: relative;
 	height: 48px;
-	margin-bottom: 1.5rem;
+	margin-bottom: 2.5rem;
 }
 
 .form__input {
@@ -198,6 +198,12 @@ h1 {
 
 .create-account-text:hover {
 	cursor: pointer;
+}
+
+.validation-massage {
+	color: red;
+	margin-top: -16px;
+	margin-bottom: 23px;
 }
 
 @media (max-width: 500px) {

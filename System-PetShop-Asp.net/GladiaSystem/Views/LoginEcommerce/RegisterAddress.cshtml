@@ -1,6 +1,7 @@
 ﻿@model GladiaSystem.Models.User
 @{
-    Layout = null;
+
+    Layout = "~/Views/Shared/_Login.cshtml";
     ViewBag.Title = "Registrar Endereço";
     List<GladiaSystem.Models.BrUf> brUfs = ViewBag.ListUfs;
 }
@@ -47,27 +48,36 @@
             </div>
 
             <div class="form__div">
-                @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-danger" })
                 @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
                 <label for="" class="form__label">Digite sua cidade</label>
             </div>
+            <div class="validation-massage">
+                @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-danger" })
+            </div>
 
             <div class="form__div">
-                @Html.ValidationMessageFor(m => m.District, "", new { @class = "text-danger" })
                 @Html.EditorFor(model => model.District, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
                 <label for="" class="form__label">Digite seu bairro</label>
             </div>
+            <div class="validation-massage">
+                @Html.ValidationMessageFor(m => m.District, "", new { @class = "text-danger" })
+            </div>
+
 
             <div class="form__div">
-                @Html.ValidationMessageFor(m => m.PublicPlace, "", new { @class = "text-danger" })
                 @Html.EditorFor(model => model.PublicPlace, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
                 <label for="" class="form__label">Digite seu endereço</label>
             </div>
+            <div class="validation-massage">
+                @Html.ValidationMessageFor(m => m.PublicPlace, "", new { @class = "text-danger" })
+            </div>
 
             <div class="form__div">
-                @Html.ValidationMessageFor(m => m.Complement, "", new { @class = "text-danger" })
                 @Html.EditorFor(model => model.Complement, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
                 <label for="" class="form__label">Digite seu complemento</label>
+            </div>
+            <div class="validation-massage">
+                @Html.ValidationMessageFor(m => m.Complement, "", new { @class = "text-danger" })
             </div>
 
             <button class="form__button" type="submit">Criar sua conta</button>

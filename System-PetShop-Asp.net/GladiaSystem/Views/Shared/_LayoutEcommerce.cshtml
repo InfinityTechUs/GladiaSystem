@@ -1,14 +1,14 @@
 ﻿@model GladiaSystem.Models.Product
-@{ Layout = null; }
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="~/Content/PartialsEcommerce/Layout.css" rel="stylesheet" />
-    <link href="~/Content/rootE.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <title>@ViewBag.Title - Dom Tchochoro</title>
+    @Styles.Render("~/Content/PartialsEcommerce/Layout.css")
+    @Styles.Render("~/Content/rootE.css")
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="/dom.ico" type="image/x-icon">
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -248,6 +248,7 @@
         @RenderSection("scripts", required: false)
         @Scripts.Render("~/Scripts/scripts.js")
         @Scripts.Render("~/Scripts/lightslider.js")
+
 
 </body>
 </html>

@@ -1,8 +1,8 @@
 ﻿@model GladiaSystem.Models.User
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Login.cshtml";
     ViewBag.Title = "Registro";
-  
+
 }
 
 <!DOCTYPE html>
@@ -30,36 +30,44 @@
             <div class="form__div">
                 @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
                 <label for="" class="form__label">Email</label>
+            </div>
+            <div class="validation-massage">
                 @Html.ValidationMessageFor(m => m.email, "", new { @class = "text-danger" })
             </div>
 
             <div class="form__div">
                 @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
                 <label for="" class="form__label">Digite seu nome</label>
+            </div>
+            <div class="validation-massage">
                 @Html.ValidationMessageFor(m => m.name, "", new { @class = "text-danger" })
             </div>
 
             <div class="form__div">
                 @Html.EditorFor(model => model.Celular, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
                 <label for="" class="form__label">Digite seu telefone</label>
+            </div>
+            <div class="validation-massage">
                 @Html.ValidationMessageFor(m => m.Celular, "", new { @class = "text-danger" })
             </div>
 
             <div class="form__div">
                 @Html.EditorFor(model => model.Cpf, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
                 <label for="" class="form__label">Digite seu cpf</label>
+            </div>
+            <div class="validation-massage">
                 @Html.ValidationMessageFor(m => m.Cpf, "", new { @class = "text-danger" })
             </div>
 
             <div class="form__div">
                 @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
                 <label for="" class="form__label">Digite sua senha</label>
+            </div>
+            <div class="validation-massage">
                 @Html.ValidationMessageFor(m => m.password, "", new { @class = "text-danger" })
             </div>
 
-            //@Html.ActionLink("Próxima", "RegisterAddress", new { controller = "LoginEcommerce" }, new { @class = "form__button" })
-
-            <button class="form__button" type="submit">Próxima</button>
+           <button class="form__button" type="submit">Próxima</button>
 
             <span class="create-account-text">
                 Já tem uma conta?
