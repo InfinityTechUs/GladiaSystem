@@ -51,6 +51,13 @@
                 @Html.ValidationMessageFor(m => m.email, "", new { @class = "text-danger" })
             </div>
 
+                <div class="form__div">
+                @Html.ValidationMessageFor(m => m.email, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form__input", placeholder = " " } })
+                <label for="" class="form__label">Email</label>
+            </div>
+
+
             <div class="input-block">
                 <label for="senha">
                     Senha
