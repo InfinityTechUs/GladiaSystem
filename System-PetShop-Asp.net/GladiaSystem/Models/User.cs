@@ -28,7 +28,7 @@ namespace GladiaSystem.Models
         [RegularExpression(@"^.{11,}$", ErrorMessage = "Digite um CPF válido")]
         public string Cpf { get; set; }
 
-        [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$", ErrorMessage = "Insira uma senha válida (Mínimo de oito caracteres, pelo menos uma letra e um número:)")]
+        [RegularExpression(@"([a-zA-Z]{1,})([0-9]{1,})", ErrorMessage = "Insira uma senha válida (Uma letra maiúscula e um número)")]
         [Required(ErrorMessage = "A Senha é obrigatória!")]
         [DataType(DataType.Password)]
         public string password { get; set; }
